@@ -10,7 +10,7 @@ This project introduces a custom **Legendary Weapon** with unique skills and stu
   
 ## Installation
 
-1. Download the mod/datapack from [link].
+1. Download the mod from [link].
 2. Place the file in your `mods` folder.
 3. Launch Minecraft and enjoy the new Legendary Weapon!
 
