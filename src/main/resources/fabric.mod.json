@@ -3,9 +3,9 @@
 	"id": "legendary-weapons",
 	"version": "${version}",
 	"name": "Legendary Weapons",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Rpg Item!",
 	"authors": [
-		"Me!"
+		"Phanisment"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
