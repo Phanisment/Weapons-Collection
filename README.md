@@ -25,6 +25,10 @@ This project introduces a custom **Legendary Weapon** with unique skills and stu
 - [ ] Make skill engine.
 - [ ] Add Texture/VFX.
 
+### Items
+- [ ] Make [Vennum Rapier](https://builtbybit.com/resources/rpg-weapon-vennum-rapier.47558/) to Mod.
+Thank for Catngusi2007 for make this Pack free, I will ask him if I am allowed to use his assets.
+
 ## Contribution
 
 If you'd like to contribute or suggest features, feel free to open a pull request or an issue in this repository.
