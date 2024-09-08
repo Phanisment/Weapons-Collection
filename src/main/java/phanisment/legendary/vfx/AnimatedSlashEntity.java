@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 public class AnimatedSlashEntity extends ItemEntity {
 	public int animationTick = 0;
-	private int maxAnimationTick = 20
+	private int maxAnimationTick = 20;
 	
 	public AnimatedSlashEntity(EntityType<? extends ItemEntity> entityType, World world) {
 		super(entityType, world);
