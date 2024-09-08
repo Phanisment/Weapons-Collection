@@ -1,6 +1,3 @@
 {
-	"parent": "legendary_weapons:slash",
-	"textures": {
-		"layer0": "legendary_weapons:vfx/slash_1"
-	}
+	"parent": "legendary_weapons:slash"
 }
