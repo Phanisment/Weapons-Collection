@@ -32,7 +32,7 @@ public class AnimatedSlashRender extends EntityRenderer<AnimatedSlashEntity> {
 
 		matrices.push();
 		matrices.translate(0, 0.5, 0);
-		matrices.multiply(Direction.Axis.Y.rotationDegrees(yaw)); // Ganti dengan Direction.Axis.Y untuk rotasi sumbu Y
+		matrices.multiply(Direction.Axis.Y.rotationDegrees(yaw));
 
 		MinecraftClient.getInstance().getItemRenderer().renderItem(
 			entity.getStack(),
