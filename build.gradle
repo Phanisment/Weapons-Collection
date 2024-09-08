@@ -28,8 +28,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
 	// JsonEM. Library for make vfx model to json.
-	modImplementation "maven.modrinth:jsonem:0.2.1"
-	include "maven.modrinth:jsonem:0.2.1"
+	modImplementation "maven.modrinth:jsonem:0.2.1+1.20"
+	include "maven.modrinth:jsonem:0.2.1+1.20"
 }
 
 processResources {
