@@ -21,9 +21,4 @@ public class AnimatedSlashEntity extends ItemEntity {
 			animationTick = 0;
 		}
 	}
-	
-	@Override
-	public boolean canPlayerPickup(PlayerEntity player) {
-		return false;
-	}
 }
