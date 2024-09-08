@@ -8,7 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import phanisment.legendary.vfx.render.AnimatedSlashRenderer;
+import phanisment.legendary.vfx.render.AnimatedSlashRender;
 import phanisment.legendary.vfx.AnimatedSlashEntity;
 
 public class LegendaryWeapons implements ClientModInitializer {
