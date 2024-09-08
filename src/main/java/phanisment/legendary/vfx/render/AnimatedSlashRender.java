@@ -5,7 +5,7 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.Vec3d;
 
 import phanisment.legendary.vfx.AnimatedSlashEntity;
 
@@ -30,7 +30,7 @@ public class AnimatedSlashRender extends EntityRenderer<AnimatedSlashEntity> {
 		
 		matrices.push();
 		matrices.translate(0, 0.5, 0);
-		matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(yaw));
+		matrices.multiply(Vec3d.POSITIVE_Y.getDegreesQuaternion(yaw));
 		
 		MinecraftClient.getInstance().getItemRenderer().renderItem(
 			entity.getStack(), 
