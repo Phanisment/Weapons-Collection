@@ -16,6 +16,8 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	
+	maven { url "https://api.modrinth.com/maven" }
 }
 
 fabricApi {
@@ -31,6 +33,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
+	// JsonEM. Library for make vfx model to json.
+	modImplementation "maven.modrinth:jsonem:0.2.1"
+	include "maven.modrinth:jsonem:0.2.1"
 }
 
 processResources {
