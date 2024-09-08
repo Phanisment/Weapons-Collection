@@ -8,8 +8,8 @@
 		"Phanisment"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/",
+		"sources": "https://github.com/Phanisment/Rpg-Legendary-Weapons"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/legendary-weapons/icon.png",
@@ -19,7 +19,7 @@
 			"phanisment.legendary.LegendaryWeapons"
 		],
 		"fabric-datagen": [
-			"phanisment.legendary.LegendaryWeaponsDataGenerator"
+			"phanisment.legendary.DataGenerator"
 		]
 	},
 	"mixins": [
@@ -27,7 +27,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.4",
-		"minecraft": "~1.20.1",
+		"minecraft": ">=1.20.1 <=1.20.4",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
