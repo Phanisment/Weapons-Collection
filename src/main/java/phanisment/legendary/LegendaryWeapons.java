@@ -1,6 +1,10 @@
 package phanisment.legendary;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +18,6 @@ public class LegendaryWeapons implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("This world, will by MINE.");
 		
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "slash"), VFX_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("legendary_weapons", "slash"), VFX_ITEM);
 	}
 }
