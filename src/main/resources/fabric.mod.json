@@ -12,7 +12,7 @@
 		"sources": "https://github.com/Phanisment/Rpg-Legendary-Weapons"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/legendary-weapons/icon.png",
+	"icon": "assets/legendary_weapons/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
