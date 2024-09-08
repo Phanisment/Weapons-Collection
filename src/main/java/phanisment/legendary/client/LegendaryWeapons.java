@@ -12,7 +12,7 @@ import phanisment.legendary.vfx.render.AnimatedSlashRenderer;
 import phanisment.legendary.LegendaryWeapons;
 
 public class LegendaryWeapons implements ClientModInitializer {
-	public static final LegendaryWeapons MOD_ID;
+	private static final LegendaryWeapons MOD_ID;
 	public static final EntityType<AnimatedSlashEntity> ANIMATED_SLASH_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(MOD_ID, "animated_slash"),
