@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import phanisment.legendary.vfx.render.AnimatedSlashRenderer;
+import phanisment.legendary.vfx.AnimatedSlashEntity:
 
 public class LegendaryWeapons implements ClientModInitializer {
 	public static final EntityType<AnimatedSlashEntity> ANIMATED_SLASH_ENTITY = Registry.register(
