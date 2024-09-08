@@ -9,7 +9,7 @@ import net.minecraft.util.math.Vec3f;
 
 import phanisment.legendary.vfx.AnimatedSlashEntity;
 
-public class AnimatedSlashRenderer extends EntityRenderer<AnimatedSlashEntity> {
+public class AnimatedSlashRender extends EntityRenderer<AnimatedSlashEntity> {
 	private static final Identifier[] SLASH_TEXTURES = {
 		new Identifier("legendary_weapons", "textures/vfx/slash_1.png"),
 		new Identifier("legendary_weapons", "textures/vfx/slash_2.png"),
