@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:item/generated",
+	"elements": [
+		{
+			"from": [-8, 0, -8],
+			"to": [24, 0, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#layer0"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#layer0"}
+			}
+		}
+	]
+}
