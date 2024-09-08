@@ -29,11 +29,11 @@ public class AnimatedSlashRenderer extends EntityRenderer<AnimatedSlashEntity> {
 	public void render(AnimatedSlashEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
 		int frame = (entity.animationTick / 5) % SLASH_TEXTURES.length;
 		Identifier texture = SLASH_TEXTURES[frame];
-
+		
 		matrices.push();
 		matrices.translate(0, 0.5, 0);
 		matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(yaw));
-
+		
 		MinecraftClient.getInstance().getItemRenderer().renderItem(
 			entity.getStack(), 
 			ModelTransformation.Mode.GROUND, 
@@ -44,7 +44,7 @@ public class AnimatedSlashRenderer extends EntityRenderer<AnimatedSlashEntity> {
 			entity.getId()
 		);
 		matrices.pop();
-
+		
 		super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
 	}
 	
