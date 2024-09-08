@@ -9,13 +9,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import phanisment.legendary.vfx.render.AnimatedSlashRenderer;
-import phanisment.legendary.LegendaryWeapons;
 
 public class LegendaryWeapons implements ClientModInitializer {
-	private static final LegendaryWeapons MOD_ID;
 	public static final EntityType<AnimatedSlashEntity> ANIMATED_SLASH_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
-		new Identifier(MOD_ID, "animated_slash"),
+		new Identifier("legendary_weapons", "animated_slash"),
 		EntityType.Builder.create(AnimatedSlashEntity::new, SpawnGroup.MISC)
 			.setDimensions(0.5F, 0.5F)
 			.build()
