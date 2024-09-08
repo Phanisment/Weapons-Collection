@@ -16,7 +16,7 @@ public class LegendaryWeapons implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		LOGGER.info("This world, will by MINE.");
+		LOGGER.info("This world, will be by MINE.");
 		
 		Registry.register(Registries.ITEM, new Identifier("legendary_weapons", "slash"), VFX_ITEM);
 	}
