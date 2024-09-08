@@ -51,6 +51,6 @@ public class AnimatedSlashRender extends EntityRenderer<AnimatedSlashEntity> {
 	
 	@Override
 	public Identifier getTexture(AnimatedSlashEntity entity) {
-		return SLASH_TEXTURES[0];
+		return new Identifier("legendary_weapons", "textures/vfx/slash_1.png");
 	}
 }
