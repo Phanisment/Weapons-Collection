@@ -8,8 +8,7 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.util.math.Vec3d;
-
+import net.minecraft.util.math.Direction;
 import phanisment.legendary.vfx.AnimatedSlashEntity;
 
 public class AnimatedSlashRender extends EntityRenderer<AnimatedSlashEntity> {
@@ -21,36 +20,36 @@ public class AnimatedSlashRender extends EntityRenderer<AnimatedSlashEntity> {
 		new Identifier("legendary_weapons", "textures/vfx/slash_5.png"),
 		new Identifier("legendary_weapons", "textures/vfx/slash_6.png")
 	};
-	
-	public AnimatedSlashRenderer(EntityRendererFactory.Context context) {
+
+	public AnimatedSlashRender(EntityRendererFactory.Context context) {
 		super(context);
 	}
-	
+
 	@Override
 	public void render(AnimatedSlashEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
 		int frame = (entity.animationTick / 5) % SLASH_TEXTURES.length;
 		Identifier texture = SLASH_TEXTURES[frame];
-		
+
 		matrices.push();
 		matrices.translate(0, 0.5, 0);
-		matrices.multiply(Vec3d.POSITIVE_Y.getDegreesQuaternion(yaw));
-		
+		matrices.multiply(Direction.Axis.Y.rotationDegrees(yaw)); // Ganti dengan Direction.Axis.Y untuk rotasi sumbu Y
+
 		MinecraftClient.getInstance().getItemRenderer().renderItem(
-			entity.getStack(), 
-			ModelTransformation.Mode.GROUND, 
-			light, 
-			OverlayTexture.DEFAULT_UV, 
-			matrices, 
-			vertexConsumers, 
+			entity.getStack(),
+			ModelTransformation.Mode.GROUND,
+			light,
+			OverlayTexture.DEFAULT_UV,
+			matrices,
+			vertexConsumers,
 			entity.getId()
 		);
 		matrices.pop();
-		
+
 		super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
 	}
-	
+
 	@Override
 	public Identifier getTexture(AnimatedSlashEntity entity) {
-		return new Identifier("legendary_weapons", "textures/vfx/slash_1.png");
+		return SLASH_TEXTURES[0];
 	}
 }
