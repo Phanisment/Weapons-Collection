@@ -1,5 +1,7 @@
 package phanisment.legendary.vfx.render;
 
+import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
