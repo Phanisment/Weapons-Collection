@@ -5,16 +5,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+
 
 public class VFX {
-	public static ItemEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position, boolean noGravity) {
-		// Membuat ItemEntity (item jatuh) dengan posisi dan gravitasi tertentu
-		ItemEntity itemEntity = new ItemEntity(world, position.x, position.y, position.z, itemStack);
-		itemEntity.setNoGravity(noGravity);  // Menentukan apakah item jatuh atau tidak
-		itemEntity.setVelocity(Vec3d.ZERO);  // Matikan pergerakan
-
-		world.spawnEntity(itemEntity);  // Spawn entitas di dunia
-		return itemEntity;
+	public static ItemEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
+		ItemDisplayEntity itemDisplay = new ItemDisplayEntity(world, position.x, position.y, position.z, itemStack);
+		world.spawnEntity(itemDisplay);
+		return itemDisplay;
 	}
 
 	public static void animateCustomModelData(ItemEntity itemEntity, int maxFrame, int ticksPerFrame, Runnable onFinish) {
@@ -27,18 +25,12 @@ public class VFX {
 					itemEntity.getStack().setNbt(nbt);
 				}
 			}
-
-			// Callback ketika animasi selesai
 			onFinish.run();
 		}, ticksPerFrame);
 	}
 
 	public static void setRotation(ItemEntity itemEntity, float pitch, float yaw, float roll) {
-		// Mengubah rotasi item di dunia (rotation pitch, yaw, roll)
-		itemEntity.setYaw(yaw);	// Rotasi horizontal
-		itemEntity.setPitch(pitch); // Rotasi vertikal
-		
-		// Tambahan roll (jika diperlukan)
-		// Karena Minecraft tidak mendukung "roll" secara langsung untuk item, Anda bisa memodifikasinya secara visual (client-side) menggunakan rendering API khusus.
+		itemEntity.setYaw(yaw);
+		itemEntity.setPitch(pitch);
 	}
 }
