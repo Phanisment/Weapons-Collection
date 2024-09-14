@@ -1,6 +1,6 @@
 package phanisment.collection.libs;
 
-import net.minecraft.entity.decoration.DisplayEntity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.DisplayEntity.ItemDisplayEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -10,10 +10,20 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class VFX {
 	public static ItemDisplayEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
-		// Menggunakan ItemDisplayEntity dari DisplayEntity
-		ItemDisplayEntity itemDisplay = new ItemDisplayEntity(world, position.x, position.y, position.z);
-		itemDisplay.setStack(itemStack); // Set ItemStack ke item display
-		world.spawnEntity(itemDisplay); // Spawn entity di dunia
+		// Menggunakan ItemDisplayEntity dengan EntityType dan World
+		ItemDisplayEntity itemDisplay = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
+		
+		// Set posisi entity
+		itemDisplay.setPos(position.x, position.y, position.z);
+
+		// Set ItemStack ke item display menggunakan NBT
+		NbtCompound nbt = new NbtCompound();
+		itemStack.writeNbt(nbt);
+		itemDisplay.readCustomDataFromNbt(nbt); // Membaca data dari NBT untuk item display
+
+		// Spawn entity di dunia
+		world.spawnEntity(itemDisplay);
+
 		return itemDisplay;
 	}
 
@@ -27,9 +37,15 @@ public class VFX {
 			int frame = (int) ((tick / ticksPerFrame) % (maxFrame + 1)); // Menghitung frame berdasarkan tick
 
 			if (frame <= maxFrame) {
-				NbtCompound nbt = itemEntity.getStack().getOrCreateNbt();
-				nbt.putInt("CustomModelData", frame); // Set CustomModelData ke frame saat ini
-				itemEntity.getStack().setNbt(nbt); // Set NBT kembali ke ItemStack
+				// Mengambil NBT dari entity display
+				NbtCompound nbt = new NbtCompound();
+				itemEntity.writeCustomDataToNbt(nbt);
+
+				// Set CustomModelData ke frame saat ini
+				nbt.putInt("CustomModelData", frame);
+
+				// Tulis kembali NBT ke entity display
+				itemEntity.readCustomDataFromNbt(nbt);
 			}
 
 			// Jalankan callback ketika animasi selesai
