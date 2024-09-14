@@ -11,7 +11,7 @@
 		"homepage": "https://modrinth.com/project/phanisments-weapons-collection",
 		"sources": "https://github.com/Phanisment/Weapons-Collection"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT License",
 	"icon": "icon.png",
 	"environment": "*",
 	"entrypoints": {
