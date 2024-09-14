@@ -10,15 +10,15 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(ItemDisplayEntity.class)
 public interface VFXEntityMixin {
 
-	@Accessor("itemStack")
+	@Accessor("method_48900") // Sesuaikan dengan nama obfuscated yang benar
 	ItemStack getItemStack();
 
-	@Accessor("itemStack")
+	@Accessor("method_48897")
 	void setItemStack(ItemStack stack);
 
-	@Invoker("readCustomDataFromNbt")
-	void invokeReadCustomDataFromNbt(NbtCompound nbt);
+	@Invoker("method_5749") // Sesuaikan dengan nama obfuscated untuk readCustomDataFromNbt
+	void readCustomDataFromNbt(NbtCompound nbt);
 
-	@Invoker("writeCustomDataToNbt")
-	void invokeWriteCustomDataToNbt(NbtCompound nbt);
+	@Invoker("method_5652") // Sesuaikan dengan nama obfuscated untuk writeCustomDataToNbt
+	void writeCustomDataToNbt(NbtCompound nbt);
 }
