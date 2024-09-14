@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class VFX {
 	public static ItemDisplayEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
-	ItemDisplayEntity itemDisplay = new ItemDisplayEntity(world, position);
+	ItemDisplayEntity itemDisplay = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 	NbtCompound nbt = new NbtCompound();
 	itemStack.writeNbt(nbt);
 	itemDisplay.getItemDisplayData().setData(nbt); // Setting NBT data to the entity's display data
