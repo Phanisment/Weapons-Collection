@@ -14,20 +14,36 @@ public class VFX {
 		
 		NbtCompound nbt = new NbtCompound();
 		itemStack.writeNbt(nbt);
-		itemDisplay.setCustomData(nbt);  // Memanggil metode dari subclass
-		
+		itemDisplay.setCustomData(nbt);
 		world.spawnEntity(itemDisplay);
 		return itemDisplay;
 	}
+	
+	public static void animateCustomModelData(ItemDisplayEntity itemDisplay, int maxFrame, int ticksPerFrame, Runnable onFinish) {
+		new Thread(() -> {
+			try {
+				for (int frame = 1; frame <= maxFrame; frame++) {
+					ItemStack itemStack = itemDisplay.getStack();
+					NbtCompound nbt = itemStack.getOrCreateNbt();
+					nbt.putInt("CustomModelData", frame);
+					itemStack.setNbt(nbt);
+					itemDisplay.setStack(itemStack);
+					Thread.sleep(ticksPerFrame * 50);
+				}
+				onFinish.run();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}).start();
+	}
 
-	// Subclass untuk mengakses metode protected
 	public static class CustomItemDisplayEntity extends ItemDisplayEntity {
 		public CustomItemDisplayEntity(EntityType<?> type, ServerWorld world) {
 			super(type, world);
 		}
 
 		public void setCustomData(NbtCompound nbt) {
-			this.readCustomDataFromNbt(nbt);  // Sekarang bisa mengakses metode protected
+			this.readCustomDataFromNbt(nbt);
 		}
 	}
 }
