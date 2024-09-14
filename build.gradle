@@ -11,13 +11,7 @@ base {
 }
 
 repositories {
-	maven {
-		name = "Modrinth"
-		url = "https://api.modrinth.com/maven"
-		content {
-			includeGroup "maven.modrinth"
-		}
-	}
+	
 }
 
 fabricApi {
@@ -32,13 +26,6 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
-	// JsonEM. Library for make vfx model to json.
-	modImplementation "maven.modrinth:jsonem:${project.jsonem_version}"
-	include "maven.modrinth:jsonem:${project.jsonem_version}"
-	
-	// Particle Animating Lib. Library for make more impresif vfx.
-	modImplementation "maven.modrinth:particleanimationlib:${project.particlelib_version}"
 }
 
 processResources {
