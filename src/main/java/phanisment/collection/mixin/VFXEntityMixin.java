@@ -1,39 +1,24 @@
 package phanisment.collection.mixin;
 
-import net.minecraft.entity.decoration.DisplayEntity;
+import net.minecraft.entity.decoration.DisplayEntity.ItemDisplayEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(DisplayEntity.ItemDisplayEntity.class)
-public class VFXEntityMixin {
+@Mixin(ItemDisplayEntity.class)
+public interface VFXEntityMixin {
 
-	@Shadow
-	private ItemStack itemStack;
+	@Accessor("itemStack")
+	ItemStack getItemStack();
 
-	@Shadow
-	private void setItemStack(ItemStack stack) {
-		// Shadow method to set item stack
-	}
+	@Accessor("itemStack")
+	void setItemStack(ItemStack stack);
 
-	@Shadow
-	private void readCustomDataFromNbt(NbtCompound nbt) {
-		// Shadow method to read custom data
-	}
+	@Invoker("readCustomDataFromNbt")
+	void invokeReadCustomDataFromNbt(NbtCompound nbt);
 
-	@Shadow
-	private void writeCustomDataToNbt(NbtCompound nbt) {
-		// Shadow method to write custom data
-	}
-
-	public void setCustomData(NbtCompound nbt) {
-		readCustomDataFromNbt(nbt);
-	}
-
-	public NbtCompound getCustomData() {
-		NbtCompound nbt = new NbtCompound();
-		writeCustomDataToNbt(nbt);
-		return nbt;
-	}
+	@Invoker("writeCustomDataToNbt")
+	void invokeWriteCustomDataToNbt(NbtCompound nbt);
 }
