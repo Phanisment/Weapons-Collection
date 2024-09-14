@@ -40,22 +40,22 @@ public class Weapons implements ModInitializer {
 		// Posisi spawn VFX di sekitar pemain
 		Vec3d playerPos = player.getPos();
 
-		// Spawn item display menggunakan VFXLibrary pada posisi pemain
+		// Spawn item display menggunakan VFX pada posisi pemain
 		ItemStack itemStack = new ItemStack(Items.DIAMOND_SWORD);
 
 		// Spawn VFX di depan pemain sedikit
 		Vec3d spawnPos = playerPos.add(player.getRotationVector().multiply(1.5));
 
 		// Spawn item display
-		ItemDisplayEntity itemDisplay = VFXLibrary.createItemDisplay(world, itemStack, spawnPos);
+		ItemDisplayEntity itemDisplay = VFX.createItemDisplay(world, itemStack, spawnPos);
 
 		// Animate CustomModelData dari 0 (basic texture) hingga 7
-		VFXLibrary.animateCustomModelData(itemDisplay, 7, 5, () -> {
+		VFX.animateCustomModelData(itemDisplay, 7, 5, () -> {
 			// Callback saat animasi selesai, bisa disesuaikan
 			itemDisplay.discard(); // Menghapus item display setelah animasi selesai
 		});
 
 		// Set rotasi dari item display
-		VFXLibrary.setRotation(itemDisplay, 45.0F, 90.0F, 0.0F);
+		VFX.setRotation(itemDisplay, 45.0F, 90.0F, 0.0F);
 	}
 }
