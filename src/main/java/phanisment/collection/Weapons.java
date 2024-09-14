@@ -1,5 +1,7 @@
 package phanisment.collection;
 
-public class Weapons {
+import net.fabricmc.api.ModInitializer;
 
+public class Weapons implements ModInitializer {
+	
 }
