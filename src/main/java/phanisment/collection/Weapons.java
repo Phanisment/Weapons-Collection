@@ -45,7 +45,7 @@ public class Weapons implements ModInitializer {
 
 		// Spawn VFX di depan pemain sedikit
 		Vec3d spawnPos = playerPos.add(player.getRotationVector().multiply(1.5));
-
+		
 		// Spawn item display
 		ItemDisplayEntity itemDisplay = VFX.createItemDisplay(world, itemStack, spawnPos);
 
