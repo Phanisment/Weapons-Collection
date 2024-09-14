@@ -22,13 +22,9 @@ public class Weapons implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-			// Pastikan pemain menggunakan tangan utama dan dunia adalah server-side (bukan client)
 			if (!world.isClient() && hand == Hand.MAIN_HAND) {
 				ItemStack itemInHand = player.getMainHandStack();
-
-				// Cek apakah item yang dipegang adalah Diamond Sword
 				if (itemInHand.getItem() == Items.DIAMOND_SWORD) {
-					// Spawn VFX di posisi pemain
 					spawnVFX((ServerWorld) world, player);
 				}
 			}
@@ -36,26 +32,13 @@ public class Weapons implements ModInitializer {
 		});
 	}
 
-	public static void spawnVFX(ServerWorld world, PlayerEntity player) {
-		// Posisi spawn VFX di sekitar pemain
-		Vec3d playerPos = player.getPos();
-
-		// Spawn item display menggunakan VFX pada posisi pemain
+	public static void spawnVFX(ServerWorld world, PlayerEntity player) {		Vec3d playerPos = player.getPos();
 		ItemStack itemStack = new ItemStack(Items.DIAMOND_SWORD);
-
-		// Spawn VFX di depan pemain sedikit
 		Vec3d spawnPos = playerPos.add(player.getRotationVector().multiply(1.5));
-		
-		// Spawn item display
 		ItemDisplayEntity itemDisplay = VFX.createItemDisplay(world, itemStack, spawnPos);
-
-		// Animate CustomModelData dari 0 (basic texture) hingga 7
 		VFX.animateCustomModelData(itemDisplay, 7, 5, () -> {
-			// Callback saat animasi selesai, bisa disesuaikan
-			itemDisplay.discard(); // Menghapus item display setelah animasi selesai
+			itemDisplay.discard();
 		});
-
-		// Set rotasi dari item display
 		VFX.setRotation(itemDisplay, 45.0F, 90.0F, 0.0F);
 	}
 }
