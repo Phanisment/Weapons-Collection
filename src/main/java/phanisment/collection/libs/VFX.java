@@ -1,23 +1,25 @@
 package phanisment.collection.libs;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.DisplayEntity.ItemDisplayEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
-public class VFX {
-/*
-	public static ItemDisplayEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
-		ItemDisplayEntity itemDisplay = new ItemDisplayEntity(world);
-		itemDisplay.setPos(position.x, position.y, position.z);
+import phanisment.collection.utils.VFXReflection;
 
-		// Gunakan accessor untuk mengatur itemStack
-		((VFXEntityMixin) itemDisplay).setItemStack(itemStack);
+public class VFX {
+	public static ItemDisplayEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
+		CustomItemDisplayEntity itemDisplay = new CustomItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
+		itemDisplay.setPos(position.x, position.y, position.z);
 
 		NbtCompound nbt = new NbtCompound();
 		itemStack.writeNbt(nbt);
-		((VFXEntityMixin) itemDisplay).invokeReadCustomDataFromNbt(nbt);
+
+		// Menggunakan Reflection untuk menyetel custom data
+		VFXReflection.setItemStack(itemDisplay, itemStack);
+		VFXReflection.readCustomDataFromNbt(itemDisplay, nbt);
 
 		world.spawnEntity(itemDisplay);
 		return itemDisplay;
@@ -27,12 +29,15 @@ public class VFX {
 		new Thread(() -> {
 			try {
 				for (int frame = 1; frame <= maxFrame; frame++) {
-					ItemStack itemStack = ((VFXEntityMixin) itemDisplay).getItemStack();
-					NbtCompound nbt = itemStack.getOrCreateNbt();
-					nbt.putInt("CustomModelData", frame);
-					itemStack.setNbt(nbt);
-					((VFXEntityMixin) itemDisplay).setItemStack(itemStack);
+					// Menggunakan Reflection untuk mendapatkan dan mengatur item stack
+					ItemStack itemStack = VFXReflection.getItemStack(itemDisplay);
+					if (itemStack != null) {
+						NbtCompound nbt = itemStack.getOrCreateNbt();
+						nbt.putInt("CustomModelData", frame);
+						itemStack.setNbt(nbt);
 
+						VFXReflection.setItemStack(itemDisplay, itemStack);
+					}
 					Thread.sleep(ticksPerFrame * 50);
 				}
 				onFinish.run();
@@ -40,5 +45,23 @@ public class VFX {
 				e.printStackTrace();
 			}
 		}).start();
-	}*/
+	}
+
+	public static class CustomItemDisplayEntity extends ItemDisplayEntity {
+		public CustomItemDisplayEntity(EntityType<?> type, ServerWorld world) {
+			super(type, world);
+		}
+
+		public void setCustomData(NbtCompound nbt) {
+			// Menggunakan Reflection untuk menyetel custom data
+			VFXReflection.readCustomDataFromNbt(this, nbt);
+		}
+
+		public NbtCompound getCustomData() {
+			NbtCompound nbt = new NbtCompound();
+			// Menggunakan Reflection untuk mendapatkan custom data
+			VFXReflection.writeCustomDataToNbt(this, nbt);
+			return nbt;
+		}
+	}
 }
