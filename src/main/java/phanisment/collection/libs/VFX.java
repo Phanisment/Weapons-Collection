@@ -7,7 +7,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
 public class VFX {
-
+/*
 	public static ItemDisplayEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
 		ItemDisplayEntity itemDisplay = new ItemDisplayEntity(world);
 		itemDisplay.setPos(position.x, position.y, position.z);
@@ -40,5 +40,5 @@ public class VFX {
 				e.printStackTrace();
 			}
 		}).start();
-	}
+	}*/
 }
