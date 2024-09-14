@@ -12,7 +12,7 @@ public class VFX {
 		ItemEntity itemEntity = new ItemEntity(world, position.x, position.y, position.z, itemStack);
 		itemEntity.setNoGravity(noGravity);  // Menentukan apakah item jatuh atau tidak
 		itemEntity.setVelocity(Vec3d.ZERO);  // Matikan pergerakan
-		
+
 		world.spawnEntity(itemEntity);  // Spawn entitas di dunia
 		return itemEntity;
 	}
