@@ -1,8 +1,12 @@
 name: Build
 
 on:
-  release:
-    type: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number for the release'
+        required: true
+        default: '0.1'
 
 jobs:
   build:
@@ -23,25 +27,12 @@ jobs:
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
     - name: build
-      run: ./gradlew build -Pversion=${{ github.event.release.tag_name }}
-    - name: Find build artifact
-      id: find_artifact
-      run: |
-        artifact=$(find build/libs -type f -name 'weapons-collection-*.jar' | head -n 1)
-        echo "artifact_name=$(basename $artifact)" >> $GITHUB_ENV
-    
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ./build/libs
-        asset_name: ${{ env.artifact_name }}
-        asset_content_type: application/java-archive
+      run: ./gradlew build -Pversion=${{ github.event.inputs.version }}
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
         token: ${{ secrets.MODRITH }}
-        file_path: ./build/libs/${{ env.artifact_name }}
+        file_path: ./build/libs/${{ github.event.inputs.version }}
         name: 0.1
         version: 0.1
         relations: P7dR8mSH:required
