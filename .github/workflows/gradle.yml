@@ -35,27 +35,11 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
       with:
         args: build/libs/*.jar
-    - name: Find correct JAR
-      id: findjar
-      run: |
-        output="$(find build/libs/ ! -name "*.jar" ! -name "*.jar" -type f -printf "%f\n")"
-        echo "jarname=$output" >> $GITHUB_OUTPUT
-
-    - name: Upload to the GitHub release
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: build/libs/${{ steps.findjar.outputs.jarname }}
-        asset_name: ${{ steps.findjar.outputs.jarname }}
-        asset_content_type: application/java-archive
-
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
         token: ${{ secrets.MODRINTH }}
-        file_path: build/libs/${{ steps.findjar.outputs.jarname }}
+        file_path: build/libs/*.jar
         name: ${{ github.event.release.tag_name }}
         version: ${{ github.event.release.tag_name }}
         changelog: ${{ github.event.release.body }}
