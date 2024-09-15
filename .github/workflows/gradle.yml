@@ -24,17 +24,6 @@ jobs:
       run: chmod +x ./gradlew
     - name: build
       run: ./gradlew build
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Artifacts
-        path: build/libs/*.jar
-    - name: Send Artifact
-      uses: sinshutu/upload-to-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
-      with:
-        args: build/libs/*.jar
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
@@ -49,3 +38,10 @@ jobs:
         loaders: fabric
         featured: false
         project_id: e6VuC4iy
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./build/libs/weapons-collection-${{ github.event.release.tag_name }}
+        asset_name: ${{ env.artifact_name }}
+        asset_content_type: application/java-archive
