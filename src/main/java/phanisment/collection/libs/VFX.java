@@ -10,19 +10,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 public class VFX {
-	public static ItemStack createItem(Items item, int model) {
-		ItemStack itemStack = new ItemStack(item);
+	public static ItemStack createItem() {
+		ItemStack itemStack = new ItemStack(Items.DIAMOND_SWORD);
 		NbtCompound nbt = new NbtCompound();
-		nbt.putInt("CustomModelData", model);
+		nbt.putInt("CustomModelData", 1);
 		itemStack.setNbt(nbt);
 		return itemStack;
 	}
-	
+
 	public static void spawnItemDisplay(ServerWorld world, BlockPos pos) {
-		ItemStack item = this.createCustomItem();
+		ItemStack customItem = createItem();
 		ItemDisplayEntity displayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
-		displayEntity.updatePosition(pos.getX(), pos.getY(), pos.getZ());
-		displayEntity.setStack(item);
+		displayEntity.updatePosition(pos.getX(), pos.getY() + 1, pos.getZ());
+		displayEntity.setStack(customItem);
 		world.spawnEntity(displayEntity);
 	}
 }
