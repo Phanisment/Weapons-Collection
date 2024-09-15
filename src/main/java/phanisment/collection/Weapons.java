@@ -29,7 +29,7 @@ public class Weapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("7 Sin's will comes") // Story of the Weapons
+		LOGGER.info("7 Sin's will comes"); // Story of the Weapons
 		
 		EntityRendererRegistry.register(SLASH_VFX_ENTITY, SlashVFXEntityRenderer::new);
 	}
