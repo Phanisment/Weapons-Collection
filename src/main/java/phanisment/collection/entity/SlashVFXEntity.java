@@ -8,7 +8,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
 public class SlashVFXEntity extends Entity {
-	public int lifeTime = 8;
+	public int lifeTime = 20;
 	public SlashVFXEntity(EntityType<? extends SlashVFXEntity> entityType, World world) {
 		super(entityType, world);
 	}
