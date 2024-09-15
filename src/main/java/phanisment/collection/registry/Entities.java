@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class Entities {
 	public static final EntityType<SlashEntity> SLASH_ENTITY_TYPE = Registry.register(
 		Registries.ENTITY_TYPE,
-		new Identifier("modid", "slash"),
+		new Identifier("phanisment", "slash"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, SlashEntity::new)
 			.dimensions(EntityDimensions.fixed(1.0f, 1.0f))
 			.trackRangeBlocks(64).build()
