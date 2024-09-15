@@ -35,15 +35,12 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
       with:
         args: build/libs/*.jar
-    - uses: Shopify/upload-to-release@v1
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: build/libs/*.jar application/java-archive
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        name: weapons-collection
-        path: build/libs/*.jar
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        content-type: application/java-archive
-      
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
