@@ -7,42 +7,36 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
-public class SlashVFXEntity extends Entity {
-	public int lifeTime = 20;
-	public SlashVFXEntity(EntityType<? extends SlashVFXEntity> entityType, World world) {
+package com.example.slashvfx.entity;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.world.World;
+
+public class SlashEntity extends Entity {
+	private int animationFrame = 0;
+	private final int maxAnimationFrames = 10;
+
+	public SlashEntity(EntityType<? extends SlashEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
-		
-		if (this.lifeTime-- <= 0) {
-			this.discard();
+		animationFrame++;
+		if (animationFrame >= maxAnimationFrames) {
+			this.remove(RemovalReason.DISCARDED);
 		}
 	}
 
 	@Override
-	protected void initDataTracker() {
-	}
+	protected void initDataTracker() {}
 
 	@Override
-	protected void readCustomDataFromNbt(NbtCompound nbt) {
-		this.lifeTime = nbt.getInt("LifeTime");
-	}
+	protected void readCustomDataFromNbt(NbtCompound nbt) {}
 
 	@Override
-	protected void writeCustomDataToNbt(NbtCompound nbt) {
-		nbt.putInt("LifeTime", this.lifeTime);
-	}
-
-	@Override
-	public boolean damage(DamageSource source, float amount) {
-		return false;
-	}
-
-	@Override
-	public boolean collides() {
-		return false;
-	}
+	protected void writeCustomDataToNbt(NbtCompound nbt) {}
 }
