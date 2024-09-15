@@ -25,12 +25,11 @@ public class SlashEntityRenderer extends EntityRenderer<SlashEntity> {
 
 	public SlashEntityRenderer(EntityRendererFactory.Context context) {
 		super(context);
-		this.model = new SlashModel(context.getPart(EntityModelLayers.PLAYER_HEAD)); // Pastikan layer yang sesuai digunakan
+		this.model = new SlashModel(context.getPart(EntityModelLayers.PLAYER_HEAD));
 	}
 
 	@Override
 	public Identifier getTexture(SlashEntity entity) {
-		// Ganti texture berdasarkan frame animasi
 		int frame = entity.animationFrame % TEXTURES.length;
 		return TEXTURES[frame];
 	}
