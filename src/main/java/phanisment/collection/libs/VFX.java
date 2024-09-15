@@ -12,7 +12,6 @@ import net.minecraft.util.math.Vec3d;
 import java.lang.reflect.Method;
 
 public class VFX {
-
 	public static void summonAndModifyItemDisplay(ServerWorld world, BlockPos pos) {
 		ItemDisplayEntity displayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		displayEntity.updatePosition(pos.getX(), pos.getY() + 1, pos.getZ());
@@ -43,6 +42,4 @@ public class VFX {
 		itemStack.setNbt(nbt);
 		return itemStack;
 	}
-}
-
 }
