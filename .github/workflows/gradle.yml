@@ -2,11 +2,6 @@ name: Build
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version number for the release'
-        required: true
-        default: '0.1'
 
 jobs:
   build:
@@ -27,13 +22,13 @@ jobs:
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
     - name: build
-      run: ./gradlew build -Pversion=${{ github.event.inputs.version }}
+      run: ./gradlew build
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
         token: ${{ secrets.MODRITH }}
-        file_path: ./build/libs/weapons-collection-${{ github.event.inputs.version }}
-        name: 0.1
+        file_path: ./build/libs/weapons-collection-0.1
+        name: 0.1-${{ github.run_number }}
         version: 0.1
         relations: P7dR8mSH:required
         game_versions: 1.20.1
