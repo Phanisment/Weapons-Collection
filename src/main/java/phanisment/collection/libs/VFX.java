@@ -13,14 +13,10 @@ public class VFX {
 	public static ItemDisplayEntity createItemDisplay(ServerWorld world, ItemStack itemStack, Vec3d position) {
 		CustomItemDisplayEntity itemDisplay = new CustomItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplay.setPos(position.x, position.y, position.z);
-
 		NbtCompound nbt = new NbtCompound();
 		itemStack.writeNbt(nbt);
-
-		// Menggunakan Reflection untuk menyetel custom data
 		VFXReflection.setItemStack(itemDisplay, itemStack);
 		VFXReflection.readCustomDataFromNbt(itemDisplay, nbt);
-
 		world.spawnEntity(itemDisplay);
 		return itemDisplay;
 	}
@@ -28,8 +24,7 @@ public class VFX {
 	public static void animateCustomModelData(ItemDisplayEntity itemDisplay, int maxFrame, int ticksPerFrame, Runnable onFinish) {
 		new Thread(() -> {
 			try {
-				for (int frame = 1; frame <= maxFrame; frame++) {
-					// Menggunakan Reflection untuk mendapatkan dan mengatur item stack
+				for (int frame = 0; frame <= maxFrame; frame++) {
 					ItemStack itemStack = VFXReflection.getItemStack(itemDisplay);
 					if (itemStack != null) {
 						NbtCompound nbt = itemStack.getOrCreateNbt();
@@ -53,13 +48,11 @@ public class VFX {
 		}
 
 		public void setCustomData(NbtCompound nbt) {
-			// Menggunakan Reflection untuk menyetel custom data
 			VFXReflection.readCustomDataFromNbt(this, nbt);
 		}
 
 		public NbtCompound getCustomData() {
 			NbtCompound nbt = new NbtCompound();
-			// Menggunakan Reflection untuk mendapatkan custom data
 			VFXReflection.writeCustomDataToNbt(this, nbt);
 			return nbt;
 		}
