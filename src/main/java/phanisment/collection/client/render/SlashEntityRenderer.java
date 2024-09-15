@@ -17,8 +17,8 @@ import net.minecraft.client.render.RenderLayer;
 @Environment(EnvType.CLIENT)
 public class SlashEntityRenderer extends EntityRenderer<SlashEntity> {
 	private static final Identifier[] TEXTURES = {
-		new Identifier("phanisment", "textures/entity/slash/slash_1.png"),
-		new Identifier("phanisment", "textures/entity/slash/slash_2.png"),
+		new Identifier("phanisment", "textures/vfx/slash/slash_1.png"),
+		new Identifier("phanisment", "textures/vfx/slash/slash_2.png"),
 	};
 
 	private final SlashModel model;
