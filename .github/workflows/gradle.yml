@@ -2,6 +2,11 @@ name: Build
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number for the release'
+        required: true
+        default: '0.1'
 
 jobs:
   build:
@@ -22,7 +27,7 @@ jobs:
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
     - name: build
-      run: ./gradlew build -Pversion=${{ github.event.release.tag_name }}
+      run: ./gradlew build -Pversion=${{ github.event.inputs.version }}
     - name: Find build artifact
       id: find_artifact
       run: |
