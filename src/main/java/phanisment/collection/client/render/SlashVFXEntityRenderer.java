@@ -37,6 +37,7 @@ public class SlashVFXEntityRenderer extends EntityRenderer<SlashVFXEntity> {
 		int maxLife = 20;
 		int lifeTime = maxLife - entity.lifeTime;
 		int currentFrame = (lifeTime * FRAME_COUNT) / maxLife;
+
 		currentFrame = Math.min(currentFrame, FRAME_COUNT - 1);
 		Identifier currentTexture = TEXTURES[currentFrame];
 		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.model.getLayer(currentTexture));
