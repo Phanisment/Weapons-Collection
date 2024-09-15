@@ -28,21 +28,10 @@ public class Weapons implements ModInitializer {
 			if (hand == Hand.MAIN_HAND && !world.isClient()) {
 				ItemStack mainHandStack = player.getMainHandStack();
 				if (mainHandStack.getItem() == Items.DIAMOND_SWORD) {
-					createSlashEffect(world, player.getPos(), player.getRotationVec(1.0F));
 					return TypedActionResult.success(mainHandStack);
 				}
 			}
 			return TypedActionResult.pass(ItemStack.EMPTY);
 		});
-	}
-
-	private void createSlashEffect(World world, Vec3d playerPos, Vec3d lookDirection) {
-		if (world instanceof ServerWorld serverWorld) {
-			Vec3d slashPos = playerPos.add(lookDirection.normalize().multiply(2));
-			ItemDisplayEntity slashEffect = VFX.createItemDisplay(serverWorld, Items.DIAMOND_SWORD.getDefaultStack(), slashPos);
-			VFX.animateCustomModelData(slashEffect, 7, 1, () -> {
-				slashEffect.kill();
-			});
-		}
 	}
 }
