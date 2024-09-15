@@ -1,7 +1,7 @@
-package com.example.mod.client.renderer;
+package phanisment.collection.client.renderer;
 
-import com.example.mod.entity.SlashVFXEntity;
-import com.example.mod.client.model.Slash;
+import phanisment.collection.entity.SlashVFXEntity;
+import phanisment.collection.client.model.Slash;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
