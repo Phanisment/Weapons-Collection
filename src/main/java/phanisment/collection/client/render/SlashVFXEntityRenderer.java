@@ -1,52 +1,45 @@
 package phanisment.collection.client.renderer;
 
-import phanisment.collection.entity.SlashVFXEntity;
-import phanisment.collection.client.model.Slash;
-import net.minecraft.client.render.OverlayTexture;
+import phanisment.collection.entity.SlashEntity;
+import phanisment.collection.client.model.SlashModel;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
+import net.minecraft.client.render.entity.model.EntityModelLoader;
+import net.minecraft.client.render.entity.model.EntityModels;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.RenderLayer;
 
-public class SlashVFXEntityRenderer extends EntityRenderer<SlashVFXEntity> {
+@Environment(EnvType.CLIENT)
+public class SlashEntityRenderer extends EntityRenderer<SlashEntity> {
 	private static final Identifier[] TEXTURES = {
-		new Identifier("phanisment", "textures/vfx/slash_1.png"),
-		new Identifier("phanisment", "textures/vfx/slash_2.png"),
-		new Identifier("phanisment", "textures/vfx/slash_3.png"),
-		new Identifier("phanisment", "textures/vfx/slash_4.png"),
-		new Identifier("phanisment", "textures/vfx/slash_5.png"),
-		new Identifier("phanisment", "textures/vfx/slash_6.png"),
-		new Identifier("phanisment", "textures/vfx/slash_7.png"),
-		new Identifier("phanisment", "textures/vfx/slash_8.png")
+		new Identifier("phanisment", "textures/entity/slash/slash_1.png"),
+		new Identifier("phanisment", "textures/entity/slash/slash_2.png"),
 	};
 
-	private final Slash model;
-	private static final int FRAME_COUNT = TEXTURES.length;
+	private final SlashModel model;
 
-	public SlashVFXEntityRenderer(EntityRendererFactory.Context context) {
+	public SlashEntityRenderer(EntityRendererFactory.Context context) {
 		super(context);
-		this.model = new Slash(context.getPart(Slash.getTexturedModelData()));
+		this.model = new SlashModel(context.getPart(EntityModelLayers.PLAYER_HEAD)); // Pastikan layer yang sesuai digunakan
 	}
 
 	@Override
-	public void render(SlashVFXEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-		matrices.push();
-
-		int maxLife = 20;
-		int lifeTime = maxLife - entity.lifeTime;
-		int currentFrame = (lifeTime * FRAME_COUNT) / maxLife;
-
-		currentFrame = Math.min(currentFrame, FRAME_COUNT - 1);
-		Identifier currentTexture = TEXTURES[currentFrame];
-		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.model.getLayer(currentTexture));
-		this.model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
-		matrices.pop();
+	public Identifier getTexture(SlashEntity entity) {
+		// Ganti texture berdasarkan frame animasi
+		int frame = entity.animationFrame % TEXTURES.length;
+		return TEXTURES[frame];
 	}
 
 	@Override
-	public Identifier getTexture(SlashVFXEntity entity) {
-		return TEXTURES[0];
+	public void render(SlashEntity entity, float yaw, float tickDelta, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light) {
+		super.render(entity, yaw, tickDelta, matrixStack, vertexConsumerProvider, light);
+
+		VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getEntityCutoutNoCull(getTexture(entity)));
+		model.render(matrixStack, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
 	}
 }
