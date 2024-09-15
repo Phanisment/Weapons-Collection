@@ -22,12 +22,25 @@ jobs:
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
     - name: build
-      run: ./gradlew build
+      run: ./gradlew build -Pversion=${{ github.event.release.tag_name }}
+    - name: Find build artifact
+      id: find_artifact
+      run: |
+        artifact=$(find build/libs -type f -name 'weapons-collection-*.jar' | head -n 1)
+        echo "artifact_name=$(basename $artifact)" >> $GITHUB_ENV
+    
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./build/libs/
+        asset_name: ${{ env.artifact_name }}
+        asset_content_type: application/java-archive
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
         token: ${{ secrets.MODRITH }}
-        file_path: ./build/libs/weapons-collection-0.1.jar
+        file_path: ./build/libs/${{ env.artifact_name }}
         name: 0.1
         version: 0.1
         relations: P7dR8mSH:required
