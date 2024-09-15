@@ -38,9 +38,9 @@ public class Weapons implements ModInitializer {
 
 	private void createSlashEffect(World world, Vec3d playerPos, Vec3d lookDirection) {
 		if (world instanceof ServerWorld serverWorld) {
-			Vec3d slashPos = playerPos.add(lookDirection.normalize().multiply(2)); // Efek muncul di depan player
+			Vec3d slashPos = playerPos.add(lookDirection.normalize().multiply(2));
 			ItemDisplayEntity slashEffect = VFX.createItemDisplay(serverWorld, Items.DIAMOND_SWORD.getDefaultStack(), slashPos);
-			VFX.animateCustomModelData(slashEffect, 5, 5, () -> {
+			VFX.animateCustomModelData(slashEffect, 7, 1, () -> {
 				slashEffect.kill();
 			});
 		}
