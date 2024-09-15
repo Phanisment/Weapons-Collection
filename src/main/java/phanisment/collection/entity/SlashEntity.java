@@ -6,8 +6,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
 public class SlashEntity extends Entity {
-	private int animationFrame = 0;
-	private final int maxAnimationFrames = 10;
+	public int animationFrame = 0;
+	public final int maxAnimationFrames = 10;
 
 	public SlashEntity(EntityType<? extends SlashEntity> entityType, World world) {
 		super(entityType, world);
