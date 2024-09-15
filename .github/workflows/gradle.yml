@@ -38,7 +38,7 @@ jobs:
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
-        token: ${{ secrets.MODRINTH }}
+        token: ${{ secrets.MODRITH }}
         file_path: build/libs/*.jar
         name: ${{ github.event.release.tag_name }}
         version: ${{ github.event.release.tag_name }}
