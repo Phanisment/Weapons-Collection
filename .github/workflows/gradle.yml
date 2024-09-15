@@ -32,7 +32,7 @@ jobs:
       uses: RubixDev/modrinth-upload@v1
       with:
         token: ${{ secrets.MODRITH }}
-        file_path: ./build/libs/${{ github.event.inputs.version }}
+        file_path: ./build/libs/weapons-collection-${{ github.event.inputs.version }}
         name: 0.1
         version: 0.1
         relations: P7dR8mSH:required
