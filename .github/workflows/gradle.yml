@@ -23,12 +23,7 @@ jobs:
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
     - name: build
-      run: ./gradlew build -Pversion=${{ github.event.release.tag_name }}
-    - name: Get build file name
-      run: |
-        ls build/libs/*.jar
-        echo "::set-output name=build_file_name::$(basename build/libs/*.jar)"
-      id: get_build_file
+      run: ./gradlew build
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
@@ -40,12 +35,6 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
       with:
         args: build/libs/*.jar
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
-      with:
-        args: ${{ steps.get_build_file.outputs.build_file_name }} application/java-archive
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload to Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
