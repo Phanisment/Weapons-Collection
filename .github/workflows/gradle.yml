@@ -43,5 +43,5 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: ./build/libs/weapons-collection-${{ github.event.release.tag_name }}
-        asset_name: ${{ env.artifact_name }}
+        asset_name: weapons-collection-${{ github.event.release.tag_name }}
         asset_content_type: application/java-archive
