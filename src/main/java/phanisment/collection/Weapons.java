@@ -5,7 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.slashvfx.registry.ModEntities;
+import phanisment.collection.registry.Entities;
 import phanisment.collection.entity.SlashEntity;
 import phanisment.collection.client.renderer.SlashEntityRenderer;
 
