@@ -27,10 +27,9 @@ jobs:
       uses: RubixDev/modrinth-upload@v1
       with:
         token: ${{ secrets.MODRITH }}
-        file_path: ./build/libs/weapons-collection-${{ github.event.release.tag_name }}.jar
-        name: ${{ github.event.release.tag_name }}
-        version: ${{ github.event.release.tag_name }}
-        changelog: ${{ github.event.release.body }}
+        file_path: ./build/libs/weapons-collection-0.1.jar
+        name: 0.1
+        version: 0.1
         relations: P7dR8mSH:required
         game_versions: 1.20.1
         release_type: alpha
