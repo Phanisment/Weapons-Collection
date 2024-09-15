@@ -22,7 +22,7 @@ public class VFX {
 		ItemStack customItem = createItem();
 		ItemDisplayEntity displayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		displayEntity.updatePosition(pos.getX(), pos.getY() + 1, pos.getZ());
-		displayEntity.setStack(customItem);
+		displayEntity.setItemStack(customItem);
 		world.spawnEntity(displayEntity);
 	}
 }
