@@ -8,7 +8,7 @@ import net.minecraft.client.util.math.MatrixStack;
 
 import phanisment.collection.entity.SlashEntity;
 
-public class SlashModel extends EntityModel<SlashEntity> {
+public class SlashModel<T extends SlashEntity> extends EntityModel<T> {
 	private final ModelPart Head;
 
 	public SlashModel(ModelPart root) {
