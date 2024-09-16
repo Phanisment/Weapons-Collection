@@ -3,7 +3,7 @@
 	"package": "phanisment.collection.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"Mixin"
+		"Mixins"
 	],
 	"injectors": {
 		"defaultRequire": 1
