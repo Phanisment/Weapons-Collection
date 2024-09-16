@@ -18,13 +18,11 @@ public class Weapons implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static final EntityType<DecorativeEntity> SLASH_ENTITY = Registry.register(
-			Registry.ENTITY_TYPE,
-			new Identifier("phanisment", "slash_entity"),
-			FabricEntityTypeBuilder.create(SpawnGroup.MISC, SlashEntity::new)
-					.dimensions(EntityDimensions.fixed(0.5f, 0.5f))
-					.trackRangeBlocks(80)
-					.trackedUpdateRate(3)
-					.build()
+		Registry.ENTITY_TYPE,
+		new Identifier("phanisment", "slash_entity"),
+		FabricEntityTypeBuilder.create(SpawnGroup.MISC, SlashEntity::new)
+			.dimensions(EntityDimensions.fixed(0.5f, 0.5f)).trackRangeBlocks(80).trackedUpdateRate(3).build()
+	);
 
 	@Override
 	public void onInitialize() {
