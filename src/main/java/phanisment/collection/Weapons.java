@@ -20,7 +20,7 @@ public class Weapons implements ModInitializer {
 	public static final EntityType<SlashEntity> SLASH = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier("phanisment", "slash"),
-		EntityType.Builder.create(SlashEntity::new, SpawnGroup.MISC).setDimensions(EntityDimensions.fixed(0.5f, 0.5f)).build()
+		EntityType.Builder.create(SlashEntity::new, SpawnGroup.MISC).setDimensions(EntityDimensions.fixed(0.5f, 0.5f)).build();
 	);
 
 	@Override
