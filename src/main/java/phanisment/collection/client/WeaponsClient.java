@@ -10,7 +10,6 @@ import phanisment.collection.client.model.SlashModel;
 import phanisment.collection.entity.SlashEntity;
 import phanisment.collection.Weapons;
 
-@Environment(EnvType.CLIENT)
 public class WeaponsClient implements ClientModInitializer {
 	public static final EntityModelLayer SLASH_LAYER = new EntityModelLayer(new Identifier(Weapons.MOD_ID, "slash"), "main");
 
