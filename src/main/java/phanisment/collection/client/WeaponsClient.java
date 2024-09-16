@@ -3,7 +3,8 @@ package phanisment.collection.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-
+import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.util.Identifier;
 
 import phanisment.collection.client.render.SlashRender;
 import phanisment.collection.client.model.SlashModel;
@@ -15,8 +16,7 @@ public class WeaponsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		EntityRendererRegistry.register(Weapons.SLASH, (context) -> {
-			return new SlashRender(context);
-		});
+		EntityRendererRegistry.register(Weapons.SLASH, SlashRender::new);
+		EntityModelLayerRegistry.registerModelLayer(SLASH_LAYER, SlashModel::getTexturedModelData);
 	}
 }
