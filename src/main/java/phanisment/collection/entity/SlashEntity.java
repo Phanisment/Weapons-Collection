@@ -7,4 +7,5 @@ import net.minecraft.world.World;
 public class SlashEntity extends Entity {
 	public SlashEntity(EntityType<? extends Entity> entityType, World world) {
 		super(entityType, world);
+	}
 }
