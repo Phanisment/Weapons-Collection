@@ -2,8 +2,8 @@ package phanisment.collection;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EntityType.Builder;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.EntityDimensions;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -19,13 +19,12 @@ public class Weapons implements ModInitializer {
 
 	public static final EntityType<SlashEntity> SLASH = Registry.register(
 		Registries.ENTITY_TYPE,
-		Identifier.of("phanisment", "slash"),
-		EntityType.Builder.create(SlashEntity::new, SpawnGroup.MISC).dimensions(0.5f, 0.5f).build("slash")
+		new Identifier("phanisment", "slash"),
+		EntityType.Builder.create(SlashEntity::new, SpawnGroup.MISC).setDimensions(EntityDimensions.fixed(0.5f, 0.5f)).build()
 	);
 
 	@Override
 	public void onInitialize() {
 		LOGGER.info("7 Sin's will comes"); // Story of the Weapons
-		
 	}
 }
