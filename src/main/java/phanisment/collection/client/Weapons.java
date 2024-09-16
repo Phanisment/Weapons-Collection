@@ -12,8 +12,18 @@ import phanisment.collection.entity.SlashEntity;
 import phanisment.collection.Weapons;
 
 public class Weapons implements ClientModInitializer {
+	public static final Identifier SLASH_MODEL_LAYER = new Identifier("phanisment", "slash_model_layer");
+
 	@Override
 	public void onInitializeClient() {
-		ModEntityRenderers.registerEntityRenderers();
+		EntityModelLayerRegistry.registerModelLayer(SLASH_MODEL_LAYER, SlashModel::getTexturedModelData);
+		EntityRendererRegistry.register(Weapons.SLASH_MODEL, (context) -> {
+			return new MobEntityRenderer<>(context, new SlashModel(context.getPart(SLASH_MODEL_LAYER)), 0.5f) {
+				@Override
+				public Identifier getTexture(SlashEntity entity) {
+					return new Identifier("phanisment", "textures/vfx/slash.png");
+				}
+			};
+		});
 	}
 }
