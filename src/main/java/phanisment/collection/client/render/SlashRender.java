@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-import phanisment.collection.client.model.ModelLayer
+import phanisment.collection.client.model.ModelLayer;
 import phanisment.collection.client.model.SlashModel;
 import phanisment.collection.entity.SlashEntity;
 import phanisment.collection.Weapons;
@@ -14,7 +14,7 @@ import phanisment.collection.Weapons;
 public class SlashRender extends MobEntityRenderer<SlashEntity, SlashModel<SlashEntity>> {
 	private static final Identifier TEXTURE = new Identifier(Weapons.MOD_ID, "textures/vfx/slash.png");
 
-	public PorcupineRenderer(EntityRendererFactory.Context context) {
+	public SlashRender(EntityRendererFactory.Context context) {
 		super(context, new SlashModel<>(context.getPart(ModelLayer.SLASH)), 0.6f);
 	}
 
