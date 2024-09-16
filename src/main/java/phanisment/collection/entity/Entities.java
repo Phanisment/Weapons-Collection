@@ -8,7 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import phanisment.collection.Weapons
+import phanisment.collection.Weapons;
 import phanisment.collection.entity.SlashEntity;
 
 public class ModEntities {
