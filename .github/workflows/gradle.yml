@@ -33,4 +33,4 @@ jobs:
       env:
         DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
       with:
-        args: ./build/libs/ItemSkillCaster-*.jar
+        args: ./build/libs/*.jar
