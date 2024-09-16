@@ -11,7 +11,6 @@ import phanisment.collection.entity.SlashEntity;
 import phanisment.collection.client.model.SlashModel;
 import phanisment.collection.client.WeaponsClient;
 
-
 public class SlashRender extends MobEntityRenderer<SlashEntity, SlashModel> {
 	public SlashRender(EntityRendererFactory.Context context) {
 		super(context, new SlashModel(context.getPart(WeaponsClient.SLASH_LAYER)), 0.5f);
