@@ -23,16 +23,14 @@ jobs:
       run: chmod +x ./gradlew
     - name: build
       run: ./gradlew build
-    - name: Upload to Modrinth
-      uses: RubixDev/modrinth-upload@v1
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
-        token: ${{ secrets.MODRITH }}
-        file_path: ./build/libs/weapons-collection-0.1
-        name: 0.1-${{ github.run_number }}
-        version: 0.1
-        relations: P7dR8mSH:required
-        game_versions: 1.20.1
-        release_type: alpha
-        loaders: fabric
-        featured: false
-        project_id: e6VuC4iy
+        name: Artifacts
+        path: target/*.jar
+    - name: sends the Artifacts to the discord
+      uses: sinshutu/upload-to-discord@master
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
+      with:
+        args: ./target/ItemSkillCaster-*.jar
