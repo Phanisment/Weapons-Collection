@@ -5,7 +5,7 @@ import net.minecraft.nbt.NbtCompound;
 
 import java.lang.reflect.Method;
 
-public class ItemDisplayEntityUtil {
+public class ItemDisplay {
 	public static void writeCustomDataToNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbtCompound) {
 		try {
 			Method writeMethod = ItemDisplayEntity.class.getDeclaredMethod("writeCustomDataToNbt", NbtCompound.class);
