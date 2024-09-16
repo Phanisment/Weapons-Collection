@@ -6,6 +6,5 @@ import net.minecraft.util.Identifier;
 import phanisment.collection.Weapons;
 
 public class ModelLayer {
-	public static final EntityModelLayer SLASH =
-			new EntityModelLayer(new Identifier(Weapons.MOD_ID, "slash"), "main");
+	public static final EntityModelLayer SLASH = new EntityModelLayer(new Identifier(Weapons.MOD_ID, "slash"), "main");
 }
