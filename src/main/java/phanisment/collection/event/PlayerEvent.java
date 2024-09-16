@@ -1,6 +1,7 @@
-import phanisment.collection.event;
+package phanisment.collection.event;
 
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -11,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 
 import phanisment.collection.util.VFXManager;
 
-public class PlayerEventHandlers {
+public class PlayerEvent {
 	public static void registerEvents() {
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
 			if (world instanceof ServerWorld serverWorld) {
