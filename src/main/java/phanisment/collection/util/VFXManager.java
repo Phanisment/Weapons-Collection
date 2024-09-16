@@ -10,8 +10,9 @@ import net.minecraft.util.math.Vec3d;
 import phanisment.collection.util.ItemDisplay;
 
 public class VFXManager {
-	public static void spawnVFX(ServerWorld world, ItemStack itemStack) {
+	public static void spawnVFX(ServerWorld world, ItemStack itemStack, Vec3d pos) {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
+		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		ItemDisplay.setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
 	}
