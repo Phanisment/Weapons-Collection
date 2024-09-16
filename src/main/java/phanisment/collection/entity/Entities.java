@@ -11,8 +11,8 @@ import net.minecraft.util.Identifier;
 import phanisment.collection.Weapons;
 import phanisment.collection.entity.SlashEntity;
 
-public class ModEntities {
-	public static final EntityType<PorcupineEntity> SLASH = Registry.register(Registries.ENTITY_TYPE,
+public class Entities {
+	public static final EntityType<SlashEntity> SLASH = Registry.register(Registries.ENTITY_TYPE,
 		new Identifier(Weapons.MOD_ID, "slash"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, SlashEntity::new).dimensions(EntityDimensions.fixed(1f, 1f)).build()
 	);
