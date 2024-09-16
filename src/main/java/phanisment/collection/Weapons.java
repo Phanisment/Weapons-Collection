@@ -17,7 +17,7 @@ public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisments-weapons-collection";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final EntityType<DecorativeEntity> SLASH_ENTITY = Registry.register(
+	public static final EntityType<SlashEntity> SLASH_ENTITY = Registry.register(
 		Registry.ENTITY_TYPE,
 		new Identifier("phanisment", "slash_entity"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, SlashEntity::new)
