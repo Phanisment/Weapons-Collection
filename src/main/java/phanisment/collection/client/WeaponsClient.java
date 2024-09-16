@@ -14,6 +14,6 @@ public class WeaponsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		EntityRendererRegistry.register(Entities.SLASH, SlashRender::new);
-		EntityModelLayerRegistry.registerModelLayer(ModelLayer.SLASH_LAYER, SlashModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(ModelLayer.SLASH, SlashModel::getTexturedModelData);
 	}
 }
