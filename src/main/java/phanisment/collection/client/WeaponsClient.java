@@ -1,6 +1,9 @@
 package phanisment.collection.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+
 
 import phanisment.collection.client.render.SlashRender;
 import phanisment.collection.client.model.SlashModel;
