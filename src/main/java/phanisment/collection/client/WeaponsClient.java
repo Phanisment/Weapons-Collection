@@ -2,7 +2,7 @@ package phanisment.collection.client;
 
 import net.fabricmc.api.ClientModInitializer;
 
-public class WeaponsClient {
+public class WeaponsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
