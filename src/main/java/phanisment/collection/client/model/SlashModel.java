@@ -3,13 +3,12 @@ package phanisment.collection.client.model;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
 import phanisment.collection.entity.SlashEntity;
 
-public class SlashModel<T extends SlashEntity> extends SinglePartEntityModel<T> {
+public class SlashModel<T extends SlashEntity> extends EntityModel<T> {
 	private final ModelPart Head;
 
 	public SlashModel(ModelPart root) {
