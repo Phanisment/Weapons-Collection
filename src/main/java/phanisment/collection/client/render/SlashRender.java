@@ -8,10 +8,9 @@ import net.minecraft.util.Identifier;
 
 import phanisment.collection.Weapons;
 import phanisment.collection.entity.SlashEntity;
-import phanisment.collection.client.model.SlashModel
+import phanisment.collection.client.model.SlashModel;
 
 public class SlashRender extends MobEntityRenderer<SlashEntity, SlashModel> {
-
 	public SlashRender(EntityRendererFactory.Context context) {
 		super(context, new SlashModel(context.getPart(WeaponsClient.SLASH_LAYER)), 0.5f);
 	}
