@@ -20,7 +20,7 @@ public class VFXManager {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		itemDisplayEntity.setYaw(yaw);
-		ItemDisplay.setItemStack(itemDisplayEntity, itemStack);
+		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
 	}
 
