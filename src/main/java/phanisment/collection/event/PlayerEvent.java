@@ -1,9 +1,9 @@
 package phanisment.collection.event;
 
-import net.fabricmc.fabric.api.event.player.PlayerInteractEvent;
-import net.minecraft.server.world.ServerWorld;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
