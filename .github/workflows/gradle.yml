@@ -34,13 +34,11 @@ jobs:
       run: |
         outputs="$(find build/libs/ ! -name "*-dev.jar" ! -name "*-sources.jar" -type f -printf "%f\n")"
         echo "name=$outputs" >> $GITHUB_OUTPUT
-        echo "Name: $outputs"
     - name: Grab Version
       id: grab
       run: |
         outputs=$(grep '^mod_version=' gradle.properties | cut -d'=' -f2)
         echo "version=$outputs" >> $$GITHUB_OUTPUT
-        echo "Version: $outputs"
     - name: Upload Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
