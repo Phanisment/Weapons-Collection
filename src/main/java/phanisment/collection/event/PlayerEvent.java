@@ -23,7 +23,7 @@ public class PlayerEvent {
 					Vec3d lookVec = player.getRotationVec(1.0F);
 					BlockPos spawnPos = new BlockPos(playerPos.add(lookVec.multiply(2.0)));
 					ItemStack displayItem = new ItemStack(Items.DIAMOND_SWORD);
-					spawnItemDisplay(serverWorld, displayItem, spawnPos);
+					VFXManager.spawnVFX(serverWorld, displayItem, spawnPos);
 
 					return ActionResult.SUCCESS;
 				}
