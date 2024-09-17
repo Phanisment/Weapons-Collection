@@ -18,7 +18,7 @@ public class VFXManager {
 
 	private static void setItemStack(ItemDisplayEntity itemDisplayEntity, ItemStack itemStack) {
 		try {
-			Method setItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("setItemStack", ItemStack.class);
+			Method setItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_48897", ItemStack.class);
 			setItemStackMethod.setAccessible(true);
 			setItemStackMethod.invoke(itemDisplayEntity, itemStack);
 		} catch (Exception e) {
