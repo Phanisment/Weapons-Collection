@@ -9,6 +9,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.server.world.ServerWorld;
 
 import phanisment.collection.util.VFXManager;
 
