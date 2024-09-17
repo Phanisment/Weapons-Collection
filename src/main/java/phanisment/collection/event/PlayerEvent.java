@@ -18,8 +18,8 @@ public class PlayerEvent {
 					Vec3d playerPos = player.getPos();
 					Vec3d lookVec = player.getRotationVec(1.0F);
 					Vec3d spawnPos = playerPos.add(lookVec.multiply(2.0)).add(0, 0.5, 0);
-					ItemStack displayItem = new ItemStack(Items.PAPER);
-					VFXManager.spawnVFXFacingPlayer(serverWorld, displayItem, spawnPos);
+					ItemStack displayItem = new ItemStack(Items.DIAMOND_SWORD);
+					VFXManager.spawnVFXFacingPlayer(serverWorld, displayItem, spawnPos, playerPos);
 					return ActionResult.SUCCESS;
 				}
 			}
