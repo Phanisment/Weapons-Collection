@@ -16,13 +16,11 @@ public class VFXManager {
 		world.spawnEntity(itemDisplayEntity);
 	}
 	
-	public static void spawnVFXFacingPlayer(ServerWorld world, ItemStack itemStack, Vec3d spawnPos, Vec3d playerPos) {
+	public static void spawnVFXFacingPlayer(ServerWorld world, ItemStack itemStack, Vec3d pos, float yaw) {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
-		itemDisplayEntity.setPos(spawnPos.x, spawnPos.y, spawnPos.z);
-		Vec3d direction = playerPos.subtract(spawnPos).normalize();
-		double yaw = Math.toDegrees(Math.atan2(direction.z, direction.x)) - 90;
-		itemDisplayEntity.setYaw((float) yaw);
-		setItemStack(itemDisplayEntity, itemStack);
+		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
+		itemDisplayEntity.setYaw(yaw);
+		ItemDisplay.setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
 	}
 
