@@ -28,9 +28,23 @@ jobs:
       with:
         name: Artifacts
         path: build/libs/*.jar
-    - name: sends the Artifacts to the discord
-      uses: sinshutu/upload-to-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.ARTIFACT }}
+        
+    - name: Find Build
+      id: find
+      run: |
+        file="$(find build/libs/ ! -name "*-dev.jar" ! -name "*-sources.jar" -type f -printf "%f\n")"
+        data=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+        echo "name=$file" >> $GITHUB_OUTPUT
+        echo "version=$data" >> $GITHUB_ENV
+    - name: Upload Modrinth
+      uses: RubixDev/modrinth-upload@v1
       with:
-        args: ./build/libs/*.jar
+        token: ${{ secrets.MODRITH }}
+        file_path: build/libs/${{ steps.find.file.name }}
+        name: ${{ steps.find.data.version }}
+        version: ${{ github.event.release.tag_name }}
+        relations: P7dR8mSH:required
+        game_versions: 1.20.1
+        release_type: alpha
+        loaders: fabric
+        project_id: e6VuC4iy
