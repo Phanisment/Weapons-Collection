@@ -38,7 +38,7 @@ jobs:
       id: grab
       run: |
         outputs=$(grep '^mod_version=' gradle.properties | cut -d'=' -f2)
-        echo "version=$outputs" >> $$GITHUB_OUTPUT
+        echo "version=$outputs" >> $GITHUB_OUTPUT
     - name: Upload Modrinth
       uses: RubixDev/modrinth-upload@v1
       with:
