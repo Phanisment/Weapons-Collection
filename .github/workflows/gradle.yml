@@ -38,7 +38,7 @@ jobs:
     - name: Grab Version
       id: grab
       run: |
-        outputs=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+        outputs=$(grep '^mod_version=' gradle.properties | cut -d'=' -f2)
         echo "version=$$outputs" >> $$GITHUB_OUTPUT
         echo "Version: $outputs"
     - name: Upload Modrinth
