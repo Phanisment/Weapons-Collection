@@ -27,6 +27,7 @@ public class VFXManager {
 		itemDisplayEntity.setYaw(yaw);
 		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
+		customModelDataMap.put(itemDisplayEntity.getUuid(), 0);
 	}
 
 	public static void registerCustomModelDataUpdater() {
@@ -34,10 +35,10 @@ public class VFXManager {
 			customModelDataMap.forEach((uuid, currentModelData) -> {
 				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
 				if (itemDisplayEntity != null) {
-					ItemStack stack = getItemStack(itemDisplayEntity);
+					ItemStack stack = itemDisplayEntity.getItemStack();
 					if (!stack.isEmpty()) {
 						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
-						setItemStack(itemDisplayEntity, stack);
+						setItemStack(itemDisplayEntity, itemStack);
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
 							itemDisplayEntity.discard();
