@@ -37,7 +37,7 @@ public class VFXManager {
 					ItemStack stack = getItemStack(itemDisplayEntity);
 					if (!stack.isEmpty()) {
 						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
-						setItemStack(itemDisplayEntity, itemStack);
+						setItemStack(itemDisplayEntity, stack);
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
 							itemDisplayEntity.discard();
