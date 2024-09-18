@@ -26,7 +26,7 @@ public class VFXManager {
 	}
 	
 	public static void spawnVFXFacingPlayer(ServerWorld world, ItemStack itemStack, Vec3d pos, float yaw) {
-		aaaaaaaa33a itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
+		itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		itemDisplayEntity.setYaw(yaw);
 		setItemStack(itemDisplayEntity, itemStack);
@@ -43,7 +43,7 @@ public class VFXManager {
 					int currentModelData = customModelDataMap.get(uuid);
 					if (currentModelData <= 7) {
 						System.out.println(currentModelData);
-						setCustomModelData(itemDisplayEntity, itemDisplayEntity.getItemStack(), currentModelData);
+						setCustomModelData(itemDisplayEntity, getItemStack(itemDisplayEntity), currentModelData);
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
 							toRemove.add(uuid);
