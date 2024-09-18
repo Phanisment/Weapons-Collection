@@ -42,10 +42,10 @@ public class VFXManager {
 				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
 				if (itemDisplayEntity != null) {
 					int currentModelData = customModelDataMap.get(uuid);
-					if (currentModelData <= 7) {
+					if (currentModelData <= 6) {
 						setCustomModelData(itemDisplayEntity, getItemStack(itemDisplayEntity), currentModelData);
 						int newModelData = currentModelData + 1;
-						if (newModelData > 7) {
+						if (newModelData > 6) {
 							toRemove.add(uuid);
 							itemDisplayEntity.discard();
 						} else {
