@@ -74,9 +74,9 @@ public class VFXManager {
 	// Reflection 
 	private static void setItemStack(ItemDisplayEntity display, ItemStack item) {
 		try {
-			Method setItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_48897", ItemStack.class);
-			setItemStackMethod.setAccessible(true);
-			setItemStackMethod.invoke(display, item);
+			Method method = ItemDisplayEntity.class.getDeclaredMethod("method_48897", ItemStack.class);
+			method.setAccessible(true);
+			method.invoke(display, item);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -84,30 +84,30 @@ public class VFXManager {
 	
 	private static ItemStack getItemStack(ItemDisplayEntity display) {
 		try {
-			Method getItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_48900");
-			getItemStackMethod.setAccessible(true);
-			return (ItemStack) getItemStackMethod.invoke(display);
+			Method method = ItemDisplayEntity.class.getDeclaredMethod("method_48900");
+			method.setAccessible(true);
+			return (ItemStack) method.invoke(display);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return ItemStack.EMPTY;
 	}
 	
-	private static void readCustomDataFromNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
+	private static void readCustomDataFromNbt(ItemDisplayEntity display, NbtCompound nbt) {
 		try {
-			Method readCustomDataFromNbtMethod = ItemDisplayEntity.class.getDeclaredMethod("method_5749", NbtCompound.class);
-			readCustomDataFromNbtMethod.setAccessible(true);
-			return readCustomDataFromNbtMethod.invoke(itemDisplayEntity, nbt);
+			Method method = ItemDisplayEntity.class.getDeclaredMethod("method_5749", NbtCompound.class);
+			method.setAccessible(true);
+			method.invoke(display, nbt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private static void writeCustomDataToNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
+	private static void writeCustomDataToNbt(ItemDisplayEntity display, NbtCompound nbt) {
 		try {
-			Method writeCustomDataToNbtMethod = ItemDisplayEntity.class.getDeclaredMethod("method_5652", NbtCompound.class);
-			writeCustomDataToNbtMethod.setAccessible(true);
-			return writeCustomDataToNbtMethod.invoke(itemDisplayEntity, nbt);
+			Method method = ItemDisplayEntity.class.getDeclaredMethod("method_5652", NbtCompound.class);
+			method.setAccessible(true);
+			method.invoke(display, nbt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
