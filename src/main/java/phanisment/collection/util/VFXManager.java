@@ -22,7 +22,7 @@ public class VFXManager {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		setItemStack(itemDisplayEntity, itemStack);
-		world.spawnEntity(itemDisplayEntity);\a
+		world.spawnEntity(itemDisplayEntity);
 	}
 	
 	public static void spawnVFXFacingPlayer(ServerWorld world, ItemStack itemStack, Vec3d pos, float yaw) {
