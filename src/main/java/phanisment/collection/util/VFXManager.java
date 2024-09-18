@@ -29,7 +29,12 @@ public class VFXManager {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		itemDisplayEntity.setYaw(yaw);
-		itemDisplayEntity.setScale(2.0F, 2.0F, 2.0F);
+		NbtCompound nbt = new NbtCompound();
+		writeCustomDataToNbt(itemDisplayEntity, nbt)
+		nbt.putFloat("scaleX", 2.0F);
+		nbt.putFloat("scaleY", 2.0F);
+		nbt.putFloat("scaleZ", 2.0F);
+		readCustomDataFromNbt(itemDisplayEntity, nbt);
 		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
 		customModelDataMap.put(itemDisplayEntity.getUuid(), 1);
