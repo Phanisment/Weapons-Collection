@@ -29,7 +29,7 @@ public class VFXManager {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		itemDisplayEntity.setYaw(yaw);
-		itemDisplayEntity.setScale(2.0F, 2.0F, 2.0F);
+		itemDisplayEntity.setScale(4.0F, 4.0F, 4.0F);
 		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
 		customModelDataMap.put(itemDisplayEntity.getUuid(), 1);
