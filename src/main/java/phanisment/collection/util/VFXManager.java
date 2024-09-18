@@ -34,7 +34,7 @@ public class VFXManager {
 			customModelDataMap.forEach((uuid, currentModelData) -> {
 				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
 				if (itemDisplayEntity != null) {
-					ItemStack stack = itemDisplayEntity.getItemStack();
+					ItemStack stack = getItemStack(itemDisplayEntity);
 					if (!stack.isEmpty()) {
 						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
 						setItemStack(itemDisplayEntity, itemStack);
