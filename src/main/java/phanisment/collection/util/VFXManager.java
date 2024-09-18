@@ -60,7 +60,6 @@ public class VFXManager {
 				customModelDataMap.remove(uuid);
 			}
 		});
-		});
 	}
 
 	// Reflection 
