@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.entity.EntityType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.nbt.NbtCompound;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -39,11 +40,9 @@ public class VFXManager {
 			for (UUID uuid : customModelDataMap.keySet()) {
 				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
 				if (itemDisplayEntity != null) {
-					ItemStack stack = getItemStack(itemDisplayEntity);
 					int currentModelData = customModelDataMap.get(uuid);
-					if (!stack.isEmpty()) {
-						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
-						setItemStack(itemDisplayEntity, stack);
+					if (currentModelData <= 7) {
+						setCustomModelData(itemDisplayEntity, itemDisplayEntity.getItemStack(), currentModelData);
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
 							toRemove.add(uuid);
@@ -58,6 +57,17 @@ public class VFXManager {
 				customModelDataMap.remove(uuid);
 			}
 		});
+	}
+
+	private static void setCustomModelData(ItemDisplayEntity entity, ItemStack stack, int customModelData) {
+		if (!stack.isEmpty()) {
+			NbtCompound entityNbt = new NbtCompound();
+			writeCustomDataToNbt(entity, entityNbt);
+			entityNbt.putInt("CustomModelData", customModelData);
+			readCustomDataFromNbt(entity, entityNbt);
+			stack.getOrCreateNbt().putInt("CustomModelData", customModelData);
+			setItemStack(entity, stack);
+		}
 	}
 
 	// Reflection 
@@ -80,5 +90,25 @@ public class VFXManager {
 			e.printStackTrace();
 		}
 		return ItemStack.EMPTY;
+	}
+	
+	private static readCustomDataFromNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
+		try {
+			Method getItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_5749", NbtCompound.class);
+			getItemStackMethod.setAccessible(true);
+			return (ItemStack) getItemStackMethod.invoke(itemDisplayEntity, nbt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static writeCustomDataToNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
+		try {
+			Method getItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_5652", NbtCompound.class);
+			getItemStackMethod.setAccessible(true);
+			return (ItemStack) getItemStackMethod.invoke(itemDisplayEntity, nbt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
