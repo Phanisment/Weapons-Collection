@@ -54,8 +54,6 @@ public class VFXManager {
 					}
 				}
 			}
-
-			// Hapus entri dari HashMap setelah iterasi selesai
 			for (UUID uuid : toRemove) {
 				customModelDataMap.remove(uuid);
 			}
