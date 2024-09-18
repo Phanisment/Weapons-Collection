@@ -32,23 +32,31 @@ public class VFXManager {
 
 	public static void registerCustomModelDataUpdater() {
 		ServerTickEvents.END_WORLD_TICK.register(serverWorld -> {
-			customModelDataMap.forEach((uuid, currentModelData) -> {
+			List<UUID> toRemove = new ArrayList<>();  // Daftar sementara untuk entri yang akan dihapus
+			for (UUID uuid : customModelDataMap.keySet()) {
 				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
 				if (itemDisplayEntity != null) {
-					ItemStack stack = getItemStack(itemDisplayEntity);
+					ItemStack stack = itemDisplayEntity.getItemStack();
+					int currentModelData = customModelDataMap.get(uuid);
 					if (!stack.isEmpty()) {
 						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
 						setItemStack(itemDisplayEntity, stack);
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
-							itemDisplayEntity.discard();
-							customModelDataMap.remove(uuid);
+							toRemove.add(uuid);
+							itemDisplayEntity.discard();  // Hapus entity
 						} else {
-							customModelDataMap.put(uuid, newModelData);
+							customModelDataMap.put(uuid, newModelData);  // Perbarui map dengan data yang baru
 						}
 					}
 				}
-			});
+			}
+
+			// Hapus entri dari HashMap setelah iterasi selesai
+			for (UUID uuid : toRemove) {
+				customModelDataMap.remove(uuid);
+			}
+		});
 		});
 	}
 
