@@ -30,7 +30,7 @@ public class VFXManager {
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		itemDisplayEntity.setYaw(yaw);
 		NbtCompound nbt = new NbtCompound();
-		writeCustomDataToNbt(itemDisplayEntity, nbt)
+		writeCustomDataToNbt(itemDisplayEntity, nbt);
 		nbt.putFloat("scaleX", 2.0F);
 		nbt.putFloat("scaleY", 2.0F);
 		nbt.putFloat("scaleZ", 2.0F);
