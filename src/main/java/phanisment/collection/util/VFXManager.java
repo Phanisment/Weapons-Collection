@@ -29,6 +29,7 @@ public class VFXManager {
 		ItemDisplayEntity itemDisplayEntity = new ItemDisplayEntity(EntityType.ITEM_DISPLAY, world);
 		itemDisplayEntity.setPos(pos.x, pos.y, pos.z);
 		itemDisplayEntity.setYaw(yaw);
+		itemDisplayEntity.setScale(2.0F, 2.0F, 2.0F);
 		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
 		customModelDataMap.put(itemDisplayEntity.getUuid(), 1);
@@ -42,7 +43,6 @@ public class VFXManager {
 				if (itemDisplayEntity != null) {
 					int currentModelData = customModelDataMap.get(uuid);
 					if (currentModelData <= 7) {
-						System.out.println(currentModelData);
 						setCustomModelData(itemDisplayEntity, getItemStack(itemDisplayEntity), currentModelData);
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
