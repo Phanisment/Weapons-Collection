@@ -92,7 +92,7 @@ public class VFXManager {
 		return ItemStack.EMPTY;
 	}
 	
-	private static readCustomDataFromNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
+	private static void readCustomDataFromNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
 		try {
 			Method getItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_5749", NbtCompound.class);
 			getItemStackMethod.setAccessible(true);
@@ -102,7 +102,7 @@ public class VFXManager {
 		}
 	}
 	
-	private static writeCustomDataToNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
+	private static void writeCustomDataToNbt(ItemDisplayEntity itemDisplayEntity, NbtCompound nbt) {
 		try {
 			Method getItemStackMethod = ItemDisplayEntity.class.getDeclaredMethod("method_5652", NbtCompound.class);
 			getItemStackMethod.setAccessible(true);
