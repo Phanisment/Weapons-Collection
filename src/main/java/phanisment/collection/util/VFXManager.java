@@ -29,7 +29,27 @@ public class VFXManager {
 		world.spawnEntity(itemDisplayEntity);
 	}
 
-	
+	public static void registerCustomModelDataUpdater() {
+		ServerTickEvents.END_WORLD_TICK.register(serverWorld -> {
+			customModelDataMap.forEach((uuid, currentModelData) -> {
+				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
+				if (itemDisplayEntity != null) {
+					ItemStack stack = itemDisplayEntity.getItemStack();
+					if (!stack.isEmpty()) {
+						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
+						setItemStack(itemDisplayEntity, itemStack);
+						int newModelData = currentModelData + 1;
+						if (newModelData > 7) {
+							itemDisplayEntity.discard();
+							customModelDataMap.remove(uuid);
+						} else {
+							customModelDataMap.put(uuid, newModelData);
+						}
+					}
+				}
+			});
+		});
+	}
 
 	// Reflection 
 	private static void setItemStack(ItemDisplayEntity display, ItemStack item) {
@@ -51,27 +71,5 @@ public class VFXManager {
 			e.printStackTrace();
 		}
 		return ItemStack.EMPTY;
-	}
-	
-	public static void registerCustomModelDataUpdater() {
-		ServerTickEvents.END_WORLD_TICK.register(serverWorld -> {
-			customModelDataMap.forEach((uuid, currentModelData) -> {
-				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
-				if (itemDisplayEntity != null) {
-					ItemStack stack = itemDisplayEntity.getItemStack();
-					if (!stack.isEmpty()) {
-						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
-						itemDisplayEntity.setItemStack(stack);
-						int newModelData = currentModelData + 1;
-						if (newModelData > 7) {
-							itemDisplayEntity.discard();
-							customModelDataMap.remove(uuid);
-						} else {
-							customModelDataMap.put(uuid, newModelData);
-						}
-					}
-				}
-			});
-		});
 	}
 }
