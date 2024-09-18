@@ -27,7 +27,7 @@ public class VFXManager {
 		itemDisplayEntity.setYaw(yaw);
 		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
-		customModelDataMap.put(itemDisplayEntity.getUuid(), 0);
+		customModelDataMap.put(itemDisplayEntity.getUuid(), 1);
 	}
 
 	public static void registerCustomModelDataUpdater() {
