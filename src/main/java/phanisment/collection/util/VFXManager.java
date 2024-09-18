@@ -10,6 +10,9 @@ import net.minecraft.util.math.Vec3d;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 
 public class VFXManager {
 	private static final HashMap<UUID, Integer> customModelDataMap = new HashMap<>();
