@@ -32,11 +32,11 @@ public class VFXManager {
 
 	public static void registerCustomModelDataUpdater() {
 		ServerTickEvents.END_WORLD_TICK.register(serverWorld -> {
-			List<UUID> toRemove = new ArrayList<>();  // Daftar sementara untuk entri yang akan dihapus
+			List<UUID> toRemove = new ArrayList<>();
 			for (UUID uuid : customModelDataMap.keySet()) {
 				ItemDisplayEntity itemDisplayEntity = (ItemDisplayEntity) serverWorld.getEntity(uuid);
 				if (itemDisplayEntity != null) {
-					ItemStack stack = itemDisplayEntity.getItemStack();
+					ItemStack stack = getItemStack(itemDisplayEntity);
 					int currentModelData = customModelDataMap.get(uuid);
 					if (!stack.isEmpty()) {
 						stack.getOrCreateNbt().putInt("CustomModelData", currentModelData);
@@ -44,9 +44,9 @@ public class VFXManager {
 						int newModelData = currentModelData + 1;
 						if (newModelData > 7) {
 							toRemove.add(uuid);
-							itemDisplayEntity.discard();  // Hapus entity
+							itemDisplayEntity.discard();
 						} else {
-							customModelDataMap.put(uuid, newModelData);  // Perbarui map dengan data yang baru
+							customModelDataMap.put(uuid, newModelData);
 						}
 					}
 				}
