@@ -31,13 +31,13 @@ public class VFXManager {
 		itemDisplayEntity.setYaw(yaw);
 		NbtCompound nbt = new NbtCompound();
 		writeCustomDataToNbt(itemDisplayEntity, nbt);
-		nbt.putFloat("scaleX", 2.0F);
-		nbt.putFloat("scaleY", 2.0F);
-		nbt.putFloat("scaleZ", 2.0F);
+		nbt.putFloat("scaleX", 4.0F);
+		nbt.putFloat("scaleY", 4.0F);
+		nbt.putFloat("scaleZ", 4.0F);
 		readCustomDataFromNbt(itemDisplayEntity, nbt);
 		setItemStack(itemDisplayEntity, itemStack);
 		world.spawnEntity(itemDisplayEntity);
-		customModelDataMap.put(itemDisplayEntity.getUuid(), 1);
+		customModelDataMap.put(itemDisplayEntity.getUuid(), 0);
 	}
 
 	public static void registerCustomModelDataUpdater() {
