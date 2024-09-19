@@ -2,10 +2,10 @@ name: Debugging Code
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "VFX-Libs" ]
     paths: [ "src/**" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "VFX-Libs" ]
     paths: [ "src/**" ]
 
 jobs:
