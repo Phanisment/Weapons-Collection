@@ -1,4 +1,4 @@
-package phanisment.collection.registry;
+package phanisment.collection.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
