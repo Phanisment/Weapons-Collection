@@ -5,8 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import phanisment.collection.event.PlayerEvent;
-import phanisment.collection.util.VFXManager;
+import phanisment.collection.entity.EntityRegister;
 
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
@@ -14,7 +13,6 @@ public class Weapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		PlayerEvent.registerEvents();
-		VFXManager.registerCustomModelDataUpdater();
+		EntityRegister.registerEntities();
 	}
 }
