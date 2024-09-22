@@ -19,13 +19,9 @@ public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE,
-		new Identifier(MOD_ID, "tes"),
+	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE, new Identifier(MOD_ID, "tes"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, TesEntity::new)
-			.dimensions(EntityDimensions.fixed(1.0f, 1.0f))
-			.trackRangeBlocks(80)
-			.trackedUpdateRate(3)
-			.build()
+			.dimensions(EntityDimensions.fixed(1.0f, 1.0f)).build()
 	);
 
 	@Override
