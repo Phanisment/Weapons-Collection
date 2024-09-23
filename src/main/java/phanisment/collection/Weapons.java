@@ -2,6 +2,7 @@ package phanisment.collection;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -21,14 +22,13 @@ public class Weapons implements ModInitializer {
 
 	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE, new Identifier(MOD_ID, "tes"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, TesEntity::new)
-			.dimensions(EntityDimensions.fixed(1.0f, 1.0f))
-			.trackRangeBlocks(80)
-			.trackedUpdateRate(3)
-			.build()
+			.dimensions(EntityDimensions.fixed(1f, 1f)).build()
 	);
 
 	@Override
 	public void onInitialize() {
 		LOGGER.info("7 Sin's will come!");
+		
+		FabricDefaultAttributeRegistry.register(TES, TesEntity.createMobAttributes());
 	}
 }

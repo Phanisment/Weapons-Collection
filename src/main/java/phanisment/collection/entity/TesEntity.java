@@ -1,5 +1,6 @@
 package phanisment.collection.entity;
 
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;
@@ -9,7 +10,6 @@ public class TesEntity extends PathAwareEntity {
 		super(entityType, world);
 	}
 
-	@Override
-	protected void initGoals() {
+	public static DefaultAttributeContainer.Builder createPorcupineAttributes() {
 	}
 }
