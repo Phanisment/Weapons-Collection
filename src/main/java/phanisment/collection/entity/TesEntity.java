@@ -6,7 +6,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
 public class TesEntity extends PathAwareEntity {
-	public TesEntity(EntityType<? extends TesEntity> entityType, World world) {
+	public TesEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
 		super(entityType, world);
 	}
 }
