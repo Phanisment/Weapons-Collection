@@ -21,7 +21,10 @@ public class Weapons implements ModInitializer {
 
 	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE, new Identifier(MOD_ID, "tes"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, TesEntity::new)
-			.dimensions(EntityDimensions.fixed(1.0f, 1.0f)).build()
+			.dimensions(EntityDimensions.fixed(1.0f, 1.0f))
+			.trackRangeBlocks(80)
+			.trackedUpdateRate(3)
+			.build()
 	);
 
 	@Override
