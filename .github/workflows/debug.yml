@@ -2,10 +2,10 @@ name: Debugging Code
 
 on:
   push:
-    branches: [ "master", "VFX-Libs" ]
+    branches: [ "master" ]
     paths: [ "src/**" ]
   pull_request:
-    branches: [ "master", "VFX-Libs" ]
+    branches: [ "master" ]
     paths: [ "src/**" ]
 
 jobs:
@@ -25,4 +25,9 @@ jobs:
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
     - name: build
-      run: ./gradlew test
+      run: ./gradlew build
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Artifacts
+        path: build/libs/*.jar
