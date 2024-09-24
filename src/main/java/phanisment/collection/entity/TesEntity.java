@@ -13,7 +13,6 @@ public class TesEntity extends PathAwareEntity {
 	}
 
 	public static DefaultAttributeContainer.Builder createPorcupineAttributes() {
-		return MobEntity.createMobAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 15);
+		return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1);
 	}
 }
