@@ -8,7 +8,8 @@ import net.minecraft.util.Identifier;
 
 import phanisment.collection.entity.TesEntity; 
 import phanisment.collection.Weapons;
-import phanisment.collection.WeaponsClient;
+import phanisment.collection.client.WeaponsClient;
+import phanisment.collection.client.model.TesModel;
 
 public class TesRender extends MobEntityRenderer<TesEntity, TesModel<TesEntity>> {
 	public static final Identifier TEXTURE = Identifier(Weapons.MOD_ID, "textures/entity/slash.png");
@@ -22,7 +23,7 @@ public class TesRender extends MobEntityRenderer<TesEntity, TesModel<TesEntity>>
 		return TEXTURE;
 	}
 
-	public void render(PorcupineEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+	public void render(TesEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
 		super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
 	}
 }
