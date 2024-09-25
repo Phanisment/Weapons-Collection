@@ -27,7 +27,6 @@ public class Weapons implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("7 Sin's will come!");
-		
 		FabricDefaultAttributeRegistry.register(TES, TesEntity.createMobAttributes());
 	}
 }
