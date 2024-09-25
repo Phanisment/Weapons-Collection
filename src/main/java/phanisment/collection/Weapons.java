@@ -9,7 +9,6 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

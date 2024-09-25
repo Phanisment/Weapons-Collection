@@ -11,11 +11,11 @@ import phanisment.collection.Weapons;
 import phanisment.collection.client.WeaponsClient;
 import phanisment.collection.client.model.TesModel;
 
-public class TesRender extends MobEntityRenderer<TesEntity, TesModel<TesEntity>> {
-	public static final Identifier TEXTURE = Identifier(Weapons.MOD_ID, "textures/entity/slash.png");
+public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
+	public static final Identifier TEXTURE = new Identifier(Weapons.MOD_ID, "textures/entity/slash.png");
 	
 	public TesRender(EntityRendererFactory.Context context) {
-		super(context, new TesModel<>(context.getPart(WeaponsClient.SLASH_MODEL_LAYER)), 0.6f);
+		super(context, new TesModel(context.getPart(WeaponsClient.SLASH_MODEL_LAYER)), 0.6f);
 	}
 
 	@Override
