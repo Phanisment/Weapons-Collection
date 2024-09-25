@@ -29,6 +29,11 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"another-mod": "*",
+		"blockbench-import-library": "*",
+		"polymer-core": "*",
+		"polymer-networking": "*",
+		"polymer-virtual-entity": "*",
+		"polymer-resource-pack": "*"
 	}
 }
