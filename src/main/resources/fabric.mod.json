@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"phanisment.collection.Weapons"
+		],
+		"client": [
+			"phanisment.collection.WeaponsClient"
 		]
 	},
 	"mixins": [
