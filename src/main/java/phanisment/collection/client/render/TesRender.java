@@ -29,8 +29,7 @@ public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
 	@Override
 	public Identifier getTexture(TesEntity entity) {
 		int tick = entity.getTickCounter();
-		int index = (tick / 1) % TEXTURE.length;
-		return TEXTURE[index];
+		return TEXTURE[tick];
 	}
 
 	@Override
