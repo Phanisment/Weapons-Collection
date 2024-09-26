@@ -22,7 +22,7 @@ public class TesEntity extends AnimalEntity {
 	public void tick() {
 		super.tick();
 		
-		this.tickCounter++
+		this.tickCounter++;
 		
 		if (!this.getWorld().isClient) {
 			if (this.lifeTime-- <= 0) {
