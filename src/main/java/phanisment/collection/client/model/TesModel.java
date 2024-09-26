@@ -3,14 +3,12 @@ package phanisment.collection.client.model;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 import phanisment.collection.entity.TesEntity;
 
-public class TesModel<T extends TesEntity> extends SinglePartEntityModel<T> {
+public class TesModel extends EntityModel<TesEntity> {
 	private final ModelPart Body;
 
 	public TesModel(ModelPart root) {
@@ -26,10 +24,11 @@ public class TesModel<T extends TesEntity> extends SinglePartEntityModel<T> {
 
 	@Override
 	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		
 	}
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		porcupine.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+		Body.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 }

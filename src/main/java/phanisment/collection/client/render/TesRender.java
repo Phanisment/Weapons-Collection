@@ -11,11 +11,11 @@ import phanisment.collection.client.RegisterModelLayers;
 import phanisment.collection.client.model.TesModel;
 import phanisment.collection.entity.TesEntity;
 
-public class TesRender extends MobEntityRenderer<TesEntity, TesModel<TesEntity>> {
+public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
 	private static final Identifier TEXTURE = new Identifier(Weapons.MOD_ID, "textures/entity/tes.png");
 
 	public TesRenderer(EntityRendererFactory.Context context) {
-		super(context, new TesModel<>(context.getPart(RegisterModelLayers.TES)), 0.6f);
+		super(context, new TesModel(context.getPart(RegisterModelLayers.TES)), 0.6f);
 	}
 
 	@Override
