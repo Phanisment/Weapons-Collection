@@ -4,8 +4,6 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
-
 import phanisment.collection.entity.TesEntity;
 
 public class TesModel extends EntityModel<TesEntity> {
@@ -23,8 +21,7 @@ public class TesModel extends EntityModel<TesEntity> {
 	}
 
 	@Override
-	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		
+	public void setAngles(TesEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 	}
 
 	@Override
