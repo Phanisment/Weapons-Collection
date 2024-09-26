@@ -12,7 +12,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class TesEntity extends AnimalEntity {
-	private int lifeTime = 7;
+	private int lifeTime = 6;
 	private int tickCounter = 0;
 
 	public TesEntity(EntityType<? extends AnimalEntity> entityType, World world) {
