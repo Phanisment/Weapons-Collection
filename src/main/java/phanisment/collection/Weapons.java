@@ -2,8 +2,13 @@ package phanisment.collection;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import phanisment.collection.entity.RegisterEntities;
+import phanisment.collection.entity.TesEntity;
 
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
@@ -11,6 +16,6 @@ public class Weapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("7 Sin's will come!");
+		FabricDefaultAttributeRegistry.register(RegisterEntities.TES, TesEntity.createAttributes());
 	}
 }

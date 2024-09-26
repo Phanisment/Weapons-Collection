@@ -11,8 +11,7 @@ base {
 }
 
 repositories {
-	maven { url 'https://maven.tomalbrc.de' } // blockbench-import-library
-	maven { url 'https://maven.nucleoid.xyz' } // Polymer
+	
 }
 
 fabricApi {
@@ -24,19 +23,9 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	
+
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
-	// blockbench-import-library
-	modImplementation include("de.tomalbrc:blockbench-import-library:${project.bil_version}")
-	
-	// Polymer
-	modImplementation "eu.pb4:polymer-core:${project.polymer_version}"
-	modImplementation "eu.pb4:polymer-networking:${project.polymer_version}"
-	modImplementation "eu.pb4:polymer-resource-pack:${project.polymer_version}"
-	modImplementation "eu.pb4:polymer-virtual-entity:${project.polymer_version}"
-	modRuntimeOnly "eu.pb4:polymer-autohost:${project.polymer_version}"
 }
 
 processResources {
