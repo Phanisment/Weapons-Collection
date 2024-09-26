@@ -1,6 +1,8 @@
 package phanisment.collection.entity;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -18,7 +20,7 @@ public class TesEntity extends AnimalEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		if (!this.world.isClient) {
+		if (!this.getWorld().isClient) {
 			if (this.lifeTime-- <= 0) {
 				this.discard();
 			}
@@ -26,12 +28,7 @@ public class TesEntity extends AnimalEntity {
 	}
 
 	@Override
-	public boolean collides() {
-		return false;
-	}
-
-	@Override
-	public boolean isPushable() {
+	public boolean isPushableByFluids() {
 		return false;
 	}
 
@@ -46,5 +43,9 @@ public class TesEntity extends AnimalEntity {
 	@Override
 	public TesEntity createChild(ServerWorld world, PassiveEntity mate) {
 		return null;
+	}
+
+	public static DefaultAttributeContainer.Builder createAttributes() {
+		return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
 	}
 }
