@@ -5,6 +5,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.World;
+import net.minecraft.entity.passive.AnimalEntity;
 
 public class TesEntity extends AnimalEntity {
 	public TesEntity(EntityType<? extends AnimalEntity> entityType, World world) {
