@@ -28,15 +28,6 @@ public class TesEntity extends AnimalEntity {
 	}
 
 	@Override
-	public boolean isPushableByFluids() {
-		return false;
-	}
-
-	@Override
-	public void move(Vec3d movementInput) {
-	}
-
-	@Override
 	public void baseTick() {
 	}
 
