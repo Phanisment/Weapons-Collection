@@ -9,7 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import phanisment.collection.entity.TesEntity;
-import phanisment.collection.Weapons
+import phanisment.collection.Weapons;
 
 public class RegisterEntities {
 	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE,

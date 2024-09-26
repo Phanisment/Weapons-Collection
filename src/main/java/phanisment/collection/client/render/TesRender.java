@@ -14,7 +14,7 @@ import phanisment.collection.entity.TesEntity;
 public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
 	private static final Identifier TEXTURE = new Identifier(Weapons.MOD_ID, "textures/entity/tes.png");
 
-	public TesRenderer(EntityRendererFactory.Context context) {
+	public TesRender(EntityRendererFactory.Context context) {
 		super(context, new TesModel(context.getPart(RegisterModelLayers.TES)), 0.6f);
 	}
 

@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
 import phanisment.collection.client.RegisterModelLayers;
 import phanisment.collection.entity.RegisterEntities;
-import phanisment.collection.entity.TesEntity
+import phanisment.collection.entity.TesEntity;
 import phanisment.collection.client.render.TesRender;
 import phanisment.collection.client.model.TesModel;
 
