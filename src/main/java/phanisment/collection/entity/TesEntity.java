@@ -60,21 +60,6 @@ public class TesEntity extends AnimalEntity {
 		return true;
 	}
 
-	@Override
-	public boolean handleStatus(byte status) {
-		return false;
-	}
-
-	@Override
-	public boolean canHit() {
-		return false;
-	}
-
-	@Override
-	public boolean canBeHit() {
-		return false;
-	}
-
 	public static DefaultAttributeContainer.Builder createAttributes() {
 		return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
 	}
