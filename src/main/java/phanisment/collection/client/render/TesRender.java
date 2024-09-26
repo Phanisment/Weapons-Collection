@@ -20,7 +20,7 @@ public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
 		new Identifier(Weapons.MOD_ID, "textures/entity/hellfire_talon/slash_5.png"),
 		new Identifier(Weapons.MOD_ID, "textures/entity/hellfire_talon/slash_6.png"),
 		new Identifier(Weapons.MOD_ID, "textures/entity/hellfire_talon/slash_7.png")
-	}
+	};
 
 	public TesRender(EntityRendererFactory.Context context) {
 		super(context, new TesModel(context.getPart(RegisterModelLayers.TES)), 0.6f);
