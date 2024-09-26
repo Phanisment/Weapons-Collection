@@ -16,8 +16,8 @@ public class TesModel extends EntityModel<TesEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData Body = modelPartData.addChild("Body", ModelPartBuilder.create().uv(-64, 0).cuboid(-32.0F, 0.0F, -32.0F, 64.0F, 0.0F, 64.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-		return TexturedModelData.of(modelData, 64, 64);
+		ModelPartData bb_main = modelPartData.addChild("Body", ModelPartBuilder.create().uv(-64, 0).cuboid(-32.0F, 0.0F, -32.0F, 64.0F, 0.0F, 64.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		return TexturedModelData.of(modelData, 128, 128);
 	}
 
 	@Override
