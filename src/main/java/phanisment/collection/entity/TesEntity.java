@@ -11,7 +11,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class TesEntity extends AnimalEntity {
-	private int lifeTime = 100;
+	private int lifeTime = 7;
+	private int tickCounter = 0;
 
 	public TesEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
@@ -20,11 +21,18 @@ public class TesEntity extends AnimalEntity {
 	@Override
 	public void tick() {
 		super.tick();
+		
+		this.tickCounter++
+		
 		if (!this.getWorld().isClient) {
 			if (this.lifeTime-- <= 0) {
 				this.discard();
 			}
 		}
+	}
+	
+	public int getTickCounter() {
+		return this.tickCounter;
 	}
 
 	@Override
@@ -32,8 +40,38 @@ public class TesEntity extends AnimalEntity {
 	}
 
 	@Override
+	public boolean hasNoGravity() {
+		return true;
+	}
+
+	@Override
+	public boolean damage(DamageSource source, float amount) {
+		return false;
+	}
+
+	@Override
 	public TesEntity createChild(ServerWorld world, PassiveEntity mate) {
 		return null;
+	}
+
+	@Override
+	public boolean isInvulnerableTo(DamageSource damageSource) {
+		return true;
+	}
+
+	@Override
+	public boolean handleStatus(byte status) {
+		return false;
+	}
+
+	@Override
+	public boolean canHit() {
+		return false;
+	}
+
+	@Override
+	public boolean canBeHit() {
+		return false;
 	}
 
 	public static DefaultAttributeContainer.Builder createAttributes() {
