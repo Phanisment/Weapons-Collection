@@ -5,6 +5,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -14,24 +15,37 @@ import net.minecraft.world.World;
 public class TesEntity extends AnimalEntity {
 	private int lifeTime = 6;
 	private int tickCounter = 0;
+	private final PlayerEntity summoner;
 
-	public TesEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+	public TesEntity(EntityType<? extends AnimalEntity> entityType, World world, PlayerEntity summoner) {
 		super(entityType, world);
+		this.summoner = summoner;
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
-		
 		this.tickCounter++;
 		
 		if (!this.getWorld().isClient) {
+			this.damageEntitiesInHitbox();
+			
 			if (this.lifeTime-- <= 0) {
 				this.discard();
 			}
 		}
 	}
-	
+
+	public void damageEntitiesInHitbox() {
+		Box hitbox = this.getBoundingBox();
+		List<Entity> entities = this.getWorld().getOtherEntities(this, hitbox);
+		for (Entity entity : entities) {
+			if (entity instanceof PlayerEntity && entity != summoner) {
+				entity.damage(DamageSource.mob(summoner), 5.0F);
+			}
+		}
+	}
+
 	public int getTickCounter() {
 		return this.tickCounter;
 	}
@@ -46,8 +60,7 @@ public class TesEntity extends AnimalEntity {
 	}
 
 	@Override
-	public boolean damage(DamageSource source, float amount) {
-		return false;
+	public void pushAway(Entity entity) {
 	}
 
 	@Override

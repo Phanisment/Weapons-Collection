@@ -14,7 +14,7 @@ import phanisment.collection.Weapons;
 public class RegisterEntities {
 	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE,
 		new Identifier(Weapons.MOD_ID, "tes"),
-		FabricEntityTypeBuilder.create(SpawnGroup.MISC, TesEntity::new).dimensions(EntityDimensions.fixed(1f, 1f)).build()
+		FabricEntityTypeBuilder.create(SpawnGroup.MISC, TesEntity::new).dimensions(EntityDimensions.fixed(2.5f, 0.1f)).build()
 	);
 
 	public static void registerModEntities() {
