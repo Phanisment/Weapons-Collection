@@ -7,11 +7,14 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.Box;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class FlameSlashEntity extends AnimalEntity {
 	private int lifeTime = 6;
@@ -27,9 +30,19 @@ public class FlameSlashEntity extends AnimalEntity {
 		this.tickCounter++;
 		
 		if (!this.getWorld().isClient) {
+			this.damageEntitiesInHitbox();
+			
 			if (this.lifeTime-- <= 0) {
 				this.discard();
 			}
+		}
+	}
+
+	public void damageEntitiesInHitbox() {
+		Box hitbox = this.getBoundingBox();
+		List<Entity> entities = this.getWorld().getOtherEntities(this, hitbox);
+		for (Entity entity : entities) {
+			entity.damage(DamageSource.mob(this), 5.0F);
 		}
 	}
 
