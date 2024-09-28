@@ -23,7 +23,7 @@ public class FlameSlashRender extends MobEntityRenderer<FlameSlashEntity, FlameS
 	};
 
 	public FlameSlashRender(EntityRendererFactory.Context context) {
-		super(context, new TesModel(context.getPart(RegisterModelLayers.TES)), 0.6f);
+		super(context, new FlameSlashModel(context.getPart(RegisterModelLayers.FLAME_SLASH)), 0.6f);
 	}
 
 	@Override

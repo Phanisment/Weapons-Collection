@@ -37,16 +37,6 @@ public class FlameSlashEntity extends AnimalEntity {
 		}
 	}
 
-	public void damageEntitiesInHitbox() {
-		Box hitbox = this.getBoundingBox();
-		List<Entity> entities = this.getWorld().getOtherEntities(this, hitbox);
-		for (Entity entity : entities) {
-			if (entity instanceof PlayerEntity && entity != summoner) {
-				entity.damage(DamageSource.mob(summoner), 5.0F);
-			}
-		}
-	}
-
 	public int getTickCounter() {
 		return this.tickCounter;
 	}
