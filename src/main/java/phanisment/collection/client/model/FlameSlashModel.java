@@ -4,12 +4,12 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import phanisment.collection.entity.TesEntity;
+import phanisment.collection.entity.FlameSlashEntity;
 
-public class TesModel extends EntityModel<TesEntity> {
+public class FlameSlashModel extends EntityModel<FlameSlashEntity> {
 	private final ModelPart Body;
 
-	public TesModel(ModelPart root) {
+	public FlameSlashModel(ModelPart root) {
 		this.Body = root.getChild("Body");
 	}
 
@@ -21,7 +21,7 @@ public class TesModel extends EntityModel<TesEntity> {
 	}
 
 	@Override
-	public void setAngles(TesEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(FlameSlashEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 	}
 
 	@Override

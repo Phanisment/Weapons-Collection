@@ -8,13 +8,13 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import phanisment.collection.entity.TesEntity;
+import phanisment.collection.entity.FlameSlashEntity;
 import phanisment.collection.Weapons;
 
 public class RegisterEntities {
-	public static final EntityType<TesEntity> TES = Registry.register(Registries.ENTITY_TYPE,
-		new Identifier(Weapons.MOD_ID, "tes"),
-		FabricEntityTypeBuilder.create(SpawnGroup.MISC, TesEntity::new).dimensions(EntityDimensions.fixed(2.5f, 0.1f)).build()
+	public static final EntityType<FlameSlashEntity> FLAME_SLASH = Registry.register(Registries.ENTITY_TYPE,
+		new Identifier(Weapons.MOD_ID, "flame_slash"),
+		FabricEntityTypeBuilder.create(SpawnGroup.MISC, FlameSlashEntity::new).dimensions(EntityDimensions.fixed(2.5f, 0.1f)).build()
 	);
 
 	public static void registerModEntities() {

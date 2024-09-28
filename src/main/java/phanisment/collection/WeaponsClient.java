@@ -6,14 +6,14 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
 import phanisment.collection.client.RegisterModelLayers;
 import phanisment.collection.entity.RegisterEntities;
-import phanisment.collection.entity.TesEntity;
-import phanisment.collection.client.render.TesRender;
-import phanisment.collection.client.model.TesModel;
+import phanisment.collection.entity.FlameSlashEntity;
+import phanisment.collection.client.render.FlameSlashRender;
+import phanisment.collection.client.model.FlameSlashModel;
 
 public class WeaponsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		EntityRendererRegistry.register(RegisterEntities.TES, TesRender::new);
-		EntityModelLayerRegistry.registerModelLayer(RegisterModelLayers.TES, TesModel::getTexturedModelData);
+		EntityRendererRegistry.register(RegisterEntities.FLAME_SLASH, FlameSlashRender::new);
+		EntityModelLayerRegistry.registerModelLayer(RegisterModelLayers.FLAME_SLASH, FlameSlashModel::getTexturedModelData);
 	}
 }

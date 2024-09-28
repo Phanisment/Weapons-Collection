@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -12,12 +13,12 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class TesEntity extends AnimalEntity {
+public class FlameSlashEntity extends AnimalEntity {
 	private int lifeTime = 6;
 	private int tickCounter = 0;
 	private final PlayerEntity summoner;
 
-	public TesEntity(EntityType<? extends AnimalEntity> entityType, World world, PlayerEntity summoner) {
+	public FlameSlashEntity(EntityType<? extends AnimalEntity> entityType, World world, PlayerEntity summoner) {
 		super(entityType, world);
 		this.summoner = summoner;
 	}
