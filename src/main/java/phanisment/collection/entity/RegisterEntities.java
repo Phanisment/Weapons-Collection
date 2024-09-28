@@ -16,8 +16,4 @@ public class RegisterEntities {
 		new Identifier(Weapons.MOD_ID, "flame_slash"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, FlameSlashEntity::new).dimensions(EntityDimensions.fixed(2.5f, 0.1f)).build()
 	);
-
-	public static void registerModEntities() {
-		Weapons.LOGGER.info("Registering Entities for " + Weapons.MOD_ID);
-	}
 }

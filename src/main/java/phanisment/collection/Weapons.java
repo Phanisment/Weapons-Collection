@@ -16,6 +16,8 @@ public class Weapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		RegisterItems.register();
+		
 		FabricDefaultAttributeRegistry.register(RegisterEntities.FLAME_SLASH, FlameSlashEntity.createAttributes());
 	}
 }
