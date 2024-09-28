@@ -27,7 +27,7 @@ public class FlameSlashRender extends MobEntityRenderer<FlameSlashEntity, FlameS
 	}
 
 	@Override
-	public Identifier getTexture(TesEntity entity) {
+	public Identifier getTexture(FlameSlashEntity entity) {
 		int tick = entity.getTickCounter();
 		if(tick > 6) {
 			tick = 6;

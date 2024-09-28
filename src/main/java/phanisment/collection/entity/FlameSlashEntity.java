@@ -65,7 +65,7 @@ public class FlameSlashEntity extends AnimalEntity {
 	}
 
 	@Override
-	public TesEntity createChild(ServerWorld world, PassiveEntity mate) {
+	public FlameSlashEntity createChild(ServerWorld world, PassiveEntity mate) {
 		return null;
 	}
 
