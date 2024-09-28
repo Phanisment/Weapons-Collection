@@ -19,7 +19,6 @@ public class FlameSlashEntity extends AnimalEntity {
 
 	public FlameSlashEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
-		this.summoner = summoner;
 	}
 
 	@Override
