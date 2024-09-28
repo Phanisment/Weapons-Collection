@@ -23,6 +23,6 @@ public class RegisterItems {
 	}
 	
 	public static void register() {
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(this::addToItemsGroup);
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(RegisterItems::addToItemsGroup);
 	}
 }
