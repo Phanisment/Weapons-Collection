@@ -3,7 +3,8 @@
 	"parent": "generated/item",
 	"texture_size": [48, 48],
 	"textures": {
-		"0": "item/hellfire_talon_layer",
+		"0": "item/hellfire_talon",
+		"1": "item/hellfire_talon_layer",
 		"particle": "item/hellfire_talon"
 	},
 	"elements": [
@@ -123,12 +124,12 @@
 			"to": [24, 32, 8.1],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 25, 8.3]},
 			"faces": {
-				"north": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"east": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"south": {"uv": [13.33333, 0, 0, 6.66667], "texture": "#0"},
-				"west": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"up": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"down": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"}
+				"north": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"east": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"south": {"uv": [13.33333, 0, 0, 6.66667], "texture": "#1"},
+				"west": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"up": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"down": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"}
 			}
 		},
 		{
@@ -136,12 +137,12 @@
 			"to": [24, 32, 7.9],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 25, 8.3]},
 			"faces": {
-				"north": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"east": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"south": {"uv": [13.33333, 0, 0, 6.66667], "texture": "#0"},
-				"west": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"up": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"},
-				"down": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#0"}
+				"north": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"east": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"south": {"uv": [13.33333, 0, 0, 6.66667], "texture": "#1"},
+				"west": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"up": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"},
+				"down": {"uv": [0, 0, 13.33333, 6.66667], "texture": "#1"}
 			}
 		},
 		{
