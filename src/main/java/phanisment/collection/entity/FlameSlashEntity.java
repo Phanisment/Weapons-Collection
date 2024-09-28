@@ -16,9 +16,8 @@ import net.minecraft.world.World;
 public class FlameSlashEntity extends AnimalEntity {
 	private int lifeTime = 6;
 	private int tickCounter = 0;
-	private final PlayerEntity summoner;
 
-	public FlameSlashEntity(EntityType<? extends AnimalEntity> entityType, World world, PlayerEntity summoner) {
+	public FlameSlashEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
 		this.summoner = summoner;
 	}
