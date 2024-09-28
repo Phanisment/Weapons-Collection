@@ -13,16 +13,8 @@ import phanisment.collection.Weapons;
 
 public class RegisterItems {
 	public static final Item HELLFIRE_TALON = registerItem("hellfire_talon", new Item(new FabricItemSettings()));
-	
-	private static void addToItemsGroup(FabricItemGroupEntries item) {
-		item.add(HELLFIRE_TALON);
-	}
-	
+
 	private static Item registerItem(String name, Item item) {
 		return Registry.register(Registries.ITEM, new Identifier(Weapons.MOD_ID, name), item);
-	}
-	
-	public static void register() {
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(RegisterItems::addToItemsGroup);
 	}
 }

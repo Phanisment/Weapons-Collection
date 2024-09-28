@@ -14,6 +14,6 @@ import phanisment.collection.Weapons;
 public class RegisterEntities {
 	public static final EntityType<FlameSlashEntity> FLAME_SLASH = Registry.register(Registries.ENTITY_TYPE,
 		new Identifier(Weapons.MOD_ID, "flame_slash"),
-		FabricEntityTypeBuilder.create(SpawnGroup.MISC, FlameSlashEntity::new).dimensions(EntityDimensions.fixed(2.5f, 0.1f)).build()
+		FabricEntityTypeBuilder.create(SpawnGroup.MISC, FlameSlashEntity::new).dimensions(EntityDimensions.fixed(5.5f, 0.1f)).build()
 	);
 }

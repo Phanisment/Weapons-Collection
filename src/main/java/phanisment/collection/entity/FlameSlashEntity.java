@@ -27,8 +27,6 @@ public class FlameSlashEntity extends AnimalEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		this.tickCounter++;
-		
 		if (!this.getWorld().isClient) {
 			if (this.lifeTime-- <= 0) {
 				this.discard();

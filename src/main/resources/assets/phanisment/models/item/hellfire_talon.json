@@ -3,9 +3,9 @@
 	"parent": "generated/item",
 	"texture_size": [48, 48],
 	"textures": {
-		"0": "item/hellfire_talon",
-		"1": "item/hellfire_talon_layer",
-		"particle": "item/hellfire_talon"
+		"0": "phanisment:item/hellfire_talon",
+		"1": "phanisment:item/hellfire_talon_layer",
+		"particle": "phanisment:item/hellfire_talon"
 	},
 	"elements": [
 		{

@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import phanisment.collection.item.RegisterItems;
 import phanisment.collection.entity.RegisterEntities;
 import phanisment.collection.entity.FlameSlashEntity;
 
@@ -17,8 +16,6 @@ public class Weapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		RegisterItems.register();
-		
 		FabricDefaultAttributeRegistry.register(RegisterEntities.FLAME_SLASH, FlameSlashEntity.createAttributes());
 	}
 }
