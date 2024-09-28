@@ -8,10 +8,10 @@ import net.minecraft.util.Identifier;
 
 import phanisment.collection.Weapons;
 import phanisment.collection.client.RegisterModelLayers;
-import phanisment.collection.client.model.TesModel;
-import phanisment.collection.entity.TesEntity;
+import phanisment.collection.client.model.FlameSlashModel;
+import phanisment.collection.entity.FlameSlashEntity;
 
-public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
+public class FlameSlashRender extends MobEntityRenderer<FlameSlashEntity, FlameSlashModel> {
 	private static final Identifier[] TEXTURE = {
 		new Identifier(Weapons.MOD_ID, "textures/entity/hellfire_talon/slash_1.png"),
 		new Identifier(Weapons.MOD_ID, "textures/entity/hellfire_talon/slash_2.png"),
@@ -22,7 +22,7 @@ public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
 		new Identifier(Weapons.MOD_ID, "textures/entity/hellfire_talon/slash_7.png")
 	};
 
-	public TesRender(EntityRendererFactory.Context context) {
+	public FlameSlashRender(EntityRendererFactory.Context context) {
 		super(context, new TesModel(context.getPart(RegisterModelLayers.TES)), 0.6f);
 	}
 
@@ -36,7 +36,7 @@ public class TesRender extends MobEntityRenderer<TesEntity, TesModel> {
 	}
 
 	@Override
-	public void render(TesEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+	public void render(FlameSlashEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
 		super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
 	}
 }
