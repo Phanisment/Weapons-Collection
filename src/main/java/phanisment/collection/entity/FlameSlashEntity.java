@@ -30,8 +30,6 @@ public class FlameSlashEntity extends AnimalEntity {
 		this.tickCounter++;
 		
 		if (!this.getWorld().isClient) {
-			this.damageEntitiesInHitbox();
-			
 			if (this.lifeTime-- <= 0) {
 				this.discard();
 			}
