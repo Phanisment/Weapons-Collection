@@ -1,8 +1,5 @@
 package phanisment.collection.item.mechanic;
 
-import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
-import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,34 +16,8 @@ import phanisment.collection.entity.FlameSlashEntity;
 public class HellfireTalonItem extends Item {
 	public HellfireTalonItem(Settings settings) {
 		super(settings);
-		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
-			if (hand == Hand.MAIN_HAND && player.getStackInHand(hand).getItem() instanceof SlashSummonItem) {
-				spawnSlash(world, player);
-				return ActionResult.SUCCESS;
-			}
-			return ActionResult.PASS;
-		});
-
-		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-			if (hand == Hand.MAIN_HAND && player.getStackInHand(hand).getItem() instanceof SlashSummonItem) {
-				spawnSlash(world, player);
-				return ActionResult.SUCCESS;
-			}
-			return ActionResult.PASS;
-		});
-
-		UseItemCallback.EVENT.register((player, world, hand) -> {
-			if (hand == Hand.MAIN_HAND && player.getStackInHand(hand).getItem() instanceof SlashSummonItem) {
-				HitResult hitResult = player.raycast(5.0D, 0.0F, false);
-				if (hitResult.getType() == HitResult.Type.MISS) {
-					spawnSlash(world, player);
-					return ActionResult.SUCCESS;
-				}
-			}
-			return ActionResult.PASS;
-		});
 	}
-
+	
 	@Override
 	public boolean postHit(ItemStack stack, PlayerEntity target, PlayerEntity attacker) {
 		stack.damage(1, attacker, (p) -> p.sendToolBreakStatus(Hand.MAIN_HAND));
