@@ -19,4 +19,8 @@ public class ItemsGroup {
 			item.add(RegisterItems.HELLFIRE_TALON);
 		}).build()
 	);
+	
+	public static void register() {
+		Weapons.LOGGER.info("Register Item Groups in" + Weapons.MOD_ID);
+	}
 }
