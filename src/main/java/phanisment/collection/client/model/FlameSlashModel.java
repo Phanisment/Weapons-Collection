@@ -16,8 +16,8 @@ public class FlameSlashModel extends EntityModel<FlameSlashEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData Body = modelPartData.addChild("Body", ModelPartBuilder.create().uv(-64, 0).cuboid(-32.0F, 0.0F, -32.0F, 64.0F, 0.0F, 64.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-		return TexturedModelData.of(modelData, 128, 128);
+		ModelPartData Body = modelPartData.addChild("Body", ModelPartBuilder.create().uv(-80, 0).cuboid(-40.0F, 0.0F, -40.0F, 80.0F, 0.0F, 80.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		return TexturedModelData.of(modelData, 160, 160);
 	}
 
 	@Override

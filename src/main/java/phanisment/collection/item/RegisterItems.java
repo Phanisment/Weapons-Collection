@@ -10,10 +10,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import phanisment.collection.Weapons;
-import phanisment.collection.item.mechanic.HellfireTalonItem;
 
 public class RegisterItems {
-	public static final Item HELLFIRE_TALON = registerItem("hellfire_talon", new HellfireTalonItem(new FabricItemSettings()));
+	public static final Item HELLFIRE_TALON = registerItem("hellfire_talon", new Item(new FabricItemSettings()));
 
 	private static Item registerItem(String name, Item item) {
 		return Registry.register(Registries.ITEM, new Identifier(Weapons.MOD_ID, name), item);
