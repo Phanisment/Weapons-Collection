@@ -36,7 +36,7 @@ public class HellfireTalonItem extends Item {
 			double x = player.getX() + lookVec.x * 0.5;
 			double y = player.getY() + lookVec.y * 0.5 + 1.5;
 			double z = player.getZ() + lookVec.z * 0.5;
-			FlameSlashEntity slashEntity = new FlameSlashEntity(RegisterEntities.HELLFIRE_TALON, world);
+			FlameSlashEntity slashEntity = new FlameSlashEntity(RegisterEntities.FLAME_SLASH, world);
 			slashEntity.setPos(x, y, z);
 			slashEntity.setYaw(player.getYaw());
 			world.spawnEntity(slashEntity);
