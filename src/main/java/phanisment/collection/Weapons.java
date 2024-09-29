@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import phanisment.collection.entity.RegisterEntities;
 import phanisment.collection.entity.FlameSlashEntity;
 import phanisment.collection.item.ItemsGroup;
+import phanisment.collection.item.RegisterItems;
 
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
@@ -18,6 +19,8 @@ public class Weapons implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ItemsGroup.register();
+		RegisterItems.register();
+		
 		FabricDefaultAttributeRegistry.register(RegisterEntities.FLAME_SLASH, FlameSlashEntity.createAttributes());
 	}
 }
