@@ -1,6 +1,4 @@
 {
-	"credit": "Create by Phanisment#0000",
-	"parent": "generated/item",
 	"texture_size": [48, 48],
 	"textures": {
 		"0": "phanisment:item/hellfire_talon",

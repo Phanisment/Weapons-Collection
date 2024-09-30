@@ -17,10 +17,10 @@ public class ItemsGroup {
 		new Identifier(Weapons.MOD_ID, "weapons"), 
 		FabricItemGroup.builder().displayName(Text.translatable("itemgroup.phanisment.weapons")).icon(() -> new ItemStack(RegisterItems.HELLFIRE_TALON)).entries((displayContext, item) -> {
 			item.add(RegisterItems.HELLFIRE_TALON);
+			item.add(RegisterItems.FROSTFANG_SPEAR);
 		}).build()
 	);
 	
 	public static void register() {
-		Weapons.LOGGER.info("Register Item Groups in" + Weapons.MOD_ID);
 	}
 }
