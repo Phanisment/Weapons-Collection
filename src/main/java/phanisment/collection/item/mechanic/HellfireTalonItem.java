@@ -19,7 +19,7 @@ public class HellfireTalonItem extends SwordItem {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (!world.isClient) {
-			player.sendMessage("Item Activated!", true);
+			
 		}
 
 		return TypedActionResult.success(itemStack);
