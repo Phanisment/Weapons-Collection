@@ -2,7 +2,7 @@ package phanisment.collection.item.mechanic;
 
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
-import net.minecraft.item.Rarity;
+import net.minecraft.util.Rarity;
 
 public class HellfireTalonItem extends SwordItem {
 	public HellfireTalonItem() {
