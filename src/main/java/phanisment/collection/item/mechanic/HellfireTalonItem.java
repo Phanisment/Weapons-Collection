@@ -20,13 +20,12 @@ public class HellfireTalonItem extends SwordItem {
 	
 	@Override
 	public boolean postHit(LivingEntity target, PlayerEntity player) {
-		super.postHit(target, player);
 		if (player.isOnGround() && !player.getAttackCooldownProgress(0.5f) < 1.0f) {
-			if (player.getWorld().getEntitiesByClass(LivingEntity.class, new Box(player.getPos().add(-3.0D, -1.0D, -3.0D), player.getPos().add(3.0D, 1.0D, 3.0D)), entity -> entity != player && entity != target && !player.isTeammate(entity)).size() > 0) {
+			if (player.getWorld().getEntitiesByClass(LivingEntity.class, new Box(player.getPos().add(-3.0D, -1.0D, -3.0D), player.getPos().add(3.0D, 1.0D, 3.0D)), entity -> entity != player && entity != target && player.isTeammate(entity)).size() > 0) {
 				slash(player);
 			}
 		}
-		return true;
+		return super.postHit(target, player);
 	}
 	
 	private void slash(PlayerEntity player) {
