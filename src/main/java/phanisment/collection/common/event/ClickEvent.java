@@ -23,13 +23,13 @@ public class ClickEvent {
 		});
 	}
 	
-	private void leftClick(MinecraftClient mc) {
+	private static void leftClick(MinecraftClient mc) {
 		HellfireTalonSkill.slashSkill(mc);
 	}
-	private void rightClick(MinecraftClient mc) {
+	private static void rightClick(MinecraftClient mc) {
 		
 	}
-	private void sneak(MinecraftClient mc) {
+	private static void sneak(MinecraftClient mc) {
 		
 	}
 }
