@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
@@ -19,13 +20,11 @@ public class HellfireTalonItem extends SwordItem {
 	}
 	
 	@Override
-	public boolean postHit(LivingEntity target, PlayerEntity player) {
-		if (player.isOnGround() && !player.getAttackCooldownProgress(0.5f) < 1.0f) {
-			if (player.getWorld().getEntitiesByClass(LivingEntity.class, new Box(player.getPos().add(-3.0D, -1.0D, -3.0D), player.getPos().add(3.0D, 1.0D, 3.0D)), entity -> entity != player && entity != target && player.isTeammate(entity)).size() > 0) {
-				slash(player);
-			}
+	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity player) {
+		if (player.getAttackCooldownProgress(0.5f) < 1f) {
+			slash(player);
 		}
-		return super.postHit(target, player);
+		return super.postHit(stack, target, player);
 	}
 	
 	private void slash(PlayerEntity player) {
