@@ -10,7 +10,7 @@ import phanisment.collection.entity.RegisterEntities;
 import phanisment.collection.item.RegisterItems;
 
 public class HellfireTalonSkill {
-	public void slashSkill(MinecraftClient mc) {
+	public static void slashSkill(MinecraftClient mc) {
 		ItemStack heldItem = mc.player.getMainHandStack();
 		if (heldItem.isOf(RegisterItems.HELLFIRE_TALON)) {
 			Vec3d lookVec = mc.player.getRotationVec(1.0F);
@@ -28,11 +28,11 @@ public class HellfireTalonSkill {
 		}
 	}
 	
-	public void infernoWheelSkill() {
+	public static void infernoWheelSkill() {
 		
 	}
 	
-	public void leapSkill() {
+	public static void leapSkill() {
 		
 	}
 }

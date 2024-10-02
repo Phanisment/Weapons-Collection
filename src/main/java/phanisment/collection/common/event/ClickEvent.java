@@ -6,7 +6,7 @@ import net.minecraft.client.MinecraftClient;
 import phanisment.collection.common.skill.*;
 
 public class ClickEvent {
-	public void register() {
+	public static void register() {
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			MinecraftClient mc = MinecraftClient.getInstance();
 			if(mc.player != null && mc.world != null) {
