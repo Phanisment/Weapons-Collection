@@ -3,6 +3,8 @@ package phanisment.collection.common.event;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 
+import phanisment.collection.common.skill.*;
+
 public class ClickEvent {
 	public void register() {
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -22,7 +24,7 @@ public class ClickEvent {
 	}
 	
 	private void leftClick(MinecraftClient mc) {
-		
+		HellfireTalonSkill.slashSkill(mc);
 	}
 	private void rightClick(MinecraftClient mc) {
 		
