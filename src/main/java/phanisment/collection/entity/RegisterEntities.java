@@ -8,7 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import phanisment.collection.entity.FlameSlashEntity;
+import phanisment.collection.entity.*;
 import phanisment.collection.Weapons;
 
 public class RegisterEntities {

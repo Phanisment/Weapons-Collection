@@ -14,8 +14,6 @@ import phanisment.collection.client.model.FlameSlashModel;
 public class WeaponsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		ClickEvent.register();
-
 		EntityRendererRegistry.register(RegisterEntities.FLAME_SLASH, FlameSlashRender::new);
 		EntityModelLayerRegistry.registerModelLayer(RegisterModelLayers.FLAME_SLASH, FlameSlashModel::getTexturedModelData);
 	}
