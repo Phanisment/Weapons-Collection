@@ -31,18 +31,18 @@ public class HellfireTalonItem extends SwordItem {
 	
 	private void slash(PlayerEntity player) {
 		World world = player.getWorld();
-		Vec3d lookVec = player.player.getRotationVec(1.0F);
-		double playerX = player.player.getX();
-		double playerY = player.player.getY() + 1.5;
-		double playerZ = player.player.getZ();
+		Vec3d lookVec = player.getRotationVec(1.0F);
+		double playerX = player.getX();
+		double playerY = player.getY() + 1.5;
+		double playerZ = player.getZ();
 
 		double spawnX = playerX + lookVec.x * 1.5;
 		double spawnY = playerY + lookVec.y * 1.5;
 		double spawnZ = playerZ + lookVec.z * 1.5;
 
 		FlameSlashEntity slash = new FlameSlashEntity(RegisterEntities.FLAME_SLASH, world);
-		slash.refreshPositionAndAngles(spawnX, spawnY, spawnZ, player.player.getYaw(), player.player.getPitch());
+		slash.refreshPositionAndAngles(spawnX, spawnY, spawnZ, player.getYaw(), player.getPitch());
 
-		world.spawnEntity(fireball);
+		world.spawnEntity(slash);
 	}
 }
