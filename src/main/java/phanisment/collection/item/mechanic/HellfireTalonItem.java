@@ -21,13 +21,11 @@ public class HellfireTalonItem extends SwordItem {
 	
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity player) {
-		if (player.getAttackCooldownProgress(0.5f) < 1f) {
-			slash(player);
-		}
+		slash(player);
 		return super.postHit(stack, target, player);
 	}
 	
-	private void slash(PlayerEntity player) {
+	private void slash(LivingEntity player) {
 		World world = player.getWorld();
 		Vec3d lookVec = player.getRotationVec(1.0F);
 		double playerX = player.getX();
