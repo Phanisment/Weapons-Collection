@@ -4,7 +4,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
-import phanisment.collection.common.event.ClickEvent;
 import phanisment.collection.client.RegisterModelLayers;
 import phanisment.collection.entity.RegisterEntities;
 import phanisment.collection.entity.FlameSlashEntity;
