@@ -37,7 +37,8 @@ public class HellfireTalonItem extends SwordItem {
 		double spawnZ = playerZ + lookVec.z * 1.5;
 
 		FlameSlashEntity slash = new FlameSlashEntity(RegisterEntities.FLAME_SLASH, world);
-		slash.refreshPositionAndAngles(spawnX, spawnY, spawnZ, player.getYaw(), player.getPitch());
+		slash.setPosition(spawnX, spawnY, spawnZ);
+		slash.setYaw(player.getYaw());
 
 		world.spawnEntity(slash);
 	}
