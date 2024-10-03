@@ -2,6 +2,7 @@ package phanisment.collection.common.event;
 
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 
 public class PlayerInteraction {
 	public static void register() {
