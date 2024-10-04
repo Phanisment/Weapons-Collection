@@ -22,7 +22,7 @@ public class HellfireTalonItem extends SwordItem {
 	public HellfireTalonItem() {
 		super(ToolMaterials.NETHERITE, 12, -2.4F, new Settings().maxCount(1).rarity(Rarity.EPIC));
 	}
-	
+
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		SkillManager.leapPlayer(player, 2, 6);
