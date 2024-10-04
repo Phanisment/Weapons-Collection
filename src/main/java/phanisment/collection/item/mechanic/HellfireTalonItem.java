@@ -6,7 +6,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ActionResult
+import net.minecraft.util.ActionResult;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Box;
