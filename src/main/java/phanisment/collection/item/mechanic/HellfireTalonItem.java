@@ -4,6 +4,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ActionResult
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Box;
@@ -13,6 +16,7 @@ import net.minecraft.util.math.Vec3d;
 
 import phanisment.collection.entity.FlameSlashEntity;
 import phanisment.collection.entity.RegisterEntities;
+import phanisment.collection.util.SkillManager;
 
 public class HellfireTalonItem extends SwordItem {
 	public HellfireTalonItem() {
@@ -20,26 +24,8 @@ public class HellfireTalonItem extends SwordItem {
 	}
 	
 	@Override
-	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity player) {
-		slash(player);
-		return super.postHit(stack, target, player);
-	}
-	
-	private void slash(LivingEntity player) {
-		World world = player.getWorld();
-		Vec3d lookVec = player.getRotationVec(1.0F);
-		double playerX = player.getX();
-		double playerY = player.getY() + 1.5;
-		double playerZ = player.getZ();
-
-		double spawnX = playerX + lookVec.x * 1.5;
-		double spawnY = playerY + lookVec.y * 1.5;
-		double spawnZ = playerZ + lookVec.z * 1.5;
-
-		FlameSlashEntity slash = new FlameSlashEntity(RegisterEntities.FLAME_SLASH, world);
-		slash.setPosition(spawnX, spawnY, spawnZ);
-		slash.setYaw(player.getYaw());
-
-		world.spawnEntity(slash);
+	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		SkillManager.leapPlayer(player, 2, 6);
+		return ActionResult.PASS;
 	}
 }
