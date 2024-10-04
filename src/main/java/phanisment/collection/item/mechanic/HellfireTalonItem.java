@@ -27,8 +27,8 @@ public class HellfireTalonItem extends SwordItem {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack item = player.getStackInHand(hand);
 		if (!world.isClient) {
-			SkillMechanic.leapPlayer(player, 2, 6);
+			SkillMechanic.leapPlayer(player, 2.0, 6.0);
 		}
-		return TypedActionResult.success(itemStack);
+		return TypedActionResult.success(item);
 	}
 }
