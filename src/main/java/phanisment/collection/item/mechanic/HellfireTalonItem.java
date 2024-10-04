@@ -16,7 +16,7 @@ import net.minecraft.util.math.Vec3d;
 
 import phanisment.collection.entity.FlameSlashEntity;
 import phanisment.collection.entity.RegisterEntities;
-import phanisment.collection.util.SkillManager;
+import phanisment.collection.util.SkillMechanic;
 
 public class HellfireTalonItem extends SwordItem {
 	public HellfireTalonItem() {
