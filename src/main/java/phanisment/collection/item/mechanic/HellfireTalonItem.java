@@ -25,7 +25,7 @@ public class HellfireTalonItem extends SwordItem {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-		SkillManager.leapPlayer(player, 2, 6);
-		return ActionResult.PASS;
+		SkillMechanic.leapPlayer(player, 2, 6);
+		return TypedActionResult.success(itemStack);
 	}
 }
