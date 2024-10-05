@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
-import phanisment.collection.util.TempVariableUtil;
+import phanisment.collection.utilTempVariableUtil;
 import phanisment.collection.util.mechanic.SkillMechanic;
 
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package panisment.collection.util;
+package phanisment.collection.util;
 
 import java.util.HashMap;
 import java.util.Timer;
