@@ -29,7 +29,7 @@ public class BlazeLeapEntity extends AnimalEntity {
 		super.tick();
 		this.tickCounter++;
 		
-		if (!this.getWorld().isClient) {
+		if (this.getWorld().isClient) {
 			if (this.lifeTime-- <= 0) {
 				this.discard();
 			}
