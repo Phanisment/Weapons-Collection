@@ -1,22 +1,15 @@
 package phanisment.collection.item.mechanic;
 
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ActionResult;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.util.math.Vec3d;
 
-import phanisment.collection.entity.FlameSlashEntity;
-import phanisment.collection.entity.RegisterEntities;
-import phanisment.collection.util.SkillMechanic;
+import phanisment.collection.util.mechanic.SkillMechanic;
 
 public class HellfireTalonItem extends SwordItem {
 	public HellfireTalonItem() {
@@ -27,8 +20,14 @@ public class HellfireTalonItem extends SwordItem {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack item = player.getStackInHand(hand);
 		if (!world.isClient) {
-			SkillMechanic.leapPlayer(player, 0.2, 0.6);
+			HellfireLeapSkill(world, player)
 		}
 		return TypedActionResult.success(item);
+	}
+	
+	private void HellfireLeapSkill(World world, PlayerEntity player) {
+		if (player.isSneaking() && player.isOnGround()) {
+			SkillMechanic.leapPlayer(player, 0.5, 2);
+		}
 	}
 }
