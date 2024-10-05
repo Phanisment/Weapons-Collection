@@ -23,7 +23,7 @@ public class BlazeLeapRender extends MobEntityRenderer<BlazeLeapEntity, BlazeLea
 	};
 
 	public BlazeLeapRender(EntityRendererFactory.Context context) {
-		super(context, new FlameSlashModel(context.getPart(RegisterModelLayers.BLAZE_LEAP)), 0.6f);
+		super(context, new BlazeLeapModel(context.getPart(RegisterModelLayers.BLAZE_LEAP)), 0.6f);
 	}
 
 	@Override
