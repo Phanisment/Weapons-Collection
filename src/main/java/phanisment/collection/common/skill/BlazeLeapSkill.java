@@ -1,4 +1,4 @@
-package panisment.collection.common.skill;
+package phanisment.collection.common.skill;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
