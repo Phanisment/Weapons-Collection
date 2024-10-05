@@ -17,7 +17,7 @@ public class BlazeLeapSkill {
 		UUID playerId = player.getUuid(); 
 		if (player.isSneaking() && player.isOnGround()) {
 			BlazeLeapEntity vfx = new BlazeLeapEntity(RegisterEntities.BLAZE_LEAP, world);
-			vfx. setPosition(player.getX(), player.getY() + 0.1, player.getZ()) 
+			vfx. setPosition(player.getX(), player.getY() + 0.1, player.getZ());
 			world.spawnEntity(vfx);
 			
 			SkillMechanic.leap(player, 0.2, 1.0);
