@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import phanisment.collection.Weapons;
 import phanisment.collection.client.RegisterModelLayers;
 import phanisment.collection.client.model.BlazeLeapModel;
-import phanisment.collection.entity.hellfiretalon.BlazeLeapEntity;
+import phanisment.collection.entity.BlazeLeapEntity;
 
 public class BlazeLeapRender extends MobEntityRenderer<BlazeLeapEntity, BlazeLeapModel> {
 	private static final Identifier[] TEXTURE = {

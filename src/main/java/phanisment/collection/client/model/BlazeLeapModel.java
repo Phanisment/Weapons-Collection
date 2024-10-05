@@ -4,7 +4,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import phanisment.collection.entity.hellfiretalon.BlazeLeapEntity;
+import phanisment.collection.entity.BlazeLeapEntity;
 
 public class BlazeLeapModel extends EntityModel<BlazeLeapEntity> {
 	private final ModelPart Body;
