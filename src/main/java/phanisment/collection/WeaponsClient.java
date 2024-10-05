@@ -9,7 +9,6 @@ import phanisment.collection.entity.RegisterEntities;
 import phanisment.collection.entity.*;
 import phanisment.collection.client.render.*;
 import phanisment.collection.client.model.*;
-import phanisment.collection.client.model.hellfiretalon.*;
 
 public class WeaponsClient implements ClientModInitializer {
 	@Override

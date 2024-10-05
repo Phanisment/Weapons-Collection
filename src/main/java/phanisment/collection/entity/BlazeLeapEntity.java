@@ -1,4 +1,4 @@
-package phanisment.collection.entity.hellfiretalon;
+package phanisment.collection.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
