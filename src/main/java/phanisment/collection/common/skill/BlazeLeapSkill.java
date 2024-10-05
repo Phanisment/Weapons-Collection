@@ -13,7 +13,7 @@ import java.util.UUID;
 public class BlazeLeapSkill {
 	private TempVariableUtil<UUID, Boolean> isLeap = new TempVariableUtil<>();
 
-	public void run(World world, PlayerEntity player) {
+	public static void run(World world, PlayerEntity player) {
 		UUID playerId = player.getUuid(); 
 		if (player.isSneaking() && player.isOnGround()) {
 			BlazeLeapEntity vfx = new BlazeLeapEntity(RegisterEntities.BLAZE_LEAP, world);
