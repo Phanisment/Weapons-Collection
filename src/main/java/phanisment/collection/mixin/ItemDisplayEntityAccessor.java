@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ItemDisplayEntity.class)
 public interface ItemDisplayEntityAccessor {
-	@Accessor("ItemStack")
+	@Accessor("method_48900")
 	ItemStack getItemStack();
-	@Accessor("ItemStack")
+	@Accessor("method_48897")
 	ItemStack setItemStack(ItemStack item);
 }
