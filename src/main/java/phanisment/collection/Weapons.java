@@ -11,7 +11,7 @@ import phanisment.collection.common.item.RegisterItems;
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
+	
 	@Override
 	public void onInitialize() {
 		ItemsGroup.register();
