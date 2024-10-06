@@ -11,8 +11,6 @@ import phanisment.collection.item.mechanic.*;
 
 public class RegisterItems {
 	public static final Item HELLFIRE_TALON = registerItem("hellfire_talon", new HellfireTalonItem());
-	public static final Item FROSTFANG_SPEAR = registerItem("frostfang_spear", new FrostfangSpearItem());
-	public static final Item CRIMSON_SOVEREIGN = registerItem("crimson_sovereign", new CrimsonSovereignItem());
 
 	private static Item registerItem(String name, Item item) {
 		return Registry.register(Registries.ITEM, new Identifier(Weapons.MOD_ID, name), item);

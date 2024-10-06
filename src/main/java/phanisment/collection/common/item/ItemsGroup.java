@@ -17,8 +17,6 @@ public class ItemsGroup {
 		new Identifier(Weapons.MOD_ID, "weapons"), 
 		FabricItemGroup.builder().displayName(Text.translatable("itemgroup.phanisment.weapons")).icon(() -> new ItemStack(RegisterItems.HELLFIRE_TALON)).entries((displayContext, item) -> {
 			item.add(RegisterItems.HELLFIRE_TALON);
-			item.add(RegisterItems.FROSTFANG_SPEAR);
-			item.add(RegisterItems.CRIMSON_SOVEREIGN);
 		}).build()
 	);
 	
