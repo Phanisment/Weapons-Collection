@@ -7,6 +7,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ItemDisplayEntity.class)
 public interface ItemDisplayEntityAccessor {
-	@Accessor
+	@Accessor("ItemStack")
 	ItemStack getItemStack();
 }
