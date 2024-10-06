@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface ItemDisplayEntityAccessor {
 	@Accessor
 	ItemStack getItemStack();
+
 	@Accessor
 	ItemStack setItemStack(ItemStack item);
 }
