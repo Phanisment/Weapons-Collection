@@ -5,8 +5,8 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import phanisment.collection.item.ItemsGroup;
-import phanisment.collection.item.RegisterItems;
+import phanisment.collection.common.item.ItemsGroup;
+import phanisment.collection.common.item.RegisterItems;
 
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";

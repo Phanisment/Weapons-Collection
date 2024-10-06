@@ -1,4 +1,4 @@
-package phanisment.collection.item;
+package phanisment.collection.common.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import phanisment.collection.Weapons;
-import phanisment.collection.item.RegisterItems;
+import phanisment.collection.common.item.RegisterItems;
 
 public class ItemsGroup {
 	public static final ItemGroup WEAPONS_GROUP = Registry.register(Registries.ITEM_GROUP,

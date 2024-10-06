@@ -1,4 +1,4 @@
-package phanisment.collection.item;
+package phanisment.collection.common.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -7,7 +7,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import phanisment.collection.Weapons;
-import phanisment.collection.item.mechanic.*;
+import phanisment.collection.common.item.mechanic.*;
 
 public class RegisterItems {
 	public static final Item HELLFIRE_TALON = registerItem("hellfire_talon", new HellfireTalonItem());
