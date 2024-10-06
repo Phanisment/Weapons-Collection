@@ -1,4 +1,4 @@
-package phanisment.collection.mixin;
+package phanisment.collection.mixin;DisplayEntity
 
 import net.minecraft.entity.decoration.DisplayEntity.ItemDisplayEntity;
 import net.minecraft.item.ItemStack;
@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ItemDisplayEntity.class)
 public interface ItemDisplayEntityAccessor {
-	@Accessor("itemStack")
+	@Accessor("ItemStack")
 	ItemStack getItemStack();
-	@Accessor("itemStack")
+	@Accessor("ItemStack")
 	ItemStack setItemStack(ItemStack item);
 }
