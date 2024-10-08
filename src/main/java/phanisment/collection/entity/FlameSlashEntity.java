@@ -29,9 +29,10 @@ public class FlameSlashEntity extends AnimalEntity {
 		super.tick();
 		
 		if (!this.getWorld().isClient) {
-			tickCounter++;
 			if (lifeTime-- <= 0) {
 				this.discard();
+			} else {
+				tickCounter++;
 			}
 		}
 	}
