@@ -1,6 +1,7 @@
 package phanisment.collection.util.mechanic;
 
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.Vec3d;
 
 public class SkillMechanic {
