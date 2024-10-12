@@ -1,4 +1,4 @@
-package phanisment.collection.item.mechanic;
+package phanisment.collection.common.item.mechanic;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.SwordItem;
@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 
 import phanisment.collection.util.TempVariableUtil;
 import phanisment.collection.util.mechanic.SkillMechanic;
-import phanisment.collection.entity.BlazeLeapEntity;
-import phanisment.collection.entity.RegisterEntities;
+import phanisment.collection.common.entity.BlazeLeapEntity;
+import phanisment.collection.common.entity.RegisterEntities;
 
 import java.util.UUID;
 
