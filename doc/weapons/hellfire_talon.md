@@ -6,7 +6,7 @@ The Hellfire Talon was said to be a claw of a forgotten demon, bathed in molten 
 - Element: Fire
 
 ### Skills
-> ![note]
+> [!note]
 > This is shortcut keyword for activate item skill. `L`: Left Click, `R`: Right Click, `S`: Sneak.
 
 `[L]`: **Fire Slash**, but if skill **Hellfire Scythe** is active will run skill **Hellfire Slash** instead.
