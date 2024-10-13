@@ -2,12 +2,12 @@ package phanisment.collection.client.model.base;
 
 import net.minecraft.util.Identifier;
 
-import software.bernie.geckolib.model.DefaultedEntityGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
 import phanisment.collection.common.entity.base.EffectEntity;
 import phanisment.collection.Weapons;
 
-public class EffectModel extends DefaultedEntityGeoModel<EffectEntity> {
+public class EffectModel extends GeoModel<EffectEntity> {
 	private final Identifier model;
 	private final Identifier texture;
 	private final Identifier animation;
