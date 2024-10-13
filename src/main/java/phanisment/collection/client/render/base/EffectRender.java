@@ -2,7 +2,7 @@ package phanisment.collection.client.render.base;
 
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-import phanisment.collection.common.entity.base.EffectEntity
+import phanisment.collection.common.entity.base.EffectEntity;
 
 public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	private final ResourceLocation model;
