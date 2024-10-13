@@ -8,7 +8,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import phanisment.collection.common.entity.*;
 import phanisment.collection.Weapons;
 
 public class RegisterEntities {

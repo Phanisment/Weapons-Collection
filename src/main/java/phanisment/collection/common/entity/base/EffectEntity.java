@@ -12,7 +12,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);;
 
-	public EffectEntity(EntityType<? extends VFXBaseEntity> entityType, World world) {
+	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
