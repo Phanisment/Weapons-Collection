@@ -1,4 +1,4 @@
-package phanisment.collection.common.entity;
+package phanisment.collection.common.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -12,6 +12,7 @@ import phanisment.collection.common.entity.*;
 import phanisment.collection.Weapons;
 
 public class RegisterEntities {
-	
-	
+	public static void register() {
+		
+	}
 }
