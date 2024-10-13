@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import phanisment.collection.Weapons;
-import phanisment.collection.common.item.RegisterItems;
+import phanisment.collection.common.registry.RegisterItems;
 
 public class ItemsGroup {
 	public static final ItemGroup WEAPONS_GROUP = Registry.register(Registries.ITEM_GROUP,
