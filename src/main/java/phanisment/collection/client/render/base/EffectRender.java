@@ -18,20 +18,4 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		this.texture = texture;
 		this.animation = animation;
 	}
-
-	public Identifier getModelResource(EffectRender model) {
-		return model;
-	}
-
-	public Identifier getTextureResource(EffectRender texture) {
-		return texture;
-	}
-
-	public void setTextureResource(Identifier texture) {
-		this.texture = texture;
-	}
-
-	public Identifier getAnimationResource(EffectRender animation) {
-		return animation;
-	}
 }

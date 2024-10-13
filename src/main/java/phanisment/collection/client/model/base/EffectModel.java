@@ -20,16 +20,16 @@ public class EffectModel extends DefaultedEntityGeoModel<EffectEntity> {
 
 	@Override
 	public Identifier getModelResource(EffectModel model) {
-		return model;
+		return this.model;
 	}
 
 	@Override
 	public Identifier getTextureResource(EffectModel texture) {
-		return texture;
+		return this.texture;
 	}
 
 	@Override
 	public Identifier getAnimationResource(EffectModel animation) {
-		return animation;
+		return this.animation;
 	}
 }
