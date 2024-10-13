@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import phanisment.collection.common.registry.*;
+import phanisment.collection.common.item.ItemsGroup;
 
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
