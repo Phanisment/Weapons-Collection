@@ -4,7 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
 import phanisment.collection.util.TempVariableUtil;
-import phanisment.collection.util.mechanic.SkillMechanic;
+import phanisment.collection.core.mechanic.SkillMechanic;
 import phanisment.collection.common.registry.RegisterEntities;
 
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package phanisment.collection.util.mechanic;
+package phanisment.collection.core.mechanic;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
