@@ -3,6 +3,7 @@ package phanisment.collection.common.entity.base;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;
+import net.minecraft.nbt.NbtCompound;
 
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -15,6 +16,14 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	private void readCustomDataFromNbt(NbtCompound nbt) {
+	}
+
+	@Override
+	private void writeCustomDataToNbt(NbtCompound nbt) {
 	}
 
 	@Override
