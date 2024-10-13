@@ -19,11 +19,15 @@ public class EffectEntity extends Entity implements GeoEntity {
 	}
 
 	@Override
-	private void readCustomDataFromNbt(NbtCompound nbt) {
+	protected void readCustomDataFromNbt(NbtCompound nbt) {
 	}
 
 	@Override
-	private void writeCustomDataToNbt(NbtCompound nbt) {
+	protected void writeCustomDataToNbt(NbtCompound nbt) {
+	}
+
+	@Override
+	protected void initDataTracker() {
 	}
 
 	@Override
