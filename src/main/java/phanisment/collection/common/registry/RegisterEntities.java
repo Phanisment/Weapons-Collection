@@ -31,8 +31,8 @@ public class RegisterEntities {
 	}
 	
 	public static void registerRender() {
-		EntityRendererRegistry.register(TEST, (dispatcher, context) -> new EffectRender(dispatcher, FLAT,
-			regis("textures/entity/slash/slash_1.png"),
+		EntityRendererRegistry.register(TEST, (context) -> new EffectRender(dispatcher, FLAT,
+			regis("textures/entity/slash/flame_slash_1.png"),
 			regis("animations/flat.animation.json")
 		));
 	}
