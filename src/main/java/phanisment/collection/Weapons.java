@@ -14,7 +14,10 @@ public class Weapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ItemsGroup.register();
-		RegisterItems.register();
+		new ItemsGroup();
+		new RegisterItems();
+		new RegisterEntities();
+		
+		RegisterEntities.registerAttributes();
 	}
 }
