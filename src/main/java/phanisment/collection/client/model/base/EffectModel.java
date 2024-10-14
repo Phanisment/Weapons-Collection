@@ -13,24 +13,23 @@ public class EffectModel extends GeoModel<EffectEntity> {
 	private final Identifier animation;
 
 	public EffectModel(String id, Identifier model, Identifier texture, Identifier animation) {
-		super(new Identifier(Weapons.MOD_ID, id));
 		this.model = model;
 		this.texture = texture;
 		this.animation = animation;
 	}
 
 	@Override
-	public Identifier getModelResource(EffectModel model) {
+	public Identifier getModelResource(EffectEntity model) {
 		return this.model;
 	}
 
 	@Override
-	public Identifier getTextureResource(EffectModel texture) {
+	public Identifier getTextureResource(EffectEntity texture) {
 		return this.texture;
 	}
 
 	@Override
-	public Identifier getAnimationResource(EffectModel animation) {
+	public Identifier getAnimationResource(EffectEntity animation) {
 		return this.animation;
 	}
 }
