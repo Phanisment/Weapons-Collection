@@ -1,6 +1,7 @@
 package phanisment.collection.common.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -20,7 +21,7 @@ public class RegisterEntities {
 	private static EntityType<EffectEntity> create(String name) {
 		return Registry.register(Registries.ENTITY_TYPE,
 			new Identifier(Weapons.MOD_ID, name),
-			FabricEntityTypeBuilder.create(SpawnGroup.MISC, VFXBaseEntity::new)
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, EffectEntity::new)
 				.dimensions(EntityDimensions.fixed(0.1f, 0.1f)).build()
 		);
 	}
@@ -30,7 +31,7 @@ public class RegisterEntities {
 	}
 	
 	public static void registerRender() {
-		EntityRendererRegistry.register(TEST, (dispatcher) -> new EffectRender(dispatcher, FLAT,
+		EntityRendererRegistry.register(TEST, (dispatcher, context) -> new EffectRender(dispatcher, FLAT,
 			regis("textures/entity/slash/slash_1.png"),
 			regis("animations/flat.animation.json")
 		));
