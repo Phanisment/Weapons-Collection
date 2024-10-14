@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 import phanisment.collection.common.entity.base.EffectEntity;
-import phanisment.collection.client.model.EffectModel;
+import phanisment.collection.client.model.base.EffectModel;
 
 public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	private final Identifier model;
