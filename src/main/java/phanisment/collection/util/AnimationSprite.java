@@ -14,7 +14,7 @@ public class AnimationSprite {
 		texture("textures/entity/flame_slash_7.png")
 	};
 	
-	private Identifier texture(String path) {
+	private static Identifier texture(String path) {
 		return new Identifier(Weapons.MOD_ID, path);
 	}
 }

@@ -1,3 +1,6 @@
+# IMPORTANT
+# i need this script, dont remove this because i use phone to coding this whole mod.
+
 if [ ! -d ".git" ]; then
 	echo "Error: This is not repository Git."
 	exit 1
