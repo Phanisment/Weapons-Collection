@@ -14,7 +14,7 @@ public class EffectModel extends GeoModel<EffectEntity> {
 
 	public EffectModel(Identifier model, Identifier[] texture, Identifier animation) {
 		this.model = model;
-		this.texture[] = texture[];
+		this.texture = texture;
 		this.animation = animation;
 	}
 
