@@ -25,7 +25,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 		frame++;
 		if (!this.getWorld().isClient) {
 			if (lifetime-- <= 0) {
-				this.remove();
+				this.discard();
 			}
 		}
 		super.tick();
@@ -53,19 +53,6 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	public void playAnimation(String animationName) {
 		controller.setAnimation(new AnimationBuilder().addAnimation(animationName, true));
-	}
-
-	@Override
-	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-		controllers.add(new AnimationController<>(this, "type_0", 5, state -> {
-			return state.setAndContinue("animation.model.type_0");
-		}));
-		controllers.add(new AnimationController<>(this, "type_1", 5, state -> {
-			return state.setAndContinue("animation.model.type_1");
-		}));
-		controllers.add(new AnimationController<>(this, "type_2", 5, state -> {
-			return state.setAndContinue("animation.model.type_2");
-		}));
 	}
 
 	@Override
