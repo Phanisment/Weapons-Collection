@@ -1,37 +1,32 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.model.idle": {
-			"loop": true
-		},
-		"animation.model.swing": {
-			"animation_length": 0.5,
+		"animation.model.type_0": {
+			"loop": true,
 			"bones": {
 				"body": {
 					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.5": {
-							"vector": [0, -45, 0],
-							"easing": "easeOutExpo"
-						}
+						"vector": [0, 0, 22.5]
 					}
 				}
 			}
 		},
-		"animation.model.spin": {
-			"animation_length": 1,
+		"animation.model.type_1": {
+			"loop": true,
 			"bones": {
 				"body": {
 					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"1.0": {
-							"vector": [0, -360, 0],
-							"easing": "easeInOutCirc"
-						}
+						"vector": [0, 0, 180]
+					}
+				}
+			}
+		},
+		"animation.model.type_2": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 0, -202.5]
 					}
 				}
 			}

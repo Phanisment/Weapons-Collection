@@ -15,6 +15,7 @@ import phanisment.collection.client.render.base.EffectRender;
 
 public class RegisterEntities {
 	private static final Identifier FLAT = regis("geo/flat.geo.json");
+	private static final Identifier FLAT_64 = regis("geo/flat_64.geo.json");
 	
 	public static final EntityType<EffectEntity> TEST = create("test");
 	
@@ -31,10 +32,7 @@ public class RegisterEntities {
 	}
 	
 	public static void registerRender() {
-		EntityRendererRegistry.register(TEST, (context) -> new EffectRender(context, FLAT,
-			regis("textures/entity/slash/flame_slash_1.png"),
-			regis("animations/flat.animation.json")
-		));
+		EntityRendererRegistry.register(TEST, (context) -> new EffectRender(context, FLAT_64, AnimationSprite.SLASH, regis("animations/flat.animation.json")));
 	}
 	
 	public static void registerAttributes() {
