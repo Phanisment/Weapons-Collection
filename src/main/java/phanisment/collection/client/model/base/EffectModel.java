@@ -9,12 +9,12 @@ import phanisment.collection.Weapons;
 
 public class EffectModel extends GeoModel<EffectEntity> {
 	private final Identifier model;
-	private final Identifier texture;
+	private final Identifier[] texture;
 	private final Identifier animation;
 
 	public EffectModel(Identifier model, Identifier[] texture, Identifier animation) {
 		this.model = model;
-		this.texture = texture;
+		this.texture[] = texture[];
 		this.animation = animation;
 	}
 

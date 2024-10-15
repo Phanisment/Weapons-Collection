@@ -19,7 +19,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	@Override
 	public Identifier[] getTextureLocation(EffectEntity entity) {
 		int frame = entity.getFrame();
-		int maxFrame = texture;
+		int maxFrame = texture.length;
 		if (frame > texture.length) {
 			frame = texture.length;
 		}
