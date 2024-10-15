@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import phanisment.collection.Weapons;
 import phanisment.collection.common.entity.base.EffectEntity;
 import phanisment.collection.client.render.base.EffectRender;
+import phanisment.collection.util.AnimationSprite;
 
 public class RegisterEntities {
 	private static final Identifier FLAT = regis("geo/flat.geo.json");

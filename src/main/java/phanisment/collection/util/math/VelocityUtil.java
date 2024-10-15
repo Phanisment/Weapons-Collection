@@ -3,13 +3,17 @@ package phanisment.collection.util.math;
 import net.minecraft.util.math.Vec3d;
 
 public class VelocityUtil {
-	public static Vec3d targetToPlayer(Vec3d player, Vec3d target) {
-		return targetToPlayer(player, target, 1.0);
-	}
-
-	public static Vec3d targetToPlayer(Vec3d player, Vec3d target, double speed) {
-		if (player.equals(target)) return Vec3d.ZERO;
-		Vec3d direction = target.subtract(player).normalize();
-		return direction.scale(speed);
+	public static Vec3d playerToTarget(Vec3d playerPos, Vec3d targetPos, double speed) {
+		double distanceX = targetPos.getX() - playerPos.getX();
+		double distanceY = targetPos.getY() - playerPos.getY();
+		double distanceZ = targetPos.getZ() - playerPos.getZ();
+		double distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
+		double normX = distanceX / distance;
+		double normY = distanceY / distance;
+		double normZ = distanceZ / distance;
+		double velocityX = normX * speed;
+		double velocityY = normY * speed;
+		double velocityZ = normZ * speed;
+		return new Vec3d(velocityX, velocityY, velocityZ);
 	}
 }
