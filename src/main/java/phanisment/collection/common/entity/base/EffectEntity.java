@@ -31,7 +31,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 		super.tick();
 	}
 	
-	public static Integer getFrame() {
+	public static int getFrame() {
 		return frame;
 	}
 	
@@ -51,25 +51,9 @@ public class EffectEntity extends Entity implements GeoEntity {
 	protected void initDataTracker() {
 	}
 
-	public void playAnimation(String animationName) {
-		AnimationController<EffectEntity> controller = this.cache.getController("type_0");
-		controller.setAnimation(RawAnimation.begin().then(animationName, Animation.LoopType.LOOP));
-	}
-
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-		controllers.add(new AnimationController<>(this, "type_0", 5, state -> {
-			return state.setAndContinue(RawAnimation.begin().then("animation.model.type_0", Animation.LoopType.LOOP));
-		}));
-		controllers.add(new AnimationController<>(this, "type_1", 5, state -> {
-			return state.setAndContinue(RawAnimation.begin().then("animation.model.type_1", Animation.LoopType.LOOP));
-		}));
-		controllers.add(new AnimationController<>(this, "type_2", 5, state -> {
-			return state.setAndContinue(RawAnimation.begin().then("animation.model.type_2", Animation.LoopType.LOOP));
-		}));
-		controllers.add(new AnimationController<>(this, "type_3", 5, state -> {
-			return state.setAndContinue(RawAnimation.begin().then("animation.model.type_3", Animation.LoopType.LOOP));
-		}));
+		controllers.add(new AnimationController<>(this, "idle", 5, state -> state.setAndContinue(DefaultAnimations.IDLE)));
 	}
 
 	@Override

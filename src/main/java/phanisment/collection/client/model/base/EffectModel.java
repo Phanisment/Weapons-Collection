@@ -12,7 +12,7 @@ public class EffectModel extends GeoModel<EffectEntity> {
 	private final Identifier texture;
 	private final Identifier animation;
 
-	public EffectModel(Identifier model, Identifier texture, Identifier animation) {
+	public EffectModel(Identifier model, Identifier[] texture, Identifier animation) {
 		this.model = model;
 		this.texture = texture;
 		this.animation = animation;
@@ -25,7 +25,7 @@ public class EffectModel extends GeoModel<EffectEntity> {
 
 	@Override
 	public Identifier getTextureResource(EffectEntity texture) {
-		return this.texture;
+		return this.texture[0];
 	}
 
 	@Override
