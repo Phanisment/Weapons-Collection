@@ -17,11 +17,11 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	public EffectRender(EntityRendererFactory.Context render, Identifier model, Identifier[] textures, Identifier animation) {
 		super(render, new GeoModel<EffectEntity>() {
 			@Override
-			public Identifier getModelLocation(EffectEntity entity) {
+			public Identifier getModelResource(EffectEntity entity)
 				return model;
 			}
 			@Override
-			public Identifier getTextureLocation(EffectEntity entity) {
+			public Identifier getTextureResource(EffectEntity entity) {
 				int frame = entity.getFrame();
 				int maxFrame = textures.length;
 				if (frame >= maxFrame) {
@@ -30,7 +30,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 				return textures[frame];
 			}
 			@Override
-			public Identifier getAnimationFileLocation(EffectEntity entity) {
+			public Identifier getAnimationResource(EffectEntity entity) {
 				return animation;
 			}
 		});
