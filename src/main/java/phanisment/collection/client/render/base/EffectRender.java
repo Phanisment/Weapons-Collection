@@ -4,25 +4,38 @@ import net.minecraft.util.Identifier;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.model.GeoModel;
 
 import phanisment.collection.common.entity.base.EffectEntity;
-import phanisment.collection.client.model.base.EffectModel;
+import phanisment.collection.Weapons;
 
 public class EffectRender extends GeoEntityRenderer<EffectEntity> {
-	private Identifier[] texture;
+	private Identifier model;
+	private Identifier[] textures;
+	private Identifier animation;
 	
-	public EffectRender(EntityRendererFactory.Context render, Identifier model, Identifier[] texture, Identifier animation) {
-		super(render, new EffectModel(model, texture, animation));
-		this.texture = texture;
-	}
-	
-	@Override
-	public Identifier[] getTextureLocation(EffectEntity entity) {
-		int frame = entity.getFrame();
-		int maxFrame = texture.length;
-		if (frame > texture.length) {
-			frame = texture.length;
-		}
-		return texture[frame];
+	public EffectRender(EntityRendererFactory.Context render, Identifier model, Identifier[] textures, Identifier animation) {
+		super(render, new GeoModel<EffectEntity>() {
+			@Override
+			public Identifier getModelLocation(EffectEntity entity) {
+				return model;
+			}
+			@Override
+			public Identifier getTextureLocation(EffectEntity entity) {
+				int frame = entity.getFrame();
+				int maxFrame = textures.length;
+				if (frame >= maxFrame) {
+					frame = maxFrame;
+				}
+				return textures[frame];
+			}
+			@Override
+			public Identifier getAnimationFileLocation(EffectEntity entity) {
+				return animation;
+			}
+		});
+		this.model = model;
+		this.textures = textures;
+		this.animation = animation;
 	}
 }
