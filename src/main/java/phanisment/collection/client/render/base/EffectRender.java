@@ -46,7 +46,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		this.textures = textures;
 		this.animation = animation;
 	}
-	
+	/*
 	@Override
 	public void defaultRender(MatrixStack matrixStack, EffectEntity entity, VertexConsumerProvider vertexConsumerProvider, @Nullable RenderLayer renderLayer, @Nullable VertexConsumer vertexConsumer, float yaw, float partialTick, int packedLight) {
 		super.render(entity, yaw, partialTick, matrixStack, vertexConsumerProvider, packedLight);
@@ -56,4 +56,5 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		super.render(entity, yaw, partialTick, matrixStack, vertexConsumerProvider, packedLight);
 		RenderSystem.disableBlend();
 	}
+	*/
 }
