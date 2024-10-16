@@ -9,6 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
+import phanisment.collection.core.skill.
+
 public class HellfireTalonItem extends SwordItem {
 
 	
@@ -20,6 +22,7 @@ public class HellfireTalonItem extends SwordItem {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack item = player.getStackInHand(hand);
 		if (!world.isClient) {
+			BlazeLeap.run(player, world);
 		}
 		return TypedActionResult.success(item);
 	}
