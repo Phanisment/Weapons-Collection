@@ -15,7 +15,7 @@ public class BlazingSkill {
 	
 	public static void run(World world, PlayerEntity player) {
 		UUID playerId = player.getUuid(); 
-		if (!player.isSneaking()) {
+		if (!player.isSneaking() && !isLeap.containsKey(playerId)) {
 			EffectEntity vfx = new EffectEntity(RegisterEntities.INFERNO_WHEEL, world);
 			vfx.setPosition(player.getX(), player.getY() + 1.5, player.getZ());
 			vfx.setSummoner(player.getUuid());
@@ -28,7 +28,7 @@ public class BlazingSkill {
 			vfx.setYaw(player.getYaw());
 			world.spawnEntity(vfx);
 			SkillMechanic.leap(player, 0.2, 1.0);
-			isLeap.addTempVariable(playerId, true, 1000);
+			isLeap.addTempVariable(playerId, true, 2000);
 		} else if (!player.isSneaking() && isLeap.containsKey(playerId)) {
 			SkillMechanic.leap(player, 0.4, -1.5);
 			EffectEntity vfx = new EffectEntity(RegisterEntities.INFERNO_WHEEL, world);

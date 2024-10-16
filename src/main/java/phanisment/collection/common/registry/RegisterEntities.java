@@ -34,7 +34,7 @@ public class RegisterEntities {
 		return Registry.register(Registries.ENTITY_TYPE,
 			new Identifier(Weapons.MOD_ID, name),
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, EffectEntity::new)
-				.dimensions(EntityDimensions.fixed(0f, 0f)).build()
+				.dimensions(EntityDimensions.fixed(0.1f, 0.1f)).build()
 		);
 	}
 	
