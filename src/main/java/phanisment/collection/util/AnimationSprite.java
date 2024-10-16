@@ -25,7 +25,7 @@ public class AnimationSprite {
 		texture("inferno_wheel/inferno_wheel_8.png"),
 		texture("inferno_wheel/inferno_wheel_9.png"),
 		texture("inferno_wheel/inferno_wheel_10.png")
-	}
+	};
 	
 	private static Identifier texture(String path) {
 		return new Identifier(Weapons.MOD_ID, "textures/entity/" + path);
