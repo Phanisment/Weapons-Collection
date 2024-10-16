@@ -13,8 +13,8 @@ import software.bernie.geckolib.constant.DefaultAnimations;
 
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-	public static int frame = 0;
-	private int lifetime = 7;
+	public int frame = 0;
+	private int lifeTime = 7;
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
@@ -24,19 +24,19 @@ public class EffectEntity extends Entity implements GeoEntity {
 	public void tick() {
 		frame++;
 		if (!this.getWorld().isClient) {
-			if (lifetime-- <= 0) {
+			if (lifeTime-- <= 0) {
 				this.discard();
 			}
 		}
 		super.tick();
 	}
 	
-	public static int getFrame() {
+	public int getFrame() {
 		return frame;
 	}
 	
-	public void setLifeTimer(Integer time) {
-		lifetime = time;
+	public void setLifeTimer(int lifeTime) {
+		this.lifeTime = lifeTime;
 	}
 
 	@Override
