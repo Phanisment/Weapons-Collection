@@ -18,6 +18,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
+		this.frame = 0;
 	}
 
 	@Override
@@ -32,7 +33,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 	}
 	
 	public int getFrame() {
-		return frame;
+		return this.frame;
 	}
 	
 	public void setLifeTimer(int lifeTime) {
@@ -41,10 +42,16 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	protected void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+		this.frame = nbt.getInt("Frame");
+		this.lifeTime = nbt.getInt("LifeTime");
 	}
 
 	@Override
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+		nbt.putInt("Frame", this.frame);
+		nbt.putInt("LifeTime", this.lifeTime);
 	}
 
 	@Override
