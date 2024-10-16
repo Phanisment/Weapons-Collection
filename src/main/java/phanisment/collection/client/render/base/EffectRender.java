@@ -7,6 +7,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.util.math.RotationAxis;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -29,7 +30,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 			
 			@Override
 			public Identifier getTextureResource(EffectEntity entity) {
-				int frame = entity.getFrame;
+				int frame = entity.getFrame();
 				int maxFrame = textures.length - 1;
 				if (frame >= maxFrame) {
 					frame = maxFrame;
@@ -50,7 +51,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	@Override
 	public void defaultRender(MatrixStack matrixStack, EffectEntity entity, VertexConsumerProvider vertexConsumerProvider, @Nullable RenderLayer renderLayer, @Nullable VertexConsumer vertexConsumer, float yaw, float partialTick, int packedLight) {
 		matrixStack.push();
-		matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(entity.getYaw(partialTick)));
+		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getYaw(partialTick)));
 		super.render(entity, yaw, partialTick, matrixStack, vertexConsumerProvider, packedLight);
 		matrixStack.pop();
 	}
