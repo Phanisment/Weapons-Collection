@@ -17,7 +17,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	public EffectRender(EntityRendererFactory.Context render, Identifier model, Identifier[] textures, Identifier animation) {
 		super(render, new GeoModel<EffectEntity>() {
 			@Override
-			public Identifier getModelResource(EffectEntity entity)
+			public Identifier getModelResource(EffectEntity entity) {
 				return model;
 			}
 			@Override
