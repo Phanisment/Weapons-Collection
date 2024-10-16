@@ -16,10 +16,10 @@ import java.util.Optional;
 
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+	private Optional<UUID> optionalSummoner = Optional.ofNullable(summoner);
 	public int frame = 0;
 	private int lifeTime = 7;
 	private UUID summoner;
-	private Optional<UUID> optionalSummoner = Optional.ofNullable(summoner);
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);

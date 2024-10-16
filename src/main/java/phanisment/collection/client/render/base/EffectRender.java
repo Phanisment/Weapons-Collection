@@ -1,7 +1,11 @@
 package phanisment.collection.client.render.base;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.VertexConsumer;
+import com.mojang.blaze3d.systems.RenderSystem;
 
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.model.GeoModel;
@@ -39,5 +43,15 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		this.model = model;
 		this.textures = textures;
 		this.animation = animation;
+	}
+	
+	@Override
+	public void defaultRender(PoseStack poseStack, EffectEntity entity, MultiBufferSource bufferSource, @Nullable RenderType renderType, @Nullable VertexConsumer buffer, float yaw, float partialTick, int packedLight) {
+		super.defaultRender(poseStack, entity, bufferSource, renderType, buffer, yaw, partialTick, packedLight);
+		RenderSystem.enableBlend();
+		RenderSystem.defaultBlendFunc();
+		VertexConsumer glowingBuffer = bufferSource.getBuffer(RenderType.getTranslucent());
+		super.defaultRender(poseStack, entity, glowingBuffer, null, yaw, partialTick, packedLight);
+		RenderSystem.disableBlend();
 	}
 }

@@ -14,6 +14,19 @@ public class AnimationSprite {
 		texture("blaze_leap/blaze_leap_7.png")
 	};
 	
+	public static final Identifier[] INFERNO_WHEEL = {
+		texture("inferno_wheel/inferno_wheel_1.png"),
+		texture("inferno_wheel/inferno_wheel_2.png"),
+		texture("inferno_wheel/inferno_wheel_3.png"),
+		texture("inferno_wheel/inferno_wheel_4.png"),
+		texture("inferno_wheel/inferno_wheel_5.png"),
+		texture("inferno_wheel/inferno_wheel_6.png"),
+		texture("inferno_wheel/inferno_wheel_7.png"),
+		texture("inferno_wheel/inferno_wheel_8.png"),
+		texture("inferno_wheel/inferno_wheel_9.png"),
+		texture("inferno_wheel/inferno_wheel_10.png")
+	}
+	
 	private static Identifier texture(String path) {
 		return new Identifier(Weapons.MOD_ID, "textures/entity/" + path);
 	}
