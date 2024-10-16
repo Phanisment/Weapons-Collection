@@ -11,7 +11,7 @@ import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.constant.DefaultAnimations;
 
-import java.util.UUID
+import java.util.UUID;
 
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -71,7 +71,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
 		nbt.putInt("Frame", this.frame);
 		nbt.putInt("LifeTime", this.lifeTime);
-		nbt.putUuid("Summoner", this.summoner.getUuid())
+		nbt.putUuid("Summoner", this.summoner.getUuid());
 	}
 
 	@Override
