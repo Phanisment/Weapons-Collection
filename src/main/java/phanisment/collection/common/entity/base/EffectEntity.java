@@ -11,10 +11,13 @@ import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.constant.DefaultAnimations;
 
+import java.util.UUID
+
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	public int frame = 0;
 	private int lifeTime = 7;
+	private UUID summoner;
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
@@ -22,16 +25,24 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	public void tick() {
-		
+		frame++;
 		if (this.getWorld().isClient) {
-			frame++;
+			System.out.println("Current frame: " + frame);
 		}
-		if (!this.getWorld().isClient) {
+		/*if (!this.getWorld().isClient) {
 			if (lifeTime-- < 0) {
 				this.discard();
 			}
-		}
+		}*/
 		super.tick();
+	}
+	
+	public void setSummoner(UUID summoner) {
+		this.summoner = summoner;
+	}
+	
+	public UUID getSummoner() {
+		return summoner;
 	}
 	
 	public int getFrame() {
@@ -50,12 +61,17 @@ public class EffectEntity extends Entity implements GeoEntity {
 		if (nbt.contains("LifeTime")) {
 			this.lifeTime = nbt.getInt("LifeTime");
 		}
+		
+		if (nbt.contains("Summoner")) {
+			this.summoner = nbt.getUuid("Summoner");
+		}
 	}
 
 	@Override
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
 		nbt.putInt("Frame", this.frame);
 		nbt.putInt("LifeTime", this.lifeTime);
+		nbt.putUuid("Summoner", this.summoner.getUuid())
 	}
 
 	@Override
@@ -64,7 +80,6 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-		controllers.add(new AnimationController<>(this, "idle", 5, state -> state.setAndContinue(DefaultAnimations.IDLE)));
 	}
 
 	@Override

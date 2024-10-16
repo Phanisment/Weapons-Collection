@@ -20,6 +20,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 			public Identifier getModelResource(EffectEntity entity) {
 				return model;
 			}
+			
 			@Override
 			public Identifier getTextureResource(EffectEntity entity) {
 				int frame = entity.getFrame();
@@ -29,6 +30,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 				}
 				return textures[frame];
 			}
+			
 			@Override
 			public Identifier getAnimationResource(EffectEntity entity) {
 				return animation;

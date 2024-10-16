@@ -17,13 +17,14 @@ public class BlazeLeap {
 		UUID playerId = player.getUuid(); 
 		if (player.isSneaking() && player.isOnGround()) {
 			EffectEntity vfx = new EffectEntity(RegisterEntities.TEST, world);
-			vfx. setPosition(player.getX(), player.getY() + 0.1, player.getZ());
+			vfx.setPosition(player.getX(), player.getY() + 0.1, player.getZ());
+			vfx.setSummoner(player.getUuid());
 			world.spawnEntity(vfx);
 			SkillMechanic.leap(player, 0.2, 1.0);
 			isLeap.addTempVariable(playerId, true, 1000);
 		}
 		else if (!player.isSneaking() && isLeap.containsKey(playerId)) {
-			SkillMechanic.jump(player, -10);
+			SkillMechanic.jump(player, -1);
 		}
 	}
 }
