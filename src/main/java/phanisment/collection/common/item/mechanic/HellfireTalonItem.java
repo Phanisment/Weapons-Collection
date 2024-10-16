@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
-import phanisment.collection.core.skill.
+import phanisment.collection.core.skill.BlazeLeap;
 
 public class HellfireTalonItem extends SwordItem {
 
