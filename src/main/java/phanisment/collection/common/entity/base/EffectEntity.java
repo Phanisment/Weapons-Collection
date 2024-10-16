@@ -27,7 +27,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 			frame++;
 		}
 		if (!this.getWorld().isClient) {
-			if (lifeTime-- <= 0) {
+			if (lifeTime-- < 0) {
 				this.discard();
 			}
 		}
