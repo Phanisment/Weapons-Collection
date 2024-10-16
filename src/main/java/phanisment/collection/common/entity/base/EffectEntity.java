@@ -71,7 +71,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
 		nbt.putInt("Frame", this.frame);
 		nbt.putInt("LifeTime", this.lifeTime);
-		nbt.putUuid("Summoner", this.summoner.getUuid());
+		nbt.putUuid("Summoner", this.summoner);
 	}
 
 	@Override
