@@ -27,7 +27,9 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	public void tick() {
-		if (optionalSummoner.isPresent())
+		if (optionalSummoner.isPresent()) {
+			this.discard();
+		}
 		
 		frame++;
 		if (!this.getWorld().isClient) {
