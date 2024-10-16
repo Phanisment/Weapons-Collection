@@ -12,12 +12,14 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.constant.DefaultAnimations;
 
 import java.util.UUID;
+import java.util.Optional;
 
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	public int frame = 0;
 	private int lifeTime = 7;
 	private UUID summoner;
+	private Optional<UUID> optionalSummoner = Optional.ofNullable(summoner);
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
@@ -25,6 +27,8 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	public void tick() {
+		if (optionalSummoner.isPresent())
+		
 		frame++;
 		if (!this.getWorld().isClient) {
 			if (lifeTime-- < 0) {

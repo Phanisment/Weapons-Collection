@@ -24,7 +24,7 @@ public class BlazeLeap {
 			isLeap.addTempVariable(playerId, true, 1000);
 		}
 		else if (!player.isSneaking() && isLeap.containsKey(playerId)) {
-			SkillMechanic.jump(player, -1);
+			SkillMechanic.leap(player, 0.2, -1.0);
 		}
 	}
 }
