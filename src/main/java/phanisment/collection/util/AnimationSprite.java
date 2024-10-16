@@ -4,14 +4,14 @@ import net.minecraft.util.Identifier;
 import phanisment.collection.Weapons;
 
 public class AnimationSprite {
-	public static final Identifier[] SLASH = {
-		texture("textures/entity/flame_slash_1.png"),
-		texture("textures/entity/flame_slash_2.png"),
-		texture("textures/entity/flame_slash_3.png"),
-		texture("textures/entity/flame_slash_4.png"),
-		texture("textures/entity/flame_slash_5.png"),
-		texture("textures/entity/flame_slash_6.png"),
-		texture("textures/entity/flame_slash_7.png")
+	public static final Identifier[] BLAZE_LEAP = {
+		texture("textures/entity/blaze_leap/blaze_leap_1.png"),
+		texture("textures/entity/blaze_leap/blaze_leap_2.png"),
+		texture("textures/entity/blaze_leap/blaze_leap_3.png"),
+		texture("textures/entity/blaze_leap/blaze_leap_4.png"),
+		texture("textures/entity/blaze_leap/blaze_leap_5.png"),
+		texture("textures/entity/blaze_leap/blaze_leap_6.png"),
+		texture("textures/entity/blaze_leap/blaze_leap_7.png")
 	};
 	
 	private static Identifier texture(String path) {

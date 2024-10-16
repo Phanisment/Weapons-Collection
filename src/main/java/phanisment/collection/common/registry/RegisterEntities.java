@@ -33,7 +33,7 @@ public class RegisterEntities {
 	}
 	
 	public static void registerRender() {
-		EntityRendererRegistry.register(TEST, (context) -> new EffectRender(context, FLAT_64, AnimationSprite.SLASH, regis("animations/flat.animation.json")));
+		EntityRendererRegistry.register(TEST, (context) -> new EffectRender(context, FLAT_64, AnimationSprite.BLAZE_LEAP, regis("animations/flat.animation.json")));
 	}
 	
 	public static void registerAttributes() {
