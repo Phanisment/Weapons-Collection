@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
-import phanisment.collection.core.skill.BlazeLeap;
+import phanisment.collection.core.skill.BlazingSkill;
 
 public class HellfireTalonItem extends SwordItem {
 
@@ -22,7 +22,7 @@ public class HellfireTalonItem extends SwordItem {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack item = player.getStackInHand(hand);
 		if (!world.isClient) {
-			BlazeLeap.run(world, player);
+			BlazingSkill.run(world, player);
 		}
 		return TypedActionResult.success(item);
 	}

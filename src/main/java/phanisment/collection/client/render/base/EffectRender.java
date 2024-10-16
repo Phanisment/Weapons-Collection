@@ -2,10 +2,13 @@ package phanisment.collection.client.render.base;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.VertexConsumer;
 import com.mojang.blaze3d.systems.RenderSystem;
+
+import org.jetbrains.annotations.Nullable;
 
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.model.GeoModel;
