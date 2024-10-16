@@ -18,12 +18,14 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
-		this.frame = 0;
 	}
 
 	@Override
 	public void tick() {
-		frame++;
+		
+		if (this.getWorld().isClient) {
+			frame++;
+		}
 		if (!this.getWorld().isClient) {
 			if (lifeTime-- <= 0) {
 				this.discard();
