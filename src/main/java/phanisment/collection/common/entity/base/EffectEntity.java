@@ -21,6 +21,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
+		this.frame = 0;
 	}
 
 	@Override

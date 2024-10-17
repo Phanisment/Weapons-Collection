@@ -51,11 +51,12 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	@Override
 	public void render(EffectEntity entity, float entityYaw, float partialTick, MatrixStack poseStack, VertexConsumerProvider bufferSource, int packedLight) {
 		// poseStack.scale(0.4f, 0.4f, 0.4f);
+		int maxLight = 15728880;
 		
 		float yaw = entity.getYaw(partialTick);
 		poseStack.push();
 		poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F - yaw));
-		super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+		super.render(entity, entityYaw, partialTick, poseStack, bufferSource, maxLight);
 		poseStack.pop();
 	}
 }
