@@ -27,6 +27,11 @@ public class EffectEntity extends Entity implements GeoEntity {
 	@Override
 	public void tick() {
 		frame++;
+		
+		if (this.getWorld().isClient) {
+			System.out.println("Frame:" + frame);
+		}
+		
 		if (!this.getWorld().isClient) {
 			if (lifeTime-- < 0) {
 				this.discard();
