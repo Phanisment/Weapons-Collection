@@ -26,9 +26,8 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	public void tick() {
-		frame++;
-		
 		if (this.getWorld().isClient) {
+			frame++;
 		}
 		
 		if (!this.getWorld().isClient) {

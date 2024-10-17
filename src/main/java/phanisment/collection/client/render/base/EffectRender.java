@@ -31,11 +31,11 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 			@Override
 			public Identifier getTextureResource(EffectEntity entity) {
 				int frame = entity.getFrame();
-				int maxFrame = textures.length;
-				if (frame > maxFrame) {
+				int maxFrame = textures.length - 1;
+				if (frame >= maxFrame) {
 					frame = maxFrame;
 				}
-				return textures[frame - 1];
+				return textures[frame];
 			}
 			
 			@Override
