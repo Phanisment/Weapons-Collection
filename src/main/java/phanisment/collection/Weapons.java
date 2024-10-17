@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import phanisment.collection.core.event.PlayerEvent;
 import phanisment.collection.common.registry.*;
 import phanisment.collection.common.item.ItemsGroup;
 
@@ -17,6 +18,7 @@ public class Weapons implements ModInitializer {
 		new ItemsGroup();
 		new RegisterItems();
 		new RegisterEntities();
+		new PlayerEvent();
 		
 		RegisterEntities.registerAttributes();
 	}
