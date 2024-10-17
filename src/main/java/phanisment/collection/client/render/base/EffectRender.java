@@ -47,4 +47,15 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		this.textures = textures;
 		this.animation = animation;
 	}
+	
+	@Override
+	public void render(EffectEntity entity, float entityYaw, float partialTick, MatrixStack poseStack, VertexConsumerProvider bufferSource, int packedLight) {
+		// poseStack.scale(0.4f, 0.4f, 0.4f);
+		
+		float yaw = entity.getYaw(partialTicks);
+		poseStack.push();
+		poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F - yaw));
+		super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+		poseStack.pop();
+	}
 }

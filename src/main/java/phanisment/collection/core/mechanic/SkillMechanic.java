@@ -19,12 +19,4 @@ public class SkillMechanic {
 		player.addVelocity(0, height, 0);
 		player.velocityModified = true;
 	}
-	
-	public static void effect(PlayerEntity player, RegisterEntities type, World world, double y) {
-		EffectEntity vfx = new EffectEntity(type, world);
-		vfx.setPosition(player.getX(), player.getY() + y, player.geqtZ());
-		vfx.setSummoner(player.getUuid());
-		vfx.setYaw(player.getYaw());
-		world.spawnEntity(vfx);
-	}
 }
