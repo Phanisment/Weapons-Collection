@@ -18,12 +18,12 @@ public class BlazingSkill {
 		if (!player.isSneaking() && !isLeap.containsKey(playerId)) { // Inferno Wheel
 			
 		} else if (player.isSneaking() && player.isOnGround()) { // Blazing Leap
-			SkillMechanic.effect(player, RegisterEntities.BLAZING_LEAP, world, 0.1)
+			SkillMechanic.effect(player, RegisterEntities.BLAZING_LEAP, world, 0.1);
 			SkillMechanic.leap(player, 0.2, 1.0);
 			isLeap.addTempVariable(playerId, true, 2000);
 		} else if (!player.isSneaking() && isLeap.containsKey(playerId)) { // Hellfire Wheel
 			SkillMechanic.leap(player, 0.4, -1.5);
-			SkillMechanic.effect(player, RegisterEntities.INFERNO_WHEEL, world, 0.1)
+			SkillMechanic.effect(player, RegisterEntities.INFERNO_WHEEL, world, 0.1);
 		}
 	}
 }
