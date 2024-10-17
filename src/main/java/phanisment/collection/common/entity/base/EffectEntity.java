@@ -29,7 +29,6 @@ public class EffectEntity extends Entity implements GeoEntity {
 		frame++;
 		
 		if (this.getWorld().isClient) {
-			System.out.println("Frame:" + frame);
 		}
 		
 		if (!this.getWorld().isClient) {
