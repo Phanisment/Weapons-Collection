@@ -47,11 +47,4 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		this.textures = textures;
 		this.animation = animation;
 	}
-	
-	@Override
-	public void preRender(PoseStack poseStack, MyEntity animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		float yaw = animatable.getYaw(partialTick);
-		poseStack.mulPose(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F - yaw));
-		super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
-	}
 }
