@@ -14,20 +14,15 @@ import java.util.UUID;
 
 public class DamageMechanic {
 	private static final TempVariableUtil<UUID, Boolean> status = new TempVariableUtil<>();
-	
-	public DamageSource source;
-	public float amount;
-	
-	public DamageMechanic(DamageSource source, float amount, CallbackInfo ci) {
+
+	public boolean damageFall(DamageSource source) {
 		if (source.getAttacker() instanceof PlayerEntity) {
 			UUID playerId = source.getAttacker().getUuid();
-			System.out.println(source.getName());
-			if (source.getName().equals("fall") && status.containsKey(playerId)) {
-				ci.cancel();
+			if (status.containsKey(playerId)) {
+				return false
 			}
 		}
-		this.source = source;
-		this.amount = amount;
+		return true
 	}
 
 	public static void cancelFallDamage(PlayerEntity player, long duration) {

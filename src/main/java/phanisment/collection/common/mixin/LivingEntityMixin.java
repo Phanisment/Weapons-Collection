@@ -11,8 +11,8 @@ import phanisment.collection.core.mechanic.DamageMechanic;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-	@Inject(method = "applyDamage", at = @At("HEAD"))
-	private void onApplyDamage(DamageSource source, float amount, CallbackInfo ci) {
-		new DamageMechanic(source, amount, ci);
+	@Inject(method = "handleFallDamage", at = @At("HEAD"))
+	private boolean onFallDamage(float fallDistance, float damageMultiplier, DamageSource damageSource, CallbackInfo ci) {
+		return DamageMechanic.damageFall(damageSource);
 	}
 }
