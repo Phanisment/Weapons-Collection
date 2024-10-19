@@ -16,12 +16,12 @@ public class DamageMechanic {
 	private static final TempVariableUtil<UUID, Boolean> status = new TempVariableUtil<>();
 	
 	public DamageSource source;
-	public int amount;
+	public float amount;
 	
 	public DamageMechanic(DamageSource source, float amount, CallbackInfo ci) {
 		if (source.getAttacker() instanceof PlayerEntity) {
 			UUID playerId = source.getAttacker().getUuid();
-			if (source == DamageTypes.FALL && status.containsKey(playerId)) {
+			if (source.getType() == DamageTypes.FALL && status.containsKey(playerId)) {
 				ci.cancel();
 			}
 		}
