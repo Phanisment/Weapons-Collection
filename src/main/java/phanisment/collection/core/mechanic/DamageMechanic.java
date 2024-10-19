@@ -2,6 +2,7 @@ package phanisment.collection.core.mechanic;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 
@@ -17,10 +18,10 @@ public class DamageMechanic {
 	public DamageSource source;
 	public int amount;
 	
-	public DamageMechanic(DamageSource source, int amount, CallbackInfo ci) {
+	public DamageMechanic(DamageSource source, float amount, CallbackInfo ci) {
 		if (source.getAttacker() instanceof PlayerEntity) {
 			UUID playerId = source.getAttacker().getUuid();
-			if (source == DamageSource.FALL && status.containsKey(playerId)) {
+			if (source == DamageTypes.FALL && status.containsKey(playerId)) {
 				ci.cancel();
 			}
 		}
