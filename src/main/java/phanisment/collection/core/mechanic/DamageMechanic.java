@@ -15,7 +15,7 @@ import java.util.UUID;
 public class DamageMechanic {
 	private static final TempVariableUtil<UUID, Boolean> status = new TempVariableUtil<>();
 
-	public boolean damageFall(DamageSource source) {
+	public static boolean damageFall(DamageSource source) {
 		if (source.getAttacker() instanceof PlayerEntity) {
 			UUID playerId = source.getAttacker().getUuid();
 			if (status.containsKey(playerId)) {
