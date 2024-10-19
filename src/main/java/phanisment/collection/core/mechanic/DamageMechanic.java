@@ -21,7 +21,7 @@ public class DamageMechanic {
 	public DamageMechanic(DamageSource source, float amount, CallbackInfo ci) {
 		if (source.getAttacker() instanceof PlayerEntity) {
 			UUID playerId = source.getAttacker().getUuid();
-			System.out.Println(source.getName());
+			System.out.println(source.getName());
 			if (source.getName().equals("fall") && status.containsKey(playerId)) {
 				ci.cancel();
 			}
