@@ -40,7 +40,7 @@ public class BlazingSkill {
 				vfx.setSummoner(player.getUuid());
 				world.spawnEntity(vfx);
 				
-				SkillMechanic.leap(player, 0.2, 2.0);
+				SkillMechanic.leap(player, 0.2, 1.0);
 				isLeap.addTempVariable(playerId, true, 2000);
 				DamageMechanic.cancelFallDamage(player, 2000);
 			}
