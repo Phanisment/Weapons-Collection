@@ -19,10 +19,10 @@ public class DamageMechanic {
 		if (source.getAttacker() instanceof PlayerEntity) {
 			UUID playerId = source.getAttacker().getUuid();
 			if (status.containsKey(playerId)) {
-				return false
+				return false;
 			}
 		}
-		return true
+		return true;
 	}
 
 	public static void cancelFallDamage(PlayerEntity player, long duration) {
