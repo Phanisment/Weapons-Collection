@@ -42,7 +42,7 @@ public class BlazingSkill {
 				
 				SkillMechanic.leap(player, 0.2, 2.0);
 				isLeap.addTempVariable(playerId, true, 2000);
-				DamageMechanic.activateTemporaryFallDamageCancel(player, true, 2000);
+				DamageMechanic.cancelFallDamage(player, 2000);
 			}
 			CooldownManager.setCooldown(player, blazing_leap, 100);
 		} else if (!player.isSneaking() && isLeap.containsKey(playerId)) { //Hellfire Wheel

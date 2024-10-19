@@ -4,27 +4,32 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
+
 import phanisment.collection.util.TempVariableUtil;
+
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
 
 public class DamageMechanic {
-	private static final TempVariableUtil<UUID, Boolean> fallDamageCancelStatus = new TempVariableUtil<>();
-
-	public static void register() {
-		ServerEntityCombatEvents.AFTER_DAMAGE.register((entity, source, amount) -> {
-			if (entity instanceof PlayerEntity player) {
-				UUID playerId = player.getUuid();
-				if (source == DamageSource.FALL && fallDamageCancelStatus.containsKey(playerId)) {
-					return 0.0F;
-				}
-			}
-			return amount;
-		});
-	}
+	private static final TempVariableUtil<UUID, Boolean> status = new TempVariableUtil<>();
 	
-	public static void activateTemporaryFallDamageCancel(PlayerEntity player, long durationMillis) {
+	public DamageSource source;
+	public int amount;
+	
+	public DamageMechanic(DamageSource source, int amount, CallbackInfo ci) {
+		if (source.getAttacker() instanceof PlayerEntity) {
+			UUID playerId = source.getAttacker().getUuid();
+			if (source == DamageSource.FALL && status.containsKey(playerId)) {
+				ci.cancel();
+			}
+		}
+		this.source = source;
+		this.amount = amount;
+	}
+
+	public static void cancelFallDamage(PlayerEntity player, long duration) {
 		UUID playerId = player.getUuid();
-		fallDamageCancelStatus.addTempVariable(playerId, true, durationMillis);
+		status.addTempVariable(playerId, true, duration);
 	}
 }
