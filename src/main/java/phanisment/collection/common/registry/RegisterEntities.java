@@ -18,10 +18,12 @@ public class RegisterEntities {
 	private static final Identifier FLAT = regis("geo/flat.geo.json");
 	private static final Identifier WALL_FRONT = regis("geo/wall_front.geo.json");
 	
+	public static final EntityType<EffectEntity> FLAME_SLASH = create("flame_slash");
 	public static final EntityType<EffectEntity> BLAZING_LEAP = create("blazing_leap");
 	public static final EntityType<EffectEntity> INFERNO_WHEEL = create("inferno_wheel");
 	
 	public static void registerRender() {
+		EntityRendererRegistry.register(FLAME_SLASH, (context) -> new EffectRender(context, FLAT, AnimationSprite.FLAME_SLASH, regis("animations/flat.animation.json")));
 		EntityRendererRegistry.register(BLAZING_LEAP, (context) -> new EffectRender(context, FLAT, AnimationSprite.BLAZE_LEAP, regis("animations/flat.animation.json")));
 		EntityRendererRegistry.register(INFERNO_WHEEL, (context) -> new EffectRender(context, WALL_FRONT, AnimationSprite.INFERNO_WHEEL, regis("animations/flat.animation.json")));
 	}

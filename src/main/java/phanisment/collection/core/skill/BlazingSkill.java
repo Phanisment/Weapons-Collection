@@ -4,22 +4,22 @@ import net.minecraft.util.Identifier;
 import net.minecraft.text.Text;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
+import net.minecraft.entity.Entity;
 
+import phanisment.collection.core.mechanic.EntityTargeter;
 import phanisment.collection.util.TempVariableUtil;
 import phanisment.collection.core.mechanic.SkillMechanic;
 import phanisment.collection.common.registry.RegisterEntities;
 import phanisment.collection.common.entity.base.EffectEntity;
 import phanisment.collection.core.CooldownManager;
 import phanisment.collection.Weapons;
-import phanisment.collection.core.mechanic.DamageMechanic;
 
 import java.util.UUID;
+import java.util.List;
+import java.util.Arrays;
 
 public class BlazingSkill {
 	private static TempVariableUtil<UUID, Boolean> isLeap = new TempVariableUtil<>();
-	
-	private static final Identifier blazing_leap = new Identifier(Weapons.MOD_ID, "blazing_leap");
-	private static final Identifier inferno_wheel = new Identifier(Weapons.MOD_ID, "inferno_wheel");
 	
 	public static void run(World world, PlayerEntity player) {
 		UUID playerId = player.getUuid(); 
@@ -42,7 +42,6 @@ public class BlazingSkill {
 				
 				SkillMechanic.leap(player, 0.2, 1.0);
 				isLeap.addTempVariable(playerId, true, 2000);
-				DamageMechanic.cancelFallDamage(player, 2000);
 			}
 			CooldownManager.setCooldown(player, blazing_leap, 100);
 		} else if (!player.isSneaking() && isLeap.containsKey(playerId)) { //Hellfire Wheel
@@ -53,6 +52,14 @@ public class BlazingSkill {
 			vfx.setSummoner(player.getUuid());
 			vfx.setYaw(player.getYaw());
 			world.spawnEntity(vfx);
+			
+			List<? extends Entity> exentity = Arrays.asList(PlayerEntity.class, EffectEntity.class);
+			
+			List<Entity> entities = 
 		}
+	}
+	
+	private void InfernoWheel() {
+		
 	}
 }
