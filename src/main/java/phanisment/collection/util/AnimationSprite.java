@@ -12,7 +12,7 @@ public class AnimationSprite {
 		texture("flame_slash/flame_slash_5.png"),
 		texture("flame_slash/flame_slash_6.png"),
 		texture("flame_slash/flame_slash_7.png")
-	}
+	};
 	
 	public static final Identifier[] BLAZE_LEAP = {
 		texture("blaze_leap/blaze_leap_1.png"),
