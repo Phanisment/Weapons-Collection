@@ -5,6 +5,8 @@ import net.minecraft.text.Text;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 
 import phanisment.collection.core.mechanic.EntityTargeter;
 import phanisment.collection.util.TempVariableUtil;
@@ -24,26 +26,16 @@ public class BlazingSkill {
 	public static void run(World world, PlayerEntity player) {
 		UUID playerId = player.getUuid(); 
 		if (!player.isSneaking() && !isLeap.containsKey(playerId)) { // Inferno Wheel
-			if (CooldownManager.isCooldown(player, inferno_wheel)) {
-				EffectEntity vfx = new EffectEntity(RegisterEntities.INFERNO_WHEEL, world);
-				vfx.setPosition(player.getX(), player.getY() + 1.2, player.getZ());
-				vfx.setSummoner(player.getUuid());
-				vfx.setYaw(player.getYaw());
-				world.spawnEntity(vfx);
-			}
-			CooldownManager.setCooldown(player, inferno_wheel, 50);
+			
 		} else if (player.isSneaking() && player.isOnGround()) { // Blazing Leap
-			if (CooldownManager.isCooldown(player, blazing_leap)) {
-				EffectEntity vfx = new EffectEntity(RegisterEntities.BLAZING_LEAP, world);
-				vfx.setPosition(player.getX(), player.getY() + 0.1, player.getZ());
-				vfx.setYaw(player.getYaw());
-				vfx.setSummoner(player.getUuid());
-				world.spawnEntity(vfx);
-				
-				SkillMechanic.leap(player, 0.2, 1.0);
-				isLeap.addTempVariable(playerId, true, 2000);
-			}
-			CooldownManager.setCooldown(player, blazing_leap, 100);
+			EffectEntity vfx = new EffectEntity(RegisterEntities.BLAZING_LEAP, world);
+			vfx.setPosition(player.getX(), player.getY() + 0.1, player.getZ());
+			vfx.setYaw(player.getYaw());
+			vfx.setSummoner(player.getUuid());
+			world.spawnEntity(vfx);
+			
+			SkillMechanic.leap(player, 0.2, 1.0);
+			isLeap.addTempVariable(playerId, true, 2000);
 		} else if (!player.isSneaking() && isLeap.containsKey(playerId)) { //Hellfire Wheel
 			SkillMechanic.leap(player, 0.2, -1.0);
 			
@@ -52,14 +44,14 @@ public class BlazingSkill {
 			vfx.setSummoner(player.getUuid());
 			vfx.setYaw(player.getYaw());
 			world.spawnEntity(vfx);
-			
-			List<? extends Entity> exentity = Arrays.asList(PlayerEntity.class, EffectEntity.class);
-			
-			List<Entity> entities = 
 		}
 	}
 	
-	private void InfernoWheel() {
-		
+	public static void slash(MinecraftClient client, ClientPlayerEntity player) {
+			EffectEntity vfx = new EffectEntity(RegisterEntities.INFERNO_WHEEL, world);
+			vfx.setPosition(player.getX(), player.getY() + 1.5, player.getZ());
+			vfx.setSummoner(player.getUuid());
+			vfx.setYaw(player.getYaw());
+			client.world.spawnEntity(vfx);
 	}
 }
