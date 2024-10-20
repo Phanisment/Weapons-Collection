@@ -48,10 +48,12 @@ public class BlazingSkill {
 	}
 	
 	public static void slash(MinecraftClient client, ClientPlayerEntity player) {
-			EffectEntity vfx = new EffectEntity(RegisterEntities.INFERNO_WHEEL, world);
+		if (!client.world.isClient && player != null) {
+			EffectEntity vfx = new EffectEntity(RegisterEntities.FLAME_SLASH, client.world);
 			vfx.setPosition(player.getX(), player.getY() + 1.5, player.getZ());
 			vfx.setSummoner(player.getUuid());
 			vfx.setYaw(player.getYaw());
-			client.world.spawnEntity(vfx);
+			world.spawnEntity(vfx);
+		}
 	}
 }
