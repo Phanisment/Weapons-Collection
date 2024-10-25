@@ -15,9 +15,17 @@ import java.util.UUID;
 
 public class EffectEntity extends Entity implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-	private int frame = 0;
-	private int lifeTime = 7;
-	private UUID summoner;
+	private int frame;
+	private int lifeSpan;
+	private Entity summoner;
+
+	private float rotationX = 0.0F;
+	private float rotationY = 0.0F;
+	private float rotationZ = 0.0F;
+	
+	private float sizeX = 1.0F;
+	private float sizeY = 1.0F;
+	private float sizeZ = 1.0F;
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
@@ -29,18 +37,18 @@ public class EffectEntity extends Entity implements GeoEntity {
 		frame++;
 		
 		if (!this.getWorld().isClient) {
-			if (lifeTime-- < 0) {
+			if (lifeSpan-- < 0) {
 				this.discard();
 			}
 		}
 		super.tick();
 	}
 	
-	public void setSummoner(UUID summoner) {
+	public void setSummoner(Entity summoner) {
 		this.summoner = summoner;
 	}
 	
-	public UUID getSummoner() {
+	public Entity getSummoner() {
 		return summoner;
 	}
 	
@@ -48,17 +56,37 @@ public class EffectEntity extends Entity implements GeoEntity {
 		return this.frame;
 	}
 	
-	public void setLifeTimer(int lifeTime) {
-		this.lifeTime = lifeTime;
+	public void setLifeTimer(int lifeSpan) {
+		this.lifeSpan = lifeSpan;
 	}
+
+	public void setRot(float x, float y, float z) {
+		this.rotationX = x;
+		this.rotationY = y;
+		this.rotationZ = Z;
+	}
+
+	public void setSize(float x, float y, float z) {
+		this.sizeX = x;
+		this.sizeY = Y;
+		this.sizeZ = Z;
+	}
+
+	public float getRotationX() {return rotationX;}
+	public float getRotationY() {return rotationY;}
+	public float getRotationZ() {return rotationZ;}
+	
+	public float getScaleX() {return scaleX;}
+	public float getScaleY() {return scaleY;}
+	public float getScaleZ() {return scaleZ;}
 
 	@Override
 	protected void readCustomDataFromNbt(NbtCompound nbt) {
 		if (nbt.contains("Frame")) {
 			this.frame = nbt.getInt("Frame");
 		}
-		if (nbt.contains("LifeTime")) {
-			this.lifeTime = nbt.getInt("LifeTime");
+		if (nbt.contains("lifeSpan")) {
+			this.lifeSpan = nbt.getInt("lifeSpan");
 		}
 		
 		if (nbt.contains("Summoner")) {
@@ -69,8 +97,8 @@ public class EffectEntity extends Entity implements GeoEntity {
 	@Override
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
 		nbt.putInt("Frame", this.frame);
-		nbt.putInt("LifeTime", this.lifeTime);
-		nbt.putUuid("Summoner", this.summoner);
+		nbt.putInt("lifeSpan", this.lifeSpan);
+		nbt.putUuid("Summoner", this.summoner.getUuid());
 	}
 
 	@Override

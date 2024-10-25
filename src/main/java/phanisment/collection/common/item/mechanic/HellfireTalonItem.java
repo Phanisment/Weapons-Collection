@@ -9,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
-import phanisment.collection.core.skill.BlazingSkill;
-
 public class HellfireTalonItem extends SwordItem {
 	public HellfireTalonItem() {
 		super(ToolMaterials.NETHERITE, 12, -2.4F, new Settings().maxCount(1).rarity(Rarity.EPIC));
@@ -18,8 +16,6 @@ public class HellfireTalonItem extends SwordItem {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-		ItemStack item = player.getStackInHand(hand);
-		BlazingSkill.run(world, player);
 		return TypedActionResult.success(item);
 	}
 }

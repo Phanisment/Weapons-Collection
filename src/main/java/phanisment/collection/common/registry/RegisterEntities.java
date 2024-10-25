@@ -15,32 +15,31 @@ import phanisment.collection.client.render.base.EffectRender;
 import phanisment.collection.util.AnimationSprite;
 
 public class RegisterEntities {
-	private static final Identifier FLAT = regis("geo/flat.geo.json");
-	private static final Identifier WALL_FRONT = regis("geo/wall_front.geo.json");
+	// Models.
+	private static final Identifier FLAT = new Identifier(Weapons.MOD_ID, "geo/flat.geo.json");
+	private static final Identifier WALL = new Identifier(Weapons.MOD_ID, "geo/wall.geo.json");
 	
-	public static final EntityType<EffectEntity> FLAME_SLASH = create("flame_slash");
-	public static final EntityType<EffectEntity> BLAZING_LEAP = create("blazing_leap");
-	public static final EntityType<EffectEntity> INFERNO_WHEEL = create("inferno_wheel");
+	// Animations.
+	private static final Identifier WALL = new Identifier(Weapons.MOD_ID, "geo/wall.geo.json");
 	
+	// Entities.
+	public static final EntityType<EffectEntity> FLAME_SLASH = registerEffect("flame_slash", 0.1F, 0.1F);
+	
+	// Entities Render Registry.
 	public static void registerRender() {
-		EntityRendererRegistry.register(FLAME_SLASH, (context) -> new EffectRender(context, FLAT, AnimationSprite.FLAME_SLASH, regis("animations/flat.animation.json")));
-		EntityRendererRegistry.register(BLAZING_LEAP, (context) -> new EffectRender(context, FLAT, AnimationSprite.BLAZE_LEAP, regis("animations/flat.animation.json")));
-		EntityRendererRegistry.register(INFERNO_WHEEL, (context) -> new EffectRender(context, WALL_FRONT, AnimationSprite.INFERNO_WHEEL, regis("animations/flat.animation.json")));
+		EntityRendererRegistry.register(FLAME_SLASH, (context) -> new EffectRender(context, FLAT, AnimationSprite.FLAME_SLASH, new Identifier(Weapons.MOD_ID, "animations/flat.animation.json")));
 	}
 	
+	// Entity Attributes Registry.
 	public static void registerAttributes() {
 		
 	}
 	
-	private static EntityType<EffectEntity> create(String name) {
+	private static EntityType<EffectEntity> registerEffect(String name, float width, float height) {
 		return Registry.register(Registries.ENTITY_TYPE,
 			new Identifier(Weapons.MOD_ID, name),
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, EffectEntity::new)
-				.dimensions(EntityDimensions.fixed(0.1f, 0.1f)).build()
+				.dimensions(EntityDimensions.fixed(width, height)).build()
 		);
-	}
-	
-	private static Identifier regis(String p) {
-		return new Identifier(Weapons.MOD_ID, p);
 	}
 }
