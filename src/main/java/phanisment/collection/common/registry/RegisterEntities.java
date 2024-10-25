@@ -20,14 +20,14 @@ public class RegisterEntities {
 	private static final Identifier WALL = new Identifier(Weapons.MOD_ID, "geo/wall.geo.json");
 	
 	// Animations.
-	private static final Identifier WALL = new Identifier(Weapons.MOD_ID, "geo/wall.geo.json");
+	private static final Identifier FLAT_ANIMATION = new Identifier(Weapons.MOD_ID, "animations/flat.animation.json");
 	
 	// Entities.
 	public static final EntityType<EffectEntity> FLAME_SLASH = registerEffect("flame_slash", 0.1F, 0.1F);
 	
 	// Entities Render Registry.
 	public static void registerRender() {
-		EntityRendererRegistry.register(FLAME_SLASH, (context) -> new EffectRender(context, FLAT, AnimationSprite.FLAME_SLASH, new Identifier(Weapons.MOD_ID, "animations/flat.animation.json")));
+		EntityRendererRegistry.register(FLAME_SLASH, (context) -> new EffectRender(context, FLAT, AnimationSprite.FLAME_SLASH, FLAT_ANIMATION));
 	}
 	
 	// Entity Attributes Registry.

@@ -63,22 +63,22 @@ public class EffectEntity extends Entity implements GeoEntity {
 	public void setRot(float x, float y, float z) {
 		this.rotationX = x;
 		this.rotationY = y;
-		this.rotationZ = Z;
+		this.rotationZ = z;
 	}
 
 	public void setSize(float x, float y, float z) {
 		this.sizeX = x;
-		this.sizeY = Y;
-		this.sizeZ = Z;
+		this.sizeY = y;
+		this.sizeZ = z;
 	}
 
 	public float getRotationX() {return rotationX;}
 	public float getRotationY() {return rotationY;}
 	public float getRotationZ() {return rotationZ;}
 	
-	public float getScaleX() {return scaleX;}
-	public float getScaleY() {return scaleY;}
-	public float getScaleZ() {return scaleZ;}
+	public float getSizeX() {return sizeX;}
+	public float getSizeY() {return sizeY;}
+	public float getSizeZ() {return sizeZ;}
 
 	@Override
 	protected void readCustomDataFromNbt(NbtCompound nbt) {

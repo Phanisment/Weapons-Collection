@@ -53,7 +53,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 		int maxLight = 15728880;
 		
 		poseStack.push();
-		poseStack.scale(entity.getScaleX(), entity.getScaleY(), entity.getScaleZ());
+		poseStack.scale(entity.getSizeX(), entity.getSizeY(), entity.getSizeZ());
 		
 		poseStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(entity.getRotationX()));
 		poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getRotationY()));
