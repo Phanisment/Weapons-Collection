@@ -18,6 +18,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 	private int frame;
 	private int lifeSpan;
 	private Entity summoner;
+	private UUID summonerUuid;
 
 	private float rotationX = 0.0F;
 	private float rotationY = 0.0F;
@@ -90,7 +91,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 		}
 		
 		if (nbt.contains("Summoner")) {
-			this.summoner = nbt.getUuid("Summoner");
+			this.summonerUuid = nbt.getUuid("Summoner");
 		}
 	}
 

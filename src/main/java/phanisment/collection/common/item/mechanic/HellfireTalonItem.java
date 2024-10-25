@@ -16,6 +16,7 @@ public class HellfireTalonItem extends SwordItem {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		ItemStack item = player.getStackInHand(hand);
 		return TypedActionResult.success(item);
 	}
 }
