@@ -16,18 +16,24 @@ import phanisment.collection.util.AnimationSprite;
 
 public class RegisterEntities {
 	// Models.
-	private static final Identifier FLAT = new Identifier(Weapons.MOD_ID, "geo/flat.geo.json");
-	private static final Identifier WALL = new Identifier(Weapons.MOD_ID, "geo/wall.geo.json");
+	private static final Identifier[] MODELS = {
+		new Identifier(Weapons.MOD_ID, "geo/flat.geo.json"),
+		new Identifier(Weapons.MOD_ID, "geo/wall.geo.json"),
+		new Identifier(Weapons.MOD_ID, "geo/effect/dash.geo.json")
+	};
 	
 	// Animations.
-	private static final Identifier FLAT_ANIMATION = new Identifier(Weapons.MOD_ID, "animations/flat.animation.json");
+	private static final Identifier[] ANIMATIONS = {
+		new Identifier(Weapons.MOD_ID, "animations/flat.animation.json"),
+		new Identifier(Weapons.MOD_ID, "animations/effect/dash.animation.json")
+	};
 	
 	// Entities.
-	public static final EntityType<EffectEntity> FLAME_SLASH = registerEffect("flame_slash", 0.1F, 0.1F);
+	public static final EntityType<EffectEntity> BASIC_IMPACT = registerEffect("basic_impact", 0.1F, 0.1F);
 	
 	// Entities Render Registry.
 	public static void registerRender() {
-		EntityRendererRegistry.register(FLAME_SLASH, (context) -> new EffectRender(context, FLAT, AnimationSprite.FLAME_SLASH, FLAT_ANIMATION));
+		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[2], AnimationSprite.BASIC_DASH, ANIMATIONS[1]));
 	}
 	
 	// Entity Attributes Registry.

@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.dash",
+				"texture_width": 48,
+				"texture_height": 48,
+				"visible_bounds_width": 10,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "Body",
+					"pivot": [0, 16, -24],
+					"cubes": [
+						{
+							"origin": [0, 8, -24],
+							"size": [0, 16, 48],
+							"uv": {
+								"east": {"uv": [0, 0], "uv_size": [48, 16]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -28,9 +28,13 @@ public class EffectEntity extends Entity implements GeoEntity {
 	private float sizeY = 1.0F;
 	private float sizeZ = 1.0F;
 
+	private AnimationController<EffectEntity> animation;
+
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
 		this.frame = 0;
+		
+		animation = new AnimationController<>(this, "controller", 0, this::animationPredicate);
 	}
 
 	@Override
@@ -49,15 +53,7 @@ public class EffectEntity extends Entity implements GeoEntity {
 		this.summoner = summoner;
 	}
 	
-	public Entity getSummoner() {
-		return summoner;
-	}
-	
-	public int getFrame() {
-		return this.frame;
-	}
-	
-	public void setLifeTimer(int lifeSpan) {
+	public void setLifeSpan(int lifeSpan) {
 		this.lifeSpan = lifeSpan;
 	}
 
@@ -73,6 +69,11 @@ public class EffectEntity extends Entity implements GeoEntity {
 		this.sizeZ = z;
 	}
 
+	public Entity getSummoner() {return summoner;}
+	public UUID getSummonerByUUID() {return summonerUuid;}
+	public int getFrame() {return frame;}
+	public int getLifeSpan() {return lifeSpan;}
+	
 	public float getRotationX() {return rotationX;}
 	public float getRotationY() {return rotationY;}
 	public float getRotationZ() {return rotationZ;}
@@ -103,15 +104,25 @@ public class EffectEntity extends Entity implements GeoEntity {
 	}
 
 	@Override
-	protected void initDataTracker() {
-	}
+	protected void initDataTracker() {}
 
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+		controllers.add(animationController);
 	}
 
 	@Override
-	public AnimatableInstanceCache getAnimatableInstanceCache() {
-		return cache;
+	public AnimatableInstanceCache getAnimatableInstanceCache() {return cache;}
+
+	private <E extends GeoEntity> boolean animationPredicate(AnimationState<E> event) {return true;}
+	
+	/*
+	Play entity animation.
+	
+	@param animationName, name of animation like "animation.model.example".
+	@paran state, animation state, like stopping animation or looping animation.
+	*/
+	public void playAnimation(String animationName, AnimationState state) {
+		animationController.setAnimation(RawAnimation.begin().then(animationName, state));
 	}
 }
