@@ -28,13 +28,13 @@ public class EffectEntity extends Entity implements GeoEntity {
 	private float sizeY = 1.0F;
 	private float sizeZ = 1.0F;
 
-	private AnimationController<EffectEntity> animation;
+	private final AnimationController<EffectEntity> animationController;
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
 		super(entityType, world);
 		this.frame = 0;
 		
-		animation = new AnimationController<>(this, "controller", 0, this::animationPredicate);
+		animationController = new AnimationController<>(this, "controller", 0, this::animationPredicate);
 	}
 
 	@Override
@@ -69,18 +69,18 @@ public class EffectEntity extends Entity implements GeoEntity {
 		this.sizeZ = z;
 	}
 
-	public Entity getSummoner() {return summoner;}
-	public UUID getSummonerByUUID() {return summonerUuid;}
-	public int getFrame() {return frame;}
-	public int getLifeSpan() {return lifeSpan;}
+	public Entity getSummoner() { return summoner; }
+	public UUID getSummonerByUUID() { return summonerUuid; }
+	public int getFrame() { return frame; }
+	public int getLifeSpan() { return lifeSpan; }
 	
-	public float getRotationX() {return rotationX;}
-	public float getRotationY() {return rotationY;}
-	public float getRotationZ() {return rotationZ;}
+	public float getRotationX() { return rotationX; }
+	public float getRotationY() { return rotationY; }
+	public float getRotationZ() { return rotationZ; }
 	
-	public float getSizeX() {return sizeX;}
-	public float getSizeY() {return sizeY;}
-	public float getSizeZ() {return sizeZ;}
+	public float getSizeX() { return sizeX; }
+	public float getSizeY() { return sizeY; }
+	public float getSizeZ() { return sizeZ; }
 
 	@Override
 	protected void readCustomDataFromNbt(NbtCompound nbt) {
@@ -112,17 +112,13 @@ public class EffectEntity extends Entity implements GeoEntity {
 	}
 
 	@Override
-	public AnimatableInstanceCache getAnimatableInstanceCache() {return cache;}
+	public AnimatableInstanceCache getAnimatableInstanceCache() { return cache; }
 
-	private <E extends GeoEntity> boolean animationPredicate(AnimationState<E> event) {return true;}
-	
-	/*
-	Play entity animation.
-	
-	@param animationName, name of animation like "animation.model.example".
-	@paran state, animation state, like stopping animation or looping animation.
-	*/
-	public void playAnimation(String animationName, AnimationState state) {
-		animationController.setAnimation(RawAnimation.begin().then(animationName, state));
+	private <E extends GeoEntity> PlayState animationPredicate(AnimationState<E> event) {
+		return PlayState.CONTINUE;
+	}
+
+	public void playAnimation(String animationName, LoopType loopType) {
+		animationController.setAnimation(RawAnimation.begin().then(animationName, loopType));
 	}
 }
