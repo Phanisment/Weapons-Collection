@@ -19,13 +19,13 @@ public class RegisterEntities {
 	private static final Identifier[] MODELS = {
 		new Identifier(Weapons.MOD_ID, "geo/flat.geo.json"),
 		new Identifier(Weapons.MOD_ID, "geo/wall.geo.json"),
-		new Identifier(Weapons.MOD_ID, "geo/effect/dash.geo.json")
+		new Identifier(Weapons.MOD_ID, "geo/effects/dash.geo.json")
 	};
 	
 	// Animations.
 	private static final Identifier[] ANIMATIONS = {
 		new Identifier(Weapons.MOD_ID, "animations/flat.animation.json"),
-		new Identifier(Weapons.MOD_ID, "animations/effect/dash.animation.json")
+		new Identifier(Weapons.MOD_ID, "animations/effects/dash.animation.json")
 	};
 	
 	// Entities.

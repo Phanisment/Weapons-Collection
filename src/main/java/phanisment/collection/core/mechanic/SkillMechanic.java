@@ -1,6 +1,5 @@
 package phanisment.collection.core.mechanic;
 
-import net.minecraft.world.World;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3d;
 
