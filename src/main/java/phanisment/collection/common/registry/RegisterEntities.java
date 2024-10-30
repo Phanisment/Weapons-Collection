@@ -30,26 +30,16 @@ public class RegisterEntities {
 	
 	// Entities.
 	public static final EntityType<EffectEntity> BASIC_DASH = registerEffect("basic_dash", 0.1F, 0.1F);
-<<<<<<< HEAD
 	public static final EntityType<EffectEntity> BASIC_IMPACT = registerEffect("basic_impact", 0.1F, 0.1F);
-	public static final EntityType<EffectEntity> BASIC_SLASH = registerEffect("basic_slash", 0.1F, 0.1F);
 	
 	public static final EntityType<EffectEntity> SCARLETT_SLASH = registerEffect("scarlett_slash", 0.1F, 0.1F);
-=======
->>>>>>> 3bcd9832b9e96d777e493bee93ffb6b4aa9c522a
 	
 	// Entities Render Registry.
 	public static void registerRender() {
 		EntityRendererRegistry.register(BASIC_DASH, (context) -> new EffectRender(context, MODELS[2], AnimationSprite.BASIC_DASH, ANIMATIONS[1]));
-<<<<<<< HEAD
 		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[0], AnimationSprite.BASIC_IMPACT, ANIMATIONS[0]));
-=======
-	}
-	
-	// Entity Attributes Registry.
-	public static void registerAttributes() {
 		
->>>>>>> 3bcd9832b9e96d777e493bee93ffb6b4aa9c522a
+		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[0], AnimationSprite.SCARLETT_SLASH, ANIMATIONS[0]));
 	}
 	
 	private static EntityType<EffectEntity> registerEffect(String name, float width, float height) {
