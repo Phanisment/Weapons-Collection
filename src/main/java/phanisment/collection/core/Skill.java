@@ -1,6 +1,5 @@
-package phanisment.collection.lib;
+package phanisment.collection.core;
 
-import net.minecraft.world.World;
 import net.minecraft.entity.player.PlayerEntity;
 
 public interface Skill {

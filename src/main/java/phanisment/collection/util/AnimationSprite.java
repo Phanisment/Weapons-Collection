@@ -19,6 +19,6 @@ public class AnimationSprite {
 	};
 
 	private static Identifier texture(String path) {
-		return new Identifier(Weapons.MOD_ID, "textures/entity/" + path);
+		return new Identifier(Weapons.MOD_ID, "textures/effects/" + path);
 	}
 }

@@ -19,26 +19,26 @@ public class RegisterEntities {
 	private static final Identifier[] MODELS = {
 		new Identifier(Weapons.MOD_ID, "geo/flat.geo.json"),
 		new Identifier(Weapons.MOD_ID, "geo/wall.geo.json"),
-		new Identifier(Weapons.MOD_ID, "geo/effect/dash.geo.json")
+		new Identifier(Weapons.MOD_ID, "geo/effects/dash.geo.json")
 	};
 	
 	// Animations.
 	private static final Identifier[] ANIMATIONS = {
 		new Identifier(Weapons.MOD_ID, "animations/flat.animation.json"),
-		new Identifier(Weapons.MOD_ID, "animations/effect/dash.animation.json")
+		new Identifier(Weapons.MOD_ID, "animations/effects/dash.animation.json")
 	};
 	
 	// Entities.
+	public static final EntityType<EffectEntity> BASIC_DASH = registerEffect("basic_dash", 0.1F, 0.1F);
 	public static final EntityType<EffectEntity> BASIC_IMPACT = registerEffect("basic_impact", 0.1F, 0.1F);
+	public static final EntityType<EffectEntity> BASIC_SLASH = registerEffect("basic_slash", 0.1F, 0.1F);
+	
+	public static final EntityType<EffectEntity> SCARLETT_SLASH = registerEffect("scarlett_slash", 0.1F, 0.1F);
 	
 	// Entities Render Registry.
 	public static void registerRender() {
-		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[2], AnimationSprite.BASIC_DASH, ANIMATIONS[1]));
-	}
-	
-	// Entity Attributes Registry.
-	public static void registerAttributes() {
-		
+		EntityRendererRegistry.register(BASIC_DASH, (context) -> new EffectRender(context, MODELS[2], AnimationSprite.BASIC_DASH, ANIMATIONS[1]));
+		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[0], AnimationSprite.BASIC_IMPACT, ANIMATIONS[0]));
 	}
 	
 	private static EntityType<EffectEntity> registerEffect(String name, float width, float height) {

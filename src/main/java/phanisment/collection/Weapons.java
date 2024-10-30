@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import phanisment.collection.common.registry.*;
 import phanisment.collection.common.item.ItemsGroup;
+import phanisment.collection.core.Delay;
 
 public class Weapons implements ModInitializer {
 	public static final String MOD_ID = "phanisment";
@@ -18,6 +19,6 @@ public class Weapons implements ModInitializer {
 		new RegisterItems();
 		new RegisterEntities();
 		
-		RegisterEntities.registerAttributes();
+		Delay.register();
 	}
 }

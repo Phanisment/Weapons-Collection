@@ -28,6 +28,8 @@ public class EffectEntity extends Entity implements GeoEntity {
 	private float sizeX = 1.0F;
 	private float sizeY = 1.0F;
 	private float sizeZ = 1.0F;
+	
+	private boolean isGlowing = true;
 
 	private final AnimationController<EffectEntity> animationController;
 
@@ -69,7 +71,13 @@ public class EffectEntity extends Entity implements GeoEntity {
 		this.sizeY = y;
 		this.sizeZ = z;
 	}
+	
+	public void setGlowing(boolean isGlowing) {
+		this.isGlowing = isGlowing;
+	}
 
+	public boolean isGlowing() { return isGlowing; }
+	
 	public Entity getSummoner() { return summoner; }
 	public UUID getSummonerByUUID() { return summonerUuid; }
 	public int getFrame() { return frame; }
@@ -85,16 +93,18 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	protected void readCustomDataFromNbt(NbtCompound nbt) {
-		if (nbt.contains("Frame")) {
-			this.frame = nbt.getInt("Frame");
-		}
-		if (nbt.contains("lifeSpan")) {
-			this.lifeSpan = nbt.getInt("lifeSpan");
-		}
+		if (nbt.contains("Frame")) { this.frame = nbt.getInt("Frame"); }
+		if (nbt.contains("lifeSpan")) { this.lifeSpan = nbt.getInt("lifeSpan"); }
+		if (nbt.contains("Summoner")) { this.summonerUuid = nbt.getUuid("Summoner"); }
+		if (nbt.contains("isGlowing")) { this.isGlowing = nbt.nbtGetBoolean("isGlowing"); }
 		
-		if (nbt.contains("Summoner")) {
-			this.summonerUuid = nbt.getUuid("Summoner");
-		}
+		if (nbt.contains("rotationX")) { this.rotationX = nbt.nbtGetFloat("rotationX"); }
+		if (nbt.contains("rotationY")) { this.rotationY = nbt.nbtGetFloat("rotationY"); }
+		if (nbt.contains("rotationZ")) { this.rotationZ = nbt.nbtGetFloat("rotationZ"); }
+		
+		if (nbt.contains("sizeX")) { this.sizeX = nbt.nbtGetFloat("sizeX"); }
+		if (nbt.contains("sizeY")) { this.sizeY = nbt.nbtGetFloat("sizeY"); }
+		if (nbt.contains("sizeZ")) { this.sizeZ = nbt.nbtGetFloat("sizeZ"); }
 	}
 
 	@Override
@@ -102,6 +112,15 @@ public class EffectEntity extends Entity implements GeoEntity {
 		nbt.putInt("Frame", this.frame);
 		nbt.putInt("lifeSpan", this.lifeSpan);
 		nbt.putUuid("Summoner", this.summoner.getUuid());
+		nbt.putBoolean("isGlowing", this.isGlowing);
+		
+		nbt.putFloat("rotationX", this.rotationX);
+		nbt.putFloat("rotationY", this.rotationY);
+		nbt.putFloat("rotationZ", this.rotationZ);
+		
+		nbt.putFloat("sizeX", this.sizeX);
+		nbt.putFloat("sizeY", this.sizeY);
+		nbt.putFloat("sizeZ", this.sizeZ);
 	}
 
 	@Override
