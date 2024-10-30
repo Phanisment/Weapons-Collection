@@ -20,21 +20,19 @@ public class Delay {
 	}
 
 	public static void run(int ticks, Runnable skillAction) {
-		new DynamicSkillDelay(ticks, skillAction);
+		new Delay(ticks, skillAction);
 	}
 
 	public static void register() {
-		ServerTickEvents.END_SERVER_TICK.register(DynamicSkillDelay::onServerTick);
-	}
-
-	private static void onServerTick(MinecraftServer server) {
-		for (DynamicSkillDelay delay : new HashSet<>(activeDelays)) {
-			if (delayTicks >= maxDelay) {
-				skillAction.run();
-				activeDelays.remove(this);
-			} else {
-				delayTicks++;
+		ServerTickEvents.END_SERVER_TICK.register(context -> {
+			for (Delay delay : new HashSet<>(activeDelays)) {
+				if (delayTicks >= maxDelay) {
+					skillAction.run();
+					activeDelays.remove(this);
+				} else {
+					delayTicks++;
+				}
 			}
-		}
+		});
 	}
 }

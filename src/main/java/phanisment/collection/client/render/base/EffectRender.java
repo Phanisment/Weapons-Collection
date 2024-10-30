@@ -50,9 +50,7 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	
 	@Override
 	public void render(EffectEntity entity, float entityYaw, float partialTick, MatrixStack poseStack, VertexConsumerProvider bufferSource, int packedLight) {
-		if (entity.isGlowing()) {
-			int packedLight = 15728880;
-		}
+		int packedLight = 15728880;
 		
 		poseStack.push();
 		poseStack.scale(entity.getSizeX(), entity.getSizeY(), entity.getSizeZ());
