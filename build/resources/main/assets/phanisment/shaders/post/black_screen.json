@@ -1,0 +1,14 @@
+{
+	"targets": [
+		"minecraft:main"
+	],
+	"passes": [
+		{
+			"name": "black_pass",
+			"intarget": "minecraft:main",
+			"outtarget": "minecraft:main",
+			"auxtargets": [],
+			"program": "black_screen"
+		}
+	]
+}

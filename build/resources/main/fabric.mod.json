@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "phanisments-weapons-collection",
+	"version": "0.0",
+	"name": "Phanisment Weapon's Collection",
+	"description": "Rpg Item!",
+	"authors": [
+		"Phanisment"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/project/phanisments-weapons-collection",
+		"sources": "https://github.com/Phanisment/Weapons-Collection"
+	},
+	"license": "MIT License",
+	"icon": "icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"phanisment.collection.Weapons"
+		],
+		"client": [
+			"phanisment.collection.WeaponsClient"
+		]
+	},
+	"mixins": [
+		"collection.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.4",
+		"minecraft": ">=1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

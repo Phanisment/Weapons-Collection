@@ -1,0 +1,39 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.type_0": {
+			"loop": true
+		},
+		"animation.model.type_1": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 0, 22.5]
+					}
+				}
+			}
+		},
+		"animation.model.type_2": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 0, 180]
+					}
+				}
+			}
+		},
+		"animation.model.type_3": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 0, -202.5]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

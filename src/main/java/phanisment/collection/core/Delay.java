@@ -26,11 +26,11 @@ public class Delay {
 	public static void register() {
 		ServerTickEvents.END_SERVER_TICK.register(context -> {
 			for (Delay delay : new HashSet<>(activeDelays)) {
-				if (delayTicks >= maxDelay) {
-					skillAction.run();
-					activeDelays.remove(this);
+				if (delay.delayTicks >= delay.maxDelay) {
+					delay.skillAction.run();
+					activeDelays.remove(delay);
 				} else {
-					delayTicks++;
+					delay.delayTicks++;
 				}
 			}
 		});
