@@ -8,9 +8,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
 
 import org.jetbrains.annotations.Nullable;
 
+import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.model.GeoModel;
 
@@ -49,17 +51,17 @@ public class EffectRender extends GeoEntityRenderer<EffectEntity> {
 	}
 	
 	@Override
-	public void render(EffectEntity entity, float entityYaw, float partialTick, MatrixStack poseStack, VertexConsumerProvider bufferSource, int packedLight) {
-		packedLight = 15728880;
+	public void render(EffectEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+		if (entity.isGlow()) {
+			light = 15728880;
+		}
 		
-		poseStack.push();
-		poseStack.scale(entity.getSizeX(), entity.getSizeY(), entity.getSizeZ());
+		float direction = entity.getYaw(tickDelta);
+		matrices.push();
+		matrices.scale(entity.getSizeX(), entity.getSizeY(), entity.getSizeZ());
 		
-		poseStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(entity.getRotationX()));
-		poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getRotationY()));
-		poseStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(entity.getRotationZ()));
-		
-		super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
-		poseStack.pop();
+		matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F - direction));
+		super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
+		matrices.pop();
 	}
 }

@@ -28,6 +28,8 @@ public class EffectEntity extends Entity implements GeoEntity {
 	private float sizeY = 1.0F;
 	private float sizeZ = 1.0F;
 	
+	private boolean glow = true;
+	
 	private final AnimationController<EffectEntity> animationController;
 
 	public EffectEntity(EntityType<? extends EffectEntity> entityType, World world) {
@@ -69,6 +71,11 @@ public class EffectEntity extends Entity implements GeoEntity {
 		this.sizeZ = z;
 	}
 	
+	public void setGlow(boolean glow) {
+		this.glow = glow;
+	}
+	public boolean isGlow() { return glow; }
+	
 	public Entity getSummoner() { return summoner; }
 	public UUID getSummonerByUUID() { return summonerUuid; }
 	public int getFrame() { return frame; }
@@ -84,24 +91,29 @@ public class EffectEntity extends Entity implements GeoEntity {
 
 	@Override
 	protected void readCustomDataFromNbt(NbtCompound nbt) {
-		if (nbt.contains("Frame")) {
-			this.frame = nbt.getInt("Frame"); 
-		}
+		this.glow = nbt.getBoolean("isGlowing");
+		this.frame = nbt.getInt("Frame"); 
+		this.lifeSpan = nbt.getInt("lifeSpan");
+		this.summonerUuid = nbt.getUuid("Summoner");
 		
-		if (nbt.contains("LifeSpan")) {
-			this.lifeSpan = nbt.getInt("lifeSpan");
-		}
+		this.rotationX = nbt.getFloat("RotationX");
+		this.rotationY = nbt.getFloat("RotationY");
+		this.rotationZ = nbt.getFloat("RotationZ");
 		
-		if (nbt.contains("Summoner")) {
-			this.summonerUuid = nbt.getUuid("Summoner");
-		}
+		this.sizeX = nbt.getFloat("SizeX");
+		this.sizeY = nbt.getFloat("SizeY");
+		this.sizeZ = nbt.getFloat("SizeZ");
+		
 	}
 
 	@Override
 	protected void writeCustomDataToNbt(NbtCompound nbt) {
+		nbt.putBoolean("isGlowing", this.glow);
 		nbt.putInt("Frame", this.frame);
 		nbt.putInt("LifeSpan", this.lifeSpan);
-		nbt.putUuid("Summoner", this.summoner.getUuid());
+		if (this.summoner != null) {
+			nbt.putUuid("Summoner", this.summoner.getUuid());
+		}
 	}
 
 	@Override

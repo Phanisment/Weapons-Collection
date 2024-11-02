@@ -39,7 +39,7 @@ public class RegisterEntities {
 		EntityRendererRegistry.register(BASIC_DASH, (context) -> new EffectRender(context, MODELS[2], AnimationSprite.BASIC_DASH, ANIMATIONS[1]));
 		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[0], AnimationSprite.BASIC_IMPACT, ANIMATIONS[0]));
 		
-		EntityRendererRegistry.register(BASIC_IMPACT, (context) -> new EffectRender(context, MODELS[0], AnimationSprite.SCARLETT_SLASH, ANIMATIONS[0]));
+		EntityRendererRegistry.register(SCARLETT_SLASH, (context) -> new EffectRender(context, MODELS[0], AnimationSprite.SCARLETT_SLASH, ANIMATIONS[0]));
 	}
 	
 	private static EntityType<EffectEntity> registerEffect(String name, float width, float height) {
